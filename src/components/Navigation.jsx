@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 const navItems = [
-  { label: "회사소개", href: "#hero" },
-  { label: "제휴 파트너사", href: "#partners" },
-  { label: "블로그", href: "#blog" },
+  { label: "회사소개", path: "/" },
+  { label: "제휴 파트너사", path: "/partners" },
+  { label: "블로그", path: "/blog" },
 ]
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,14 +20,6 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const scrollToSection = (href) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-      setIsMobileMenuOpen(false)
-    }
-  }
-
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -34,23 +28,27 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <button
-            onClick={() => scrollToSection("#hero")}
+          <Link
+            to="/"
             className="text-2xl font-bold text-slate-900 hover:text-slate-700 transition-colors"
           >
             NBKOREA
-          </button>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className="text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors"
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-sm font-medium transition-colors ${
+                  location.pathname === item.path
+                    ? "text-slate-900 font-semibold"
+                    : "text-slate-700 hover:text-slate-900"
+                }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </div>
 
@@ -69,13 +67,18 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden pb-4">
             {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left py-2 text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors"
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block w-full text-left py-2 text-sm font-medium transition-colors ${
+                  location.pathname === item.path
+                    ? "text-slate-900 font-semibold"
+                    : "text-slate-700 hover:text-slate-900"
+                }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </div>
         )}

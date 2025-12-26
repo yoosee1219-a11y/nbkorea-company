@@ -1,16 +1,21 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
-import Hero from './components/Hero'
-import Partners from './components/Partners'
-import Blog from './components/Blog'
+import Home from './pages/Home'
+import PartnersPage from './pages/PartnersPage'
+import BlogPage from './pages/BlogPage'
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      <Hero />
-      <Partners />
-      <Blog />
-    </div>
+    <Router>
+      <div className="min-h-screen">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/partners" element={<PartnersPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+        </Routes>
+      </div>
+    </Router>
   )
 }
 
