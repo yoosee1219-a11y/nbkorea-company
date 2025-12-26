@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { supabase } from '../lib/supabase'
+import { getBlogPosts } from '../services/dataService'
 
 const Blog = () => {
   const [posts, setPosts] = useState([])
@@ -11,16 +11,7 @@ const Blog = () => {
 
   const fetchPosts = async () => {
     try {
-      if (!supabase) {
-        setLoading(false)
-        return
-      }
-
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .order('created_at', { ascending: false })
-        .limit(6)
+      const { data, error } = await getBlogPosts(6)
 
       if (error) throw error
       setPosts(data || [])

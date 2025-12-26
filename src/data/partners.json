@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "name": "파트너사 A",
+    "logo_url": null,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "2",
+    "name": "파트너사 B",
+    "logo_url": null,
+    "created_at": "2024-01-02T00:00:00Z"
+  },
+  {
+    "id": "3",
+    "name": "파트너사 C",
+    "logo_url": null,
+    "created_at": "2024-01-03T00:00:00Z"
+  },
+  {
+    "id": "4",
+    "name": "파트너사 D",
+    "logo_url": null,
+    "created_at": "2024-01-04T00:00:00Z"
+  }
+]

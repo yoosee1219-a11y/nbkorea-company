@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { supabase } from '../lib/supabase'
+import { getPartners } from '../services/dataService'
 
 const Partners = () => {
   const [partners, setPartners] = useState([])
@@ -11,15 +11,7 @@ const Partners = () => {
 
   const fetchPartners = async () => {
     try {
-      if (!supabase) {
-        setLoading(false)
-        return
-      }
-
-      const { data, error } = await supabase
-        .from('partners')
-        .select('*')
-        .order('created_at', { ascending: false })
+      const { data, error } = await getPartners()
 
       if (error) throw error
       setPartners(data || [])
