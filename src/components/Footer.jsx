@@ -11,14 +11,14 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="text-center sm:text-left">
             <div className="flex items-center gap-2 mb-4 justify-center sm:justify-start">
-              <div className="bg-blue-600 text-white p-2 rounded-lg">
+              <div className="bg-nb-pink-600 text-white p-2 rounded-lg">
                 <Globe size={20} strokeWidth={2} />
               </div>
               <div className="flex flex-col">
-                <span className="font-extrabold text-lg sm:text-xl leading-none tracking-tight">
-                  NBKOREA
+                <span className="font-extrabold text-lg sm:text-xl leading-none tracking-tight text-nb-pink-400">
+                  NB KOREA
                 </span>
-                <span className="text-xs font-medium text-slate-400 tracking-wider">GLOBAL BUSINESS</span>
+                <span className="text-xs font-medium text-nb-gold-400 tracking-wider">GLOBAL BUSINESS</span>
               </div>
             </div>
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">

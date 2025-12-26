@@ -47,7 +47,7 @@ const Partners = () => {
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4 flex items-center justify-center">
           <div className="flex flex-col items-center gap-4">
-            <Loader2 className="w-10 h-10 text-blue-600 animate-spin" />
+            <Loader2 className="w-10 h-10 text-nb-pink-600 animate-spin" />
             <p className="text-slate-500 font-medium">로딩 중...</p>
           </div>
         </div>
@@ -113,9 +113,9 @@ const Partners = () => {
                         viewport={{ once: true }}
                         transition={{ delay: idx * 0.05 }}
                         whileHover={{ y: -5 }}
-                        className="group bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-slate-100 hover:shadow-xl hover:border-blue-100 transition-all duration-300"
+                        className="group bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-slate-100 hover:shadow-xl hover:border-nb-pink-100 transition-all duration-300"
                       >
-                        <div className="aspect-[3/2] mb-4 sm:mb-5 bg-gradient-to-br from-slate-50 to-slate-100 rounded-lg flex items-center justify-center overflow-hidden relative">
+                        <div className="aspect-[3/2] mb-4 sm:mb-5 bg-gradient-to-br from-nb-pink-50 to-nb-gold-50 rounded-lg flex items-center justify-center overflow-hidden relative">
                           {partner.logo_url ? (
                             <img
                               src={partner.logo_url}
@@ -123,7 +123,7 @@ const Partners = () => {
                               className="w-full h-full object-contain p-3 sm:p-4 group-hover:scale-110 transition-transform duration-500"
                             />
                           ) : (
-                            <Building2 className="w-10 h-10 sm:w-12 sm:h-12 text-slate-300 group-hover:text-blue-500 transition-colors" />
+                            <Building2 className="w-10 h-10 sm:w-12 sm:h-12 text-slate-300 group-hover:text-nb-pink-500 transition-colors" />
                           )}
 
                           {partner.country && (
@@ -134,7 +134,7 @@ const Partners = () => {
                           )}
                         </div>
 
-                        <h4 className="font-bold text-base sm:text-lg text-slate-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                        <h4 className="font-bold text-base sm:text-lg text-slate-900 mb-2 group-hover:text-nb-pink-600 transition-colors line-clamp-2">
                           {partner.name}
                         </h4>
 

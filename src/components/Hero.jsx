@@ -35,7 +35,7 @@ const Hero = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute top-0 right-0 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"
+          className="absolute top-0 right-0 w-96 h-96 bg-nb-pink-500/20 rounded-full blur-3xl"
         />
         <motion.div
           animate={{
@@ -47,7 +47,7 @@ const Hero = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl"
+          className="absolute bottom-0 left-0 w-96 h-96 bg-nb-gold-500/20 rounded-full blur-3xl"
         />
         <motion.div
           animate={{
@@ -59,7 +59,7 @@ const Hero = () => {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"
+          className="absolute top-1/2 left-1/2 w-96 h-96 bg-nb-pink-300/10 rounded-full blur-3xl"
         />
       </div>
 
@@ -74,17 +74,17 @@ const Hero = () => {
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="inline-block mb-4 sm:mb-6 px-4 sm:px-6 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-sm"
+            className="inline-block mb-4 sm:mb-6 px-4 sm:px-6 py-2 rounded-full bg-nb-pink-500/10 border border-nb-pink-500/20 backdrop-blur-sm"
           >
-            <span className="text-blue-400 font-semibold text-xs sm:text-sm tracking-wide uppercase">글로벌 파트너</span>
+            <span className="text-nb-pink-300 font-semibold text-xs sm:text-sm tracking-wide uppercase">글로벌 파트너</span>
           </motion.div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 sm:mb-8 leading-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-slate-300">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-nb-pink-100 to-nb-gold-200">
               한국과 세계를
             </span>
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-indigo-200">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-nb-pink-200 via-white to-nb-gold-300">
               연결하다
             </span>
           </h1>
@@ -98,7 +98,7 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto px-4 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-sm sm:text-lg transition-all shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-4 sm:px-8 py-3 sm:py-4 bg-nb-pink-600 hover:bg-nb-pink-700 text-white rounded-xl font-bold text-sm sm:text-lg transition-all shadow-lg shadow-nb-pink-600/30 hover:shadow-nb-pink-600/50 flex items-center justify-center gap-2"
               >
                 파트너 보기 <ArrowRight size={18} className="hidden sm:inline" />
               </motion.button>
@@ -107,7 +107,7 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto px-4 sm:px-8 py-3 sm:py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/10 rounded-xl font-bold text-sm sm:text-lg transition-all flex items-center justify-center"
+                className="w-full sm:w-auto px-4 sm:px-8 py-3 sm:py-4 bg-nb-gold-500/20 hover:bg-nb-gold-500/30 backdrop-blur-md text-white border border-nb-gold-500/30 rounded-xl font-bold text-sm sm:text-lg transition-all flex items-center justify-center"
               >
                 블로그 보기
               </motion.button>
@@ -131,7 +131,7 @@ const Hero = () => {
                   whileHover={{ rotate: 360, scale: 1.2 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-blue-400 mb-3 sm:mb-4 mx-auto" />
+                  <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-nb-gold-400 mb-3 sm:mb-4 mx-auto" />
                 </motion.div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">{value.title}</h3>
                 <p className="text-sm sm:text-base text-slate-300 leading-relaxed">{value.description}</p>

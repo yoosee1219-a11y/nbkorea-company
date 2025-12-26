@@ -38,14 +38,14 @@ const Navigation = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group cursor-pointer">
-            <div className="bg-blue-600 text-white p-2 rounded-lg group-hover:bg-blue-700 transition-colors">
+            <div className="bg-nb-pink-600 text-white p-2 rounded-lg group-hover:bg-nb-pink-700 transition-colors">
               <Globe size={24} strokeWidth={2} />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-xl leading-none tracking-tight text-slate-900">
-                NBKOREA
+              <span className="font-extrabold text-xl leading-none tracking-tight text-nb-pink-600">
+                NB KOREA
               </span>
-              <span className="text-xs font-medium text-slate-500 tracking-wider">GLOBAL BUSINESS</span>
+              <span className="text-xs font-medium text-nb-gold-600 tracking-wider">GLOBAL BUSINESS</span>
             </div>
           </Link>
 
@@ -57,15 +57,15 @@ const Navigation = () => {
                   className={clsx(
                     "text-sm font-semibold transition-colors cursor-pointer relative py-1",
                     isActive(link.path)
-                      ? "text-blue-600"
-                      : "text-slate-600 hover:text-blue-600"
+                      ? "text-nb-pink-600"
+                      : "text-slate-600 hover:text-nb-pink-600"
                   )}
                 >
                   {link.label}
                   {isActive(link.path) && (
                     <motion.div
                       layoutId="nav-indicator"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 rounded-full"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-nb-pink-600 rounded-full"
                     />
                   )}
                 </div>
@@ -102,7 +102,7 @@ const Navigation = () => {
                     className={clsx(
                       "block px-4 py-3 rounded-xl text-base font-medium transition-colors cursor-pointer",
                       isActive(link.path)
-                        ? "bg-blue-50 text-blue-600"
+                        ? "bg-nb-pink-50 text-nb-pink-600"
                         : "text-slate-600 hover:bg-slate-50"
                     )}
                   >

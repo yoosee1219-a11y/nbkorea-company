@@ -37,7 +37,7 @@ const Blog = () => {
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4 flex items-center justify-center">
           <div className="flex flex-col items-center gap-4">
-            <Loader2 className="w-10 h-10 text-blue-600 animate-spin" />
+            <Loader2 className="w-10 h-10 text-nb-pink-600 animate-spin" />
             <p className="text-slate-500 font-medium">로딩 중...</p>
           </div>
         </div>
@@ -80,10 +80,10 @@ const Blog = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl hover:border-blue-100 transition-all duration-300 group cursor-pointer"
+                className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl hover:border-nb-pink-100 transition-all duration-300 group cursor-pointer"
               >
                 {/* Image */}
-                <div className="aspect-video overflow-hidden bg-gradient-to-br from-blue-50 via-slate-100 to-indigo-50 relative">
+                <div className="aspect-video overflow-hidden bg-gradient-to-br from-nb-pink-50 via-slate-100 to-nb-gold-50 relative">
                   {post.image_url ? (
                     <img
                       src={post.image_url}
@@ -116,7 +116,7 @@ const Blog = () => {
                     <span className="truncate">{formatDate(post.created_at)}</span>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 sm:mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 sm:mb-3 group-hover:text-nb-pink-600 transition-colors line-clamp-2">
                     {post.title}
                   </h3>
 
@@ -126,7 +126,7 @@ const Blog = () => {
 
                   <div className="pt-3 sm:pt-4 border-t border-slate-100 flex items-center justify-between">
                     <motion.span
-                      className="text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all"
+                      className="text-nb-pink-600 text-xs sm:text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all"
                       whileHover={{ x: 5 }}
                     >
                       자세히 보기 <ArrowRight size={16} className="hidden sm:inline" />
