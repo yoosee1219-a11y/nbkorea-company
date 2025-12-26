@@ -93,21 +93,21 @@ const Hero = () => {
             NBKOREA는 유학 컨설팅, E비자 지원, 글로벌 비즈니스 파트너십을 전문으로 합니다
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-            <Link to="/partners" className="w-full sm:w-auto">
+          <div className="flex flex-row gap-2 sm:gap-4 justify-center px-4">
+            <Link to="/partners" className="flex-1 sm:flex-none">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-base sm:text-lg transition-all shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-4 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-sm sm:text-lg transition-all shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 flex items-center justify-center gap-2"
               >
-                파트너 보기 <ArrowRight size={20} />
+                파트너 보기 <ArrowRight size={18} className="hidden sm:inline" />
               </motion.button>
             </Link>
-            <Link to="/blog" className="w-full sm:w-auto">
+            <Link to="/blog" className="flex-1 sm:flex-none">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/10 rounded-xl font-bold text-base sm:text-lg transition-all flex items-center justify-center"
+                className="w-full sm:w-auto px-4 sm:px-8 py-3 sm:py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/10 rounded-xl font-bold text-sm sm:text-lg transition-all flex items-center justify-center"
               >
                 블로그 보기
               </motion.button>
