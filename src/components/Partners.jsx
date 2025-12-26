@@ -24,12 +24,12 @@ const Partners = () => {
 
   return (
     <section id="partners" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             제휴 파트너사
           </h2>
-          <p className="text-lg text-slate-600">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             함께 성장하는 파트너사들을 소개합니다
           </p>
         </div>
@@ -37,11 +37,11 @@ const Partners = () => {
         {loading ? (
           <div className="text-center text-slate-500">로딩 중...</div>
         ) : partners.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
             {partners.map((partner) => (
               <div
                 key={partner.id}
-                className="flex items-center justify-center p-6 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors"
+                className="p-8 flex items-center justify-center rounded-lg border border-slate-200 bg-white hover:shadow-lg hover:border-slate-300 transition-all duration-300 hover:-translate-y-1 cursor-pointer group"
               >
                 {partner.logo_url ? (
                   <img
@@ -50,9 +50,9 @@ const Partners = () => {
                     className="max-w-full h-16 object-contain"
                   />
                 ) : (
-                  <span className="text-slate-700 font-medium">
+                  <h3 className="text-lg font-semibold text-slate-700 group-hover:text-slate-900 transition-colors text-center">
                     {partner.name}
-                  </span>
+                  </h3>
                 )}
               </div>
             ))}
