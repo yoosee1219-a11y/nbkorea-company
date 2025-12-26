@@ -6,8 +6,12 @@ const DATA_SOURCE = 'json'
 import partnersData from '../data/partners.json'
 import blogPostsData from '../data/blogPosts.json'
 
-// Supabase import (나중에 사용)
-// import { supabase } from '../lib/supabase'
+// Supabase 클라이언트 (나중에 사용)
+// import { createClient } from '@supabase/supabase-js'
+// const supabase = createClient(
+//   import.meta.env.VITE_SUPABASE_URL,
+//   import.meta.env.VITE_SUPABASE_ANON_KEY
+// )
 
 // ==========================================
 // Partners API
