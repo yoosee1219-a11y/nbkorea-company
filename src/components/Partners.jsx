@@ -11,6 +11,11 @@ const Partners = () => {
 
   const fetchPartners = async () => {
     try {
+      if (!supabase) {
+        setLoading(false)
+        return
+      }
+
       const { data, error } = await supabase
         .from('partners')
         .select('*')

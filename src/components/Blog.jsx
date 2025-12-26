@@ -11,6 +11,11 @@ const Blog = () => {
 
   const fetchPosts = async () => {
     try {
+      if (!supabase) {
+        setLoading(false)
+        return
+      }
+
       const { data, error } = await supabase
         .from('blog_posts')
         .select('*')
