@@ -33,8 +33,7 @@ export const getPartners = async () => {
     case 'firebase':
       try {
         const partnersRef = collection(db, 'partners')
-        const q = query(partnersRef, orderBy('created_at', 'desc'))
-        const querySnapshot = await getDocs(q)
+        const querySnapshot = await getDocs(partnersRef)
 
         const data = querySnapshot.docs.map(doc => ({
           id: doc.id,
