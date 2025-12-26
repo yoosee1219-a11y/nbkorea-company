@@ -5,7 +5,7 @@ import { getPartners } from '../services/dataService'
 
 const CATEGORY_LABELS = {
   'kyrgyzstan_study': '🇰🇬 키르기스스탄 유학원',
-  'e9_visa': '✈️ E-9 비자 송출업체',
+  'e9_visa': '✈️ E비자 송출업체',
   'domestic': '🇰🇷 국내 파트너',
   'overseas': '🌍 해외 유학원/송출업체'
 }

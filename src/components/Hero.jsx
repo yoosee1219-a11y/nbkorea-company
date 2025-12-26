@@ -45,7 +45,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-            NBKOREA는 유학 컨설팅, E-9 비자 지원, 글로벌 비즈니스 파트너십을 전문으로 합니다
+            NBKOREA는 유학 컨설팅, E비자 지원, 글로벌 비즈니스 파트너십을 전문으로 합니다
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
