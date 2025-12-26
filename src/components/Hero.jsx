@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-50 to-white">
+    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-50 to-white pt-20">
       <div className="max-w-6xl mx-auto px-6 py-20 text-center">
         <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6">
           NBKOREA
