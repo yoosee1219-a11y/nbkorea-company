@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X, Globe } from 'lucide-react'
+import { clsx } from 'clsx'
 
 const navItems = [
   { label: "회사소개", path: "/" },
@@ -20,69 +23,97 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const isActive = (path) => location.pathname === path
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-white/80 backdrop-blur-sm"
-      }`}
+      className={clsx(
+        "fixed top-0 w-full z-50 transition-all duration-300",
+        isScrolled
+          ? "bg-white/95 backdrop-blur-sm py-3 shadow-sm"
+          : "bg-white/80 backdrop-blur-sm py-5"
+      )}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <Link
-            to="/"
-            className="text-2xl font-bold text-slate-900 hover:text-slate-700 transition-colors"
-          >
-            NBKOREA
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2 group cursor-pointer">
+            <div className="bg-blue-600 text-white p-2 rounded-lg group-hover:bg-blue-700 transition-colors">
+              <Globe size={24} strokeWidth={2} />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-extrabold text-xl leading-none tracking-tight text-slate-900">
+                NBKOREA
+              </span>
+              <span className="text-xs font-medium text-slate-500 tracking-wider">GLOBAL BUSINESS</span>
+            </div>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-sm font-medium transition-colors ${
-                  location.pathname === item.path
-                    ? "text-slate-900 font-semibold"
-                    : "text-slate-700 hover:text-slate-900"
-                }`}
-              >
-                {item.label}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((link) => (
+              <Link key={link.path} to={link.path}>
+                <div
+                  className={clsx(
+                    "text-sm font-semibold transition-colors cursor-pointer relative py-1",
+                    isActive(link.path)
+                      ? "text-blue-600"
+                      : "text-slate-600 hover:text-blue-600"
+                  )}
+                >
+                  {link.label}
+                  {isActive(link.path) && (
+                    <motion.div
+                      layoutId="nav-indicator"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 rounded-full"
+                    />
+                  )}
+                </div>
               </Link>
             ))}
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden pb-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block w-full text-left py-2 text-sm font-medium transition-colors ${
-                  location.pathname === item.path
-                    ? "text-slate-900 font-semibold"
-                    : "text-slate-700 hover:text-slate-900"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-slate-800 p-2 hover:bg-slate-100 rounded-md transition-colors"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
-        )}
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-white border-t border-slate-100 overflow-hidden"
+          >
+            <div className="px-4 py-6 space-y-4">
+              {navItems.map((link) => (
+                <Link key={link.path} to={link.path}>
+                  <div
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={clsx(
+                      "block px-4 py-3 rounded-xl text-base font-medium transition-colors cursor-pointer",
+                      isActive(link.path)
+                        ? "bg-blue-50 text-blue-600"
+                        : "text-slate-600 hover:bg-slate-50"
+                    )}
+                  >
+                    {link.label}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   )
 }

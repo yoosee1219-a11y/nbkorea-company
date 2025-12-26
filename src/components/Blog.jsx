@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import { Calendar, ArrowRight, Loader2 } from 'lucide-react'
 import { getBlogPosts } from '../services/dataService'
 
 const Blog = () => {
@@ -12,7 +14,6 @@ const Blog = () => {
   const fetchPosts = async () => {
     try {
       const { data, error } = await getBlogPosts(6)
-
       if (error) throw error
       setPosts(data || [])
     } catch (error) {
@@ -26,42 +27,70 @@ const Blog = () => {
     const date = new Date(dateString)
     return date.toLocaleDateString('ko-KR', {
       year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    }).replace(/\. /g, '.').replace(/\.$/, '')
+      month: 'long',
+      day: 'numeric',
+    })
+  }
+
+  if (loading) {
+    return (
+      <section className="py-20 bg-slate-50">
+        <div className="container mx-auto px-4 flex items-center justify-center">
+          <div className="flex flex-col items-center gap-4">
+            <Loader2 className="w-10 h-10 text-blue-600 animate-spin" />
+            <p className="text-slate-500 font-medium">로딩 중...</p>
+          </div>
+        </div>
+      </section>
+    )
   }
 
   return (
-    <section id="blog" className="py-20 bg-slate-50">
+    <section className="py-20 bg-slate-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4"
+          >
             최신 소식
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            NBKOREA의 새로운 소식을 확인하세요
-          </p>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1 }}
+            className="text-lg text-slate-600 max-w-2xl mx-auto"
+          >
+            NBKOREA의 새로운 소식과 인사이트를 확인하세요
+          </motion.p>
         </div>
 
-        {loading ? (
-          <div className="text-center text-slate-500">로딩 중...</div>
-        ) : posts.length > 0 ? (
+        {posts.length === 0 ? (
+          <div className="text-center text-slate-500">
+            블로그 포스트가 없습니다
+          </div>
+        ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {posts.map((post) => (
-              <article
+            {posts.map((post, index) => (
+              <motion.article
                 key={post.id}
-                className="overflow-hidden rounded-lg border border-slate-200 bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl hover:border-blue-100 transition-all duration-300 group cursor-pointer"
               >
-                {/* Image Placeholder */}
-                <div className="h-48 bg-gradient-to-br from-slate-200 to-slate-300 relative overflow-hidden">
+                {/* Image */}
+                <div className="aspect-video overflow-hidden bg-gradient-to-br from-slate-200 to-slate-300">
                   {post.image_url ? (
                     <img
                       src={post.image_url}
                       alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-full h-full flex items-center justify-center">
                       <svg className="w-16 h-16 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                       </svg>
@@ -71,22 +100,27 @@ const Blog = () => {
 
                 {/* Content */}
                 <div className="p-6">
-                  <p className="text-sm text-slate-900 font-medium mb-2">
+                  <div className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-3">
+                    <Calendar className="w-3.5 h-3.5" />
                     {formatDate(post.created_at)}
-                  </p>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-slate-700 transition-colors">
+                  </div>
+
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                     {post.title}
                   </h3>
-                  <p className="text-slate-600 leading-relaxed line-clamp-3">
+
+                  <p className="text-slate-500 text-sm leading-relaxed mb-4 line-clamp-3">
                     {post.excerpt || post.content}
                   </p>
+
+                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-blue-600 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                      자세히 보기 <ArrowRight size={16} />
+                    </span>
+                  </div>
                 </div>
-              </article>
+              </motion.article>
             ))}
-          </div>
-        ) : (
-          <div className="text-center text-slate-500">
-            블로그 포스트가 없습니다
           </div>
         )}
       </div>
