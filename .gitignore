@@ -25,3 +25,6 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# Firebase Admin Key (보안 중요!)
+firebase-admin-key.json
