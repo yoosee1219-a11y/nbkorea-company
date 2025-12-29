@@ -69,7 +69,7 @@ const Hero = () => {
                 한국과 세계를 연결하다
               </h1>
               <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                유학 · E-9 비자 · 글로벌 비즈니스 파트너십 전문
+                유학(D2,D4 Visa), 근로자(E7,E9) 글로벌 비즈니스 파트너십 전문
               </p>
             </motion.div>
 
