@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Globe } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { clsx } from 'clsx'
 
 const navItems = [
@@ -37,16 +37,12 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group cursor-pointer">
-            <div className="bg-nb-pink-600 text-white p-2 rounded-lg group-hover:bg-nb-pink-700 transition-colors">
-              <Globe size={24} strokeWidth={2} />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-extrabold text-xl leading-none tracking-tight text-nb-pink-600">
-                NB KOREA
-              </span>
-              <span className="text-xs font-medium text-nb-gold-600 tracking-wider">GLOBAL BUSINESS</span>
-            </div>
+          <Link to="/" className="flex items-center group cursor-pointer">
+            <img
+              src="/nb-logo.png"
+              alt="NB KOREA"
+              className="h-12 w-auto transition-transform group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop Menu */}
