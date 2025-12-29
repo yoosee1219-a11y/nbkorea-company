@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { Globe } from 'lucide-react'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -10,16 +9,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           {/* Logo and Description */}
           <div className="text-center sm:text-left">
-            <div className="flex items-center gap-2 mb-4 justify-center sm:justify-start">
-              <div className="bg-nb-pink-600 text-white p-2 rounded-lg">
-                <Globe size={20} strokeWidth={2} />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-extrabold text-lg sm:text-xl leading-none tracking-tight text-nb-pink-400">
-                  NB KOREA
-                </span>
-                <span className="text-xs font-medium text-nb-gold-400 tracking-wider">GLOBAL BUSINESS</span>
-              </div>
+            <div className="flex items-center mb-4 justify-center sm:justify-start">
+              <img
+                src="/nb-logo.png"
+                alt="NB KOREA"
+                className="h-16 w-auto brightness-90"
+              />
             </div>
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
               한국과 세계를 연결하는 글로벌 비즈니스 파트너
@@ -52,11 +47,11 @@ const Footer = () => {
           <div className="text-center sm:text-left sm:col-span-2 lg:col-span-1">
             <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4">문의하기</h3>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
-              <li>서울특별시</li>
-              <li>대한민국</li>
+              <li>인천광역시 부평구 부평대로 301,</li>
+              <li>남광센트렉스 911호</li>
               <li className="mt-3 sm:mt-4">
-                <a href="mailto:contact@nbkorea.com" className="hover:text-white transition-colors inline-block">
-                  contact@nbkorea.com
+                <a href="mailto:info_nbkorea@naver.com" className="hover:text-white transition-colors inline-block">
+                  info_nbkorea@naver.com
                 </a>
               </li>
             </ul>
