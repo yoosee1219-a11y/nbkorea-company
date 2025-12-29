@@ -33,7 +33,7 @@ const ImageUpload = ({ onUploadComplete, currentUrl = '' }) => {
       formData.append('image', file)
 
       // ImgBB API Key (무료, 제한: 월 5000개 업로드)
-      const API_KEY = 'd3b9c6c88da3f3c4e1c9d8e5a0f7b2a1'
+      const API_KEY = '8b6fc7d76331357e4772131a11c283a9'
 
       setProgress(50)
 
