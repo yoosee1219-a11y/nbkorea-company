@@ -63,7 +63,7 @@ const Partners = () => {
         compact ? 'p-3' : 'p-4 sm:p-6'
       }`}
     >
-      <div className={`bg-gradient-to-br from-nb-pink-50 to-nb-gold-50 rounded-lg flex items-center justify-center overflow-hidden relative ${
+      <div className={`bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex items-center justify-center overflow-hidden relative ${
         compact ? 'aspect-[4/3] mb-2' : 'aspect-[3/2] mb-4'
       }`}>
         {partner.logo_url ? (
@@ -156,7 +156,7 @@ const Partners = () => {
                     whileHover={{ scale: 1.05, y: -5 }}
                     className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-10 shadow-lg border-2 border-nb-gold-200 hover:border-nb-pink-300 transition-all duration-300 lg:w-56"
                   >
-                    <div className="aspect-square bg-gradient-to-br from-nb-pink-50 to-nb-gold-50 rounded-lg sm:rounded-xl flex items-center justify-center overflow-hidden mb-3 sm:mb-4">
+                    <div className="aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg sm:rounded-xl flex items-center justify-center overflow-hidden mb-3 sm:mb-4">
                       {partner.logo_url ? (
                         <img
                           src={partner.logo_url}
