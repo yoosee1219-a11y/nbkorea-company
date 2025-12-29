@@ -10,7 +10,7 @@ const services = [
     color: "pink"
   },
   {
-    title: "E-9 비자 지원",
+    title: "근로자(E7,E9 Visa)",
     description: "근로자 송출 및 비자 전문 서비스",
     icon: Users,
     color: "gold"
@@ -47,7 +47,7 @@ const Hero = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="mb-8 flex justify-center"
+              className="mb-6 flex justify-center"
             >
               <div className="relative">
                 <img
@@ -55,6 +55,20 @@ const Hero = () => {
                   alt="NB KOREA"
                   className="h-32 sm:h-40 w-auto"
                 />
+              </div>
+            </motion.div>
+
+            {/* Partnership Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="mb-8 flex justify-center"
+            >
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-nb-pink-50 to-nb-gold-50 border-2 border-nb-pink-200 rounded-full">
+                <span className="text-sm sm:text-base font-bold text-nb-pink-600">
+                  LGU+ x 전북은행 공식 파트너
+                </span>
               </div>
             </motion.div>
 
