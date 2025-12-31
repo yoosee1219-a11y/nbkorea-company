@@ -42,11 +42,14 @@ const Partners = () => {
 
   if (loading) {
     return (
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4 flex items-center justify-center">
-          <div className="flex flex-col items-center gap-4">
-            <Loader2 className="w-10 h-10 text-nb-pink-600 animate-spin" />
-            <p className="text-slate-500 font-medium">로딩 중...</p>
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-white min-h-[60vh] flex items-center justify-center">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center gap-6">
+            <div className="relative">
+              <Loader2 className="w-12 h-12 text-nb-pink-600 animate-spin" />
+              <div className="absolute inset-0 w-12 h-12 border-4 border-rose-200 rounded-full animate-ping opacity-20"></div>
+            </div>
+            <p className="text-slate-600 font-semibold text-lg">파트너사 정보를 불러오는 중...</p>
           </div>
         </div>
       </section>
@@ -55,11 +58,11 @@ const Partners = () => {
 
   const PartnerCard = ({ partner, compact = false }) => (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
+      initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      whileHover={{ y: -5 }}
-      className={`group bg-white rounded-lg shadow-sm border border-slate-100 hover:shadow-lg hover:border-nb-pink-100 transition-all duration-300 ${
+      whileHover={{ y: -8, scale: 1.02 }}
+      className={`group bg-white rounded-xl shadow-md border border-slate-100 hover:shadow-2xl hover:border-nb-pink-200 transition-all duration-500 ${
         compact ? 'p-3' : 'p-4 sm:p-6'
       }`}
     >
@@ -105,8 +108,8 @@ const Partners = () => {
   )
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-slate-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-50 via-white to-slate-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
           <motion.h2
@@ -230,10 +233,12 @@ const Partners = () => {
         {/* Mobile: Accordion Layout */}
         <div className="lg:hidden space-y-4">
           {/* 해외 유학원 */}
-          <div className="bg-white rounded-xl overflow-hidden shadow-md">
+          <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-slate-100">
             <button
               onClick={() => toggleCategory('overseas')}
-              className="w-full bg-gradient-to-r from-nb-pink-500 to-nb-pink-600 text-white p-4 flex items-center justify-between"
+              className="w-full bg-gradient-to-r from-nb-pink-500 to-nb-pink-600 hover:from-nb-pink-600 hover:to-rose-600 text-white p-4 flex items-center justify-between transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-nb-pink-400 focus:ring-offset-2"
+              aria-expanded={openCategory === 'overseas'}
+              aria-label="해외 유학원 파트너 목록 열기/닫기"
             >
               <div className="flex items-center gap-2">
                 <span className="text-lg font-bold">🌍 해외 유학원</span>
@@ -266,10 +271,12 @@ const Partners = () => {
           </div>
 
           {/* 근로자 송출업체 */}
-          <div className="bg-white rounded-xl overflow-hidden shadow-md">
+          <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-slate-100">
             <button
               onClick={() => toggleCategory('worker')}
-              className="w-full bg-gradient-to-r from-nb-gold-500 to-nb-gold-600 text-white p-4 flex items-center justify-between"
+              className="w-full bg-gradient-to-r from-nb-gold-500 to-nb-gold-600 hover:from-nb-gold-600 hover:to-orange-600 text-white p-4 flex items-center justify-between transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-nb-gold-400 focus:ring-offset-2"
+              aria-expanded={openCategory === 'worker'}
+              aria-label="근로자 송출업체 파트너 목록 열기/닫기"
             >
               <div className="flex items-center gap-2">
                 <span className="text-lg font-bold">✈️ 근로자 송출업체</span>
@@ -302,10 +309,12 @@ const Partners = () => {
           </div>
 
           {/* 국내 파트너 */}
-          <div className="bg-white rounded-xl overflow-hidden shadow-md">
+          <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-slate-100">
             <button
               onClick={() => toggleCategory('domestic')}
-              className="w-full bg-gradient-to-r from-nb-pink-600 to-nb-pink-700 text-white p-4 flex items-center justify-between"
+              className="w-full bg-gradient-to-r from-nb-pink-600 to-nb-pink-700 hover:from-nb-pink-700 hover:to-rose-700 text-white p-4 flex items-center justify-between transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-nb-pink-400 focus:ring-offset-2"
+              aria-expanded={openCategory === 'domestic'}
+              aria-label="국내 파트너 목록 열기/닫기"
             >
               <div className="flex items-center gap-2">
                 <span className="text-lg font-bold">🇰🇷 국내 파트너</span>

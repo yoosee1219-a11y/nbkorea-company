@@ -1,67 +1,137 @@
 import { Link } from 'react-router-dom'
+import { MapPin, Mail, Phone, ArrowRight, Globe, Users, FileText } from 'lucide-react'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-slate-900 text-white py-8 sm:py-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-          {/* Logo and Description */}
-          <div className="text-center sm:text-left">
-            <div className="flex items-center mb-4 justify-center sm:justify-start">
-              <img
-                src="/nb-logo.png"
-                alt="NB KOREA"
-                className="h-16 w-auto brightness-90"
-              />
+    <footer className="bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 text-white">
+      {/* Main Footer Content */}
+      <div className="border-b border-slate-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+            {/* Company Info */}
+            <div className="sm:col-span-2 lg:col-span-1">
+              <div className="flex items-center mb-6">
+                <img
+                  src="/nb-logo.png"
+                  alt="NB KOREA"
+                  className="h-16 sm:h-20 w-auto brightness-95 hover:brightness-110 transition-all duration-300"
+                />
+              </div>
+              <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-6">
+                한국과 세계를 연결하는 글로벌 비즈니스 파트너
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-nb-pink-600/20 to-rose-600/20 border border-nb-pink-500/30">
+                <span className="size-2 rounded-full bg-nb-pink-500 animate-pulse"></span>
+                <span className="text-nb-pink-400 text-xs font-semibold uppercase tracking-wider">
+                  LGU+ x 전북은행 파트너
+                </span>
+              </div>
             </div>
-            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              한국과 세계를 연결하는 글로벌 비즈니스 파트너
-            </p>
-          </div>
 
-          {/* Quick Links */}
-          <div className="text-center sm:text-left">
-            <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4">빠른 링크</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-slate-400 hover:text-white transition-colors text-xs sm:text-sm inline-block">
-                  회사소개
-                </Link>
-              </li>
-              <li>
-                <Link to="/partners" className="text-slate-400 hover:text-white transition-colors text-xs sm:text-sm inline-block">
-                  제휴 파트너사
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" className="text-slate-400 hover:text-white transition-colors text-xs sm:text-sm inline-block">
-                  블로그
-                </Link>
-              </li>
-            </ul>
-          </div>
+            {/* Services */}
+            <div>
+              <h3 className="font-bold text-base sm:text-lg mb-4 sm:mb-6 text-white flex items-center gap-2">
+                <Globe className="size-5 text-nb-pink-500" />
+                서비스
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <div className="text-slate-400 hover:text-white transition-colors text-sm sm:text-base flex items-start gap-2 group cursor-default">
+                    <ArrowRight className="size-4 mt-1 text-nb-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span>유학 비자 (D2, D4)</span>
+                  </div>
+                </li>
+                <li>
+                  <div className="text-slate-400 hover:text-white transition-colors text-sm sm:text-base flex items-start gap-2 group cursor-default">
+                    <ArrowRight className="size-4 mt-1 text-nb-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span>근로자 비자 (E7, E9)</span>
+                  </div>
+                </li>
+                <li>
+                  <div className="text-slate-400 hover:text-white transition-colors text-sm sm:text-base flex items-start gap-2 group cursor-default">
+                    <ArrowRight className="size-4 mt-1 text-nb-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span>글로벌 파트너십</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
 
-          {/* Contact Info */}
-          <div className="text-center sm:text-left sm:col-span-2 lg:col-span-1">
-            <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4">문의하기</h3>
-            <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
-              <li>인천광역시 부평구 부평대로 301,</li>
-              <li>남광센트렉스 911호</li>
-              <li className="mt-3 sm:mt-4">
-                <a href="mailto:info_nbkorea@naver.com" className="hover:text-white transition-colors inline-block">
-                  info_nbkorea@naver.com
-                </a>
-              </li>
-            </ul>
+            {/* Quick Links */}
+            <div>
+              <h3 className="font-bold text-base sm:text-lg mb-4 sm:mb-6 text-white flex items-center gap-2">
+                <FileText className="size-5 text-nb-pink-500" />
+                빠른 링크
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link
+                    to="/"
+                    className="text-slate-400 hover:text-white transition-all duration-300 text-sm sm:text-base inline-flex items-center gap-2 group focus:outline-none focus:text-nb-pink-400"
+                  >
+                    <ArrowRight className="size-4 text-nb-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    회사소개
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/partners"
+                    className="text-slate-400 hover:text-white transition-all duration-300 text-sm sm:text-base inline-flex items-center gap-2 group focus:outline-none focus:text-nb-pink-400"
+                  >
+                    <ArrowRight className="size-4 text-nb-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    제휴 파트너사
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/blog"
+                    className="text-slate-400 hover:text-white transition-all duration-300 text-sm sm:text-base inline-flex items-center gap-2 group focus:outline-none focus:text-nb-pink-400"
+                  >
+                    <ArrowRight className="size-4 text-nb-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    블로그
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h3 className="font-bold text-base sm:text-lg mb-4 sm:mb-6 text-white flex items-center gap-2">
+                <Users className="size-5 text-nb-pink-500" />
+                문의하기
+              </h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 text-slate-400 text-sm sm:text-base">
+                  <MapPin className="size-5 text-nb-pink-500 flex-shrink-0 mt-0.5" />
+                  <span className="leading-relaxed">
+                    인천광역시 부평구 부평대로 301,<br />
+                    남광센트렉스 911호
+                  </span>
+                </li>
+                <li>
+                  <a
+                    href="mailto:info_nbkorea@naver.com"
+                    className="flex items-center gap-3 text-slate-400 hover:text-white transition-all duration-300 text-sm sm:text-base group focus:outline-none focus:text-nb-pink-400"
+                  >
+                    <Mail className="size-5 text-nb-pink-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                    <span>info_nbkorea@naver.com</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Copyright */}
-        <div className="border-t border-slate-800 pt-6 sm:pt-8">
-          <p className="text-center text-xs sm:text-sm text-slate-500">
+      {/* Copyright */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-xs sm:text-sm text-slate-500 text-center sm:text-left">
             &copy; {currentYear} NBKOREA. All rights reserved.
+          </p>
+          <p className="text-xs sm:text-sm text-slate-600 text-center sm:text-right">
+            Designed with excellence for global partnerships
           </p>
         </div>
       </div>

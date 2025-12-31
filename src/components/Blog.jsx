@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Calendar, ArrowRight, Loader2 } from 'lucide-react'
+import { Calendar, ArrowRight, Loader2, FileText, Newspaper } from 'lucide-react'
 import { getBlogPosts } from '../services/dataService'
 
 const Blog = () => {
@@ -34,11 +34,14 @@ const Blog = () => {
 
   if (loading) {
     return (
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4 flex items-center justify-center">
-          <div className="flex flex-col items-center gap-4">
-            <Loader2 className="w-10 h-10 text-nb-pink-600 animate-spin" />
-            <p className="text-slate-500 font-medium">로딩 중...</p>
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-rose-50/30 min-h-[60vh] flex items-center justify-center">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center gap-6">
+            <div className="relative">
+              <Loader2 className="w-12 h-12 text-nb-pink-600 animate-spin" />
+              <div className="absolute inset-0 w-12 h-12 border-4 border-rose-200 rounded-full animate-ping opacity-20"></div>
+            </div>
+            <p className="text-slate-600 font-semibold text-lg">블로그 글을 불러오는 중...</p>
           </div>
         </div>
       </section>
@@ -46,9 +49,18 @@ const Blog = () => {
   }
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-slate-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-50 via-white to-rose-50/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12 sm:mb-16">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-nb-pink-50 to-rose-50 border border-nb-pink-200 mb-6"
+          >
+            <Newspaper className="size-5 text-nb-pink-600" />
+            <span className="text-sm font-semibold text-nb-pink-700">블로그</span>
+          </motion.div>
+
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -67,9 +79,19 @@ const Blog = () => {
         </div>
 
         {posts.length === 0 ? (
-          <div className="text-center text-slate-500 py-12">
-            블로그 포스트가 없습니다
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center py-20"
+          >
+            <div className="bg-white rounded-2xl shadow-lg border border-slate-100 p-12 max-w-md mx-auto">
+              <div className="bg-gradient-to-br from-slate-100 to-slate-200 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                <FileText className="w-10 h-10 text-slate-400" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">블로그 포스트가 없습니다</h3>
+              <p className="text-slate-500 text-sm">곧 새로운 소식을 전해드리겠습니다</p>
+            </div>
+          </motion.div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
             {posts.map((post, index) => (
@@ -79,8 +101,8 @@ const Blog = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl hover:border-nb-pink-100 transition-all duration-300 group cursor-pointer"
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 hover:shadow-2xl hover:border-nb-pink-200 transition-all duration-500 group cursor-pointer"
               >
                 {/* Image */}
                 <div className="aspect-video overflow-hidden bg-gradient-to-br from-nb-pink-50 via-slate-100 to-nb-gold-50 relative">
