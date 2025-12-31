@@ -58,48 +58,47 @@ const Partners = () => {
 
   const PartnerCard = ({ partner, compact = false }) => (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      whileHover={{ y: -8, scale: 1.02 }}
-      className={`group bg-white rounded-xl shadow-md border border-slate-100 hover:shadow-2xl hover:border-nb-pink-200 transition-all duration-500 ${
-        compact ? 'p-3' : 'p-4 sm:p-6'
+      whileHover={{ y: -4 }}
+      className={`group bg-white rounded-lg border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all duration-300 ${
+        compact ? 'p-3' : 'p-5'
       }`}
     >
-      <div className={`bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex items-center justify-center overflow-hidden relative ${
+      <div className={`bg-slate-50 rounded-md flex items-center justify-center overflow-hidden relative ${
         compact ? 'aspect-[4/3] mb-2' : 'aspect-[3/2] mb-4'
       }`}>
         {partner.logo_url ? (
           <img
             src={partner.logo_url}
             alt={partner.name}
-            className={`w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 ${
-              compact ? 'p-2' : 'p-3'
+            className={`w-full h-full object-contain transition-opacity duration-300 opacity-90 group-hover:opacity-100 ${
+              compact ? 'p-2' : 'p-4'
             }`}
           />
         ) : (
-          <Building2 className={`text-slate-300 group-hover:text-nb-pink-500 transition-colors ${
+          <Building2 className={`text-slate-200 ${
             compact ? 'w-8 h-8' : 'w-10 h-10'
           }`} />
         )}
 
         {partner.country && (
-          <div className="absolute top-1.5 right-1.5 bg-white/95 backdrop-blur-sm px-1.5 py-0.5 rounded text-xs font-semibold text-slate-700 shadow-sm flex items-center gap-1">
-            <Globe2 className="w-3 h-3" />
+          <div className="absolute top-2 right-2 bg-white px-2 py-1 rounded-md text-xs font-medium text-slate-600 border border-slate-200">
             <span className="text-[10px]">{partner.country}</span>
           </div>
         )}
       </div>
 
-      <h4 className={`font-bold text-slate-900 group-hover:text-nb-pink-600 transition-colors line-clamp-2 ${
-        compact ? 'text-sm mb-1' : 'text-base mb-2'
+      <h4 className={`font-semibold text-slate-900 line-clamp-2 ${
+        compact ? 'text-xs mb-1' : 'text-sm mb-2'
       }`}>
         {partner.name}
       </h4>
 
       {partner.description && (
-        <p className={`text-slate-500 line-clamp-2 leading-relaxed ${
-          compact ? 'text-[11px]' : 'text-xs'
+        <p className={`text-slate-400 line-clamp-2 leading-relaxed ${
+          compact ? 'text-[10px]' : 'text-xs'
         }`}>
           {partner.description}
         </p>
@@ -108,24 +107,31 @@ const Partners = () => {
   )
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-50 via-white to-slate-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <section className="py-16 sm:py-20 lg:py-24 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-16 sm:mb-20">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-block mb-4"
+          >
+            <div className="h-1 w-12 bg-nb-pink-600 mx-auto mb-6"></div>
+          </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-3 sm:mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight"
           >
-            제휴 파트너사
+            파트너사
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
-            className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto px-4"
+            className="text-base sm:text-lg text-slate-500 max-w-xl mx-auto"
           >
-            전 세계 우수한 기관 및 기업과 협력하여 최상의 기회를 제공합니다
+            신뢰할 수 있는 파트너와 함께 성장합니다
           </motion.p>
         </div>
 
@@ -134,21 +140,17 @@ const Partners = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-12 sm:mb-16 lg:mb-20"
+            className="mb-20 sm:mb-24"
           >
-            <div className="text-center mb-6 sm:mb-8">
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 mb-2">
-                🎯 주요 파트너십
+            <div className="text-center mb-12">
+              <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-8">
+                주요 파트너
               </h3>
-              <p className="text-xs sm:text-sm lg:text-base text-slate-600">
-                신뢰할 수 있는 파트너와 함께합니다
-              </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:flex lg:flex-wrap lg:justify-center max-w-4xl mx-auto px-4">
+            <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 lg:gap-16">
               {featuredPartners
                 .sort((a, b) => {
-                  // LGU+ 먼저, 그 다음 전북은행
                   if (a.name === 'LGU+') return -1
                   if (b.name === 'LGU+') return 1
                   return 0
@@ -156,75 +158,80 @@ const Partners = () => {
                 .map((partner) => (
                   <motion.div
                     key={partner.id}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-10 shadow-lg border-2 border-nb-gold-200 hover:border-nb-pink-300 transition-all duration-300 lg:w-56"
+                    whileHover={{ scale: 1.05 }}
+                    className="group"
                   >
-                    <div className="aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg sm:rounded-xl flex items-center justify-center overflow-hidden mb-3 sm:mb-4">
+                    <div className="w-32 h-32 sm:w-40 sm:h-40 bg-slate-50 rounded-2xl flex items-center justify-center overflow-hidden border border-slate-100 hover:border-slate-200 hover:shadow-lg transition-all duration-500">
                       {partner.logo_url ? (
                         <img
                           src={partner.logo_url}
                           alt={partner.name}
-                          className="w-full h-full object-contain p-2 sm:p-3 lg:p-4"
+                          className="w-full h-full object-contain p-6 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                         />
                       ) : (
-                        <Building2 className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 text-nb-pink-400" />
+                        <Building2 className="w-12 h-12 text-slate-300" />
                       )}
                     </div>
-                    <h4 className="text-center font-bold text-sm sm:text-base lg:text-lg text-slate-900">
-                      {partner.name}
-                    </h4>
                   </motion.div>
                 ))}
             </div>
+
+            <div className="mt-16 pt-16 border-t border-slate-100"></div>
           </motion.div>
         )}
 
         {/* Desktop: 3-Column Layout */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="hidden lg:grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
           {/* 해외 유학원 */}
           <div>
-            <div className="bg-gradient-to-r from-nb-pink-500 to-nb-pink-600 text-white rounded-t-xl p-4 mb-4">
-              <h3 className="text-xl font-bold text-center">🌍 해외 유학원</h3>
-              <p className="text-center text-sm mt-1 opacity-90">{overseasPartners.length}개 파트너</p>
+            <div className="mb-8">
+              <h3 className="text-sm font-semibold text-slate-900 uppercase tracking-wider mb-1">
+                해외 유학원
+              </h3>
+              <p className="text-xs text-slate-400">{overseasPartners.length}개 파트너</p>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-6">
               {overseasPartners.map((partner) => (
                 <PartnerCard key={partner.id} partner={partner} />
               ))}
               {overseasPartners.length === 0 && (
-                <p className="text-center text-slate-400 py-8">파트너가 없습니다</p>
+                <p className="text-center text-slate-300 py-12 text-sm">파트너가 없습니다</p>
               )}
             </div>
           </div>
 
           {/* 근로자 송출업체 */}
           <div>
-            <div className="bg-gradient-to-r from-nb-gold-500 to-nb-gold-600 text-white rounded-t-xl p-4 mb-4">
-              <h3 className="text-xl font-bold text-center">✈️ 근로자 송출업체</h3>
-              <p className="text-center text-sm mt-1 opacity-90">{workerDispatchPartners.length}개 파트너</p>
+            <div className="mb-8">
+              <h3 className="text-sm font-semibold text-slate-900 uppercase tracking-wider mb-1">
+                근로자 송출업체
+              </h3>
+              <p className="text-xs text-slate-400">{workerDispatchPartners.length}개 파트너</p>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-6">
               {workerDispatchPartners.map((partner) => (
                 <PartnerCard key={partner.id} partner={partner} />
               ))}
               {workerDispatchPartners.length === 0 && (
-                <p className="text-center text-slate-400 py-8">파트너가 없습니다</p>
+                <p className="text-center text-slate-300 py-12 text-sm">파트너가 없습니다</p>
               )}
             </div>
           </div>
 
           {/* 국내 파트너 */}
           <div>
-            <div className="bg-gradient-to-r from-nb-pink-600 to-nb-pink-700 text-white rounded-t-xl p-4 mb-4">
-              <h3 className="text-xl font-bold text-center">🇰🇷 국내 파트너</h3>
-              <p className="text-center text-sm mt-1 opacity-90">{domesticPartners.length}개 파트너</p>
+            <div className="mb-8">
+              <h3 className="text-sm font-semibold text-slate-900 uppercase tracking-wider mb-1">
+                국내 파트너
+              </h3>
+              <p className="text-xs text-slate-400">{domesticPartners.length}개 파트너</p>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-6">
               {domesticPartners.map((partner) => (
                 <PartnerCard key={partner.id} partner={partner} />
               ))}
               {domesticPartners.length === 0 && (
-                <p className="text-center text-slate-400 py-8">파트너가 없습니다</p>
+                <p className="text-center text-slate-300 py-12 text-sm">파트너가 없습니다</p>
               )}
             </div>
           </div>
@@ -233,22 +240,22 @@ const Partners = () => {
         {/* Mobile: Accordion Layout */}
         <div className="lg:hidden space-y-4">
           {/* 해외 유학원 */}
-          <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-slate-100">
+          <div className="bg-white rounded-lg overflow-hidden border border-slate-200">
             <button
               onClick={() => toggleCategory('overseas')}
-              className="w-full bg-gradient-to-r from-nb-pink-500 to-nb-pink-600 hover:from-nb-pink-600 hover:to-rose-600 text-white p-4 flex items-center justify-between transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-nb-pink-400 focus:ring-offset-2"
+              className="w-full bg-white hover:bg-slate-50 p-5 flex items-center justify-between transition-all duration-300 focus:outline-none"
               aria-expanded={openCategory === 'overseas'}
               aria-label="해외 유학원 파트너 목록 열기/닫기"
             >
-              <div className="flex items-center gap-2">
-                <span className="text-lg font-bold">🌍 해외 유학원</span>
-                <span className="text-sm opacity-90">({overseasPartners.length})</span>
+              <div className="flex flex-col items-start gap-1">
+                <span className="text-sm font-semibold text-slate-900 uppercase tracking-wider">해외 유학원</span>
+                <span className="text-xs text-slate-400">{overseasPartners.length}개 파트너</span>
               </div>
               <motion.div
                 animate={{ rotate: openCategory === 'overseas' ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <ChevronDown className="w-5 h-5" />
+                <ChevronDown className="w-5 h-5 text-slate-400" />
               </motion.div>
             </button>
             <AnimatePresence>
@@ -271,22 +278,22 @@ const Partners = () => {
           </div>
 
           {/* 근로자 송출업체 */}
-          <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-slate-100">
+          <div className="bg-white rounded-lg overflow-hidden border border-slate-200">
             <button
               onClick={() => toggleCategory('worker')}
-              className="w-full bg-gradient-to-r from-nb-gold-500 to-nb-gold-600 hover:from-nb-gold-600 hover:to-orange-600 text-white p-4 flex items-center justify-between transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-nb-gold-400 focus:ring-offset-2"
+              className="w-full bg-white hover:bg-slate-50 p-5 flex items-center justify-between transition-all duration-300 focus:outline-none"
               aria-expanded={openCategory === 'worker'}
               aria-label="근로자 송출업체 파트너 목록 열기/닫기"
             >
-              <div className="flex items-center gap-2">
-                <span className="text-lg font-bold">✈️ 근로자 송출업체</span>
-                <span className="text-sm opacity-90">({workerDispatchPartners.length})</span>
+              <div className="flex flex-col items-start gap-1">
+                <span className="text-sm font-semibold text-slate-900 uppercase tracking-wider">근로자 송출업체</span>
+                <span className="text-xs text-slate-400">{workerDispatchPartners.length}개 파트너</span>
               </div>
               <motion.div
                 animate={{ rotate: openCategory === 'worker' ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <ChevronDown className="w-5 h-5" />
+                <ChevronDown className="w-5 h-5 text-slate-400" />
               </motion.div>
             </button>
             <AnimatePresence>
@@ -309,22 +316,22 @@ const Partners = () => {
           </div>
 
           {/* 국내 파트너 */}
-          <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-slate-100">
+          <div className="bg-white rounded-lg overflow-hidden border border-slate-200">
             <button
               onClick={() => toggleCategory('domestic')}
-              className="w-full bg-gradient-to-r from-nb-pink-600 to-nb-pink-700 hover:from-nb-pink-700 hover:to-rose-700 text-white p-4 flex items-center justify-between transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-nb-pink-400 focus:ring-offset-2"
+              className="w-full bg-white hover:bg-slate-50 p-5 flex items-center justify-between transition-all duration-300 focus:outline-none"
               aria-expanded={openCategory === 'domestic'}
               aria-label="국내 파트너 목록 열기/닫기"
             >
-              <div className="flex items-center gap-2">
-                <span className="text-lg font-bold">🇰🇷 국내 파트너</span>
-                <span className="text-sm opacity-90">({domesticPartners.length})</span>
+              <div className="flex flex-col items-start gap-1">
+                <span className="text-sm font-semibold text-slate-900 uppercase tracking-wider">국내 파트너</span>
+                <span className="text-xs text-slate-400">{domesticPartners.length}개 파트너</span>
               </div>
               <motion.div
                 animate={{ rotate: openCategory === 'domestic' ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <ChevronDown className="w-5 h-5" />
+                <ChevronDown className="w-5 h-5 text-slate-400" />
               </motion.div>
             </button>
             <AnimatePresence>
