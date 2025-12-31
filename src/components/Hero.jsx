@@ -59,7 +59,7 @@ const Hero = () => {
 
             {/* Subheading */}
             <p className="text-gray-200 text-base sm:text-lg lg:text-xl font-medium leading-relaxed max-w-[640px] mx-auto opacity-90">
-              유학(D2,D4 Visa), 근로자(E7,E9) 글로벌 비즈니스 파트너십 전문
+              유학(D2,D4), 근로자(E7,E9) 글로벌 비지니스 파트너십
             </p>
 
             {/* CTA Buttons */}
@@ -85,73 +85,6 @@ const Hero = () => {
               </a>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="w-full bg-white dark:bg-slate-900 py-12 border-b border-gray-100 dark:border-gray-800">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="flex flex-col items-center gap-2 group cursor-default"
-            >
-              <span className="text-4xl md:text-5xl font-black tracking-tight bg-gradient-to-r from-nb-pink-600 to-rose-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
-                2015
-              </span>
-              <span className="text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-widest bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">
-                설립년도
-              </span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="flex flex-col items-center gap-2 group cursor-default"
-            >
-              <span className="text-4xl md:text-5xl font-black tracking-tight bg-gradient-to-r from-nb-pink-600 to-rose-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
-                1000+
-              </span>
-              <span className="text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-widest bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">
-                비자 지원
-              </span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-col items-center gap-2 group cursor-default"
-            >
-              <span className="text-4xl md:text-5xl font-black tracking-tight bg-gradient-to-r from-nb-pink-600 to-rose-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
-                50+
-              </span>
-              <span className="text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-widest bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">
-                글로벌 파트너
-              </span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="flex flex-col items-center gap-2 group cursor-default"
-            >
-              <span className="text-4xl md:text-5xl font-black tracking-tight bg-gradient-to-r from-nb-pink-600 to-rose-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
-                100%
-              </span>
-              <span className="text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-widest bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">
-                만족도
-              </span>
-            </motion.div>
-          </div>
         </div>
       </section>
 
@@ -183,10 +116,12 @@ const Hero = () => {
             </h2>
             <div className="bg-white dark:bg-slate-700 p-8 md:p-10 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-600">
               <p className="text-slate-600 dark:text-slate-300 text-lg md:text-xl leading-relaxed font-medium">
-                2015년 설립된 NB KOREA는 외국인 유학생과 근로자를 위한 최상의 솔루션을 제공합니다.
+                NB KOREA는 외국인 유학생과 근로자를 위한 최상의 솔루션을 제공합니다.
+              </p>
+              <p className="text-slate-600 dark:text-slate-300 text-lg md:text-xl leading-relaxed font-medium mt-4">
                 우리는{' '}
                 <span className="text-nb-pink-600 font-bold">지속 가능한 성장</span>을 믿으며,
-                우수한 글로벌 파트너들과 함께 복잡한 비자 문제를 정확하게 해결합니다.
+                우수한 글로벌 파트너들과 함께 한국에 성공적인 정착을 지원합니다.
               </p>
             </div>
           </motion.div>
@@ -201,73 +136,85 @@ const Hero = () => {
               Our Services
             </span>
             <h2 className="text-slate-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-black leading-tight tracking-tight">
-              전문 서비스
+              제공 서비스
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-lg font-normal max-w-[600px]">
-              각 분야의 전문가들이 최상의 서비스를 제공합니다
+            <p className="text-slate-600 dark:text-slate-400 text-lg font-normal max-w-[700px]">
+              외국인 정착을 위한 통신·금융 솔루션과 파트너 네트워크를 통한 토탈 케어
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* LGU+ 전용 요금제 */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
               whileHover={{ y: -8 }}
-              className="flex flex-col gap-6 rounded-2xl border-2 border-nb-pink-300 bg-white dark:bg-slate-800 p-8 shadow-lg hover:shadow-2xl hover:border-nb-pink-500 transition-all duration-300 group"
+              className="flex flex-col gap-6 rounded-2xl border-2 border-nb-pink-300 bg-gradient-to-br from-white to-nb-pink-50/30 dark:bg-slate-800 p-8 shadow-lg hover:shadow-2xl hover:border-nb-pink-500 transition-all duration-300 group"
             >
-              <div className="size-14 rounded-2xl bg-nb-pink-100 dark:bg-nb-pink-900 flex items-center justify-center text-nb-pink-600 group-hover:bg-nb-pink-600 group-hover:text-white transition-colors duration-300">
-                <Globe className="w-8 h-8" />
+              <div className="flex items-center justify-between">
+                <div className="size-14 rounded-2xl bg-nb-pink-100 dark:bg-nb-pink-900 flex items-center justify-center text-nb-pink-600 group-hover:bg-nb-pink-600 group-hover:text-white transition-colors duration-300">
+                  <Globe className="w-8 h-8" />
+                </div>
+                <span className="text-xs font-bold text-nb-pink-600 bg-nb-pink-100 px-3 py-1 rounded-full">직접 제공</span>
               </div>
               <div className="flex flex-col gap-3">
                 <h3 className="text-slate-900 dark:text-white text-2xl font-bold leading-tight">
-                  유학 컨설팅
+                  LGU+ 외국인 전용 요금제
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
-                  키르기스스탄 및 해외 유학 전문 컨설팅. D2, D4 비자 지원부터 입학까지 원스톱 서비스.
+                  LGU+ 공식 파트너십을 통한 외국인 맞춤 통신 요금제. 합리적인 가격과 안정적인 네트워크 제공.
                 </p>
               </div>
             </motion.div>
 
+            {/* 1금융권 대출 */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
               whileHover={{ y: -8 }}
-              className="flex flex-col gap-6 rounded-2xl border-2 border-amber-300 bg-white dark:bg-slate-800 p-8 shadow-lg hover:shadow-2xl hover:border-amber-500 transition-all duration-300 group"
+              className="flex flex-col gap-6 rounded-2xl border-2 border-amber-300 bg-gradient-to-br from-white to-amber-50/30 dark:bg-slate-800 p-8 shadow-lg hover:shadow-2xl hover:border-amber-500 transition-all duration-300 group"
             >
-              <div className="size-14 rounded-2xl bg-amber-100 dark:bg-amber-900 flex items-center justify-center text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
-                <Users className="w-8 h-8" />
+              <div className="flex items-center justify-between">
+                <div className="size-14 rounded-2xl bg-amber-100 dark:bg-amber-900 flex items-center justify-center text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
+                  <Building2 className="w-8 h-8" />
+                </div>
+                <span className="text-xs font-bold text-amber-600 bg-amber-100 px-3 py-1 rounded-full">직접 제공</span>
               </div>
               <div className="flex flex-col gap-3">
                 <h3 className="text-slate-900 dark:text-white text-2xl font-bold leading-tight">
-                  근로자(E7,E9 Visa)
+                  1금융권 대출 연계
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
-                  근로자 송출 및 비자 전문 서비스. E7, E9 비자 취득부터 정착까지 전문 지원.
+                  전북은행 협력을 통한 외국인 대출 서비스. 우대금리 적용으로 안정적인 정착 지원.
                 </p>
               </div>
             </motion.div>
 
+            {/* 파트너 네트워크 */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
               whileHover={{ y: -8 }}
-              className="flex flex-col gap-6 rounded-2xl border-2 border-nb-pink-300 bg-white dark:bg-slate-800 p-8 shadow-lg hover:shadow-2xl hover:border-nb-pink-500 transition-all duration-300 group"
+              className="flex flex-col gap-6 rounded-2xl border-2 border-slate-300 bg-gradient-to-br from-white to-slate-50 dark:bg-slate-800 p-8 shadow-lg hover:shadow-2xl hover:border-slate-400 transition-all duration-300 group"
             >
-              <div className="size-14 rounded-2xl bg-nb-pink-100 dark:bg-nb-pink-900 flex items-center justify-center text-nb-pink-600 group-hover:bg-nb-pink-600 group-hover:text-white transition-colors duration-300">
-                <Building2 className="w-8 h-8" />
+              <div className="flex items-center justify-between">
+                <div className="size-14 rounded-2xl bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-600 group-hover:bg-slate-600 group-hover:text-white transition-colors duration-300">
+                  <Users className="w-8 h-8" />
+                </div>
+                <span className="text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-full">파트너 연계</span>
               </div>
               <div className="flex flex-col gap-3">
                 <h3 className="text-slate-900 dark:text-white text-2xl font-bold leading-tight">
-                  글로벌 파트너십
+                  비자·정착 파트너 네트워크
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
-                  LGU+, 전북은행 등 국내외 우수 기관과의 협력 네트워크를 통한 최상의 서비스.
+                  교육기관과 근로자 송출업체 간 파트너십 연결 + 윈윈 생태계 구축.
                 </p>
               </div>
             </motion.div>
