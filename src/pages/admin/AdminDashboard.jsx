@@ -8,13 +8,17 @@ import {
   Users,
   BarChart3,
   PlusCircle,
-  List
+  List,
+  MessageSquare,
+  Settings
 } from 'lucide-react'
 import BlogManager from '../../components/admin/BlogManager'
 import PartnerManager from '../../components/admin/PartnerManager'
+import ConsultationManager from '../../components/admin/ConsultationManager'
+import FormBuilder from '../../components/admin/FormBuilder'
 
 const AdminDashboard = () => {
-  const [activeTab, setActiveTab] = useState('blog')
+  const [activeTab, setActiveTab] = useState('consultations')
   const { user, logout } = useAuth()
   const navigate = useNavigate()
 
@@ -24,6 +28,8 @@ const AdminDashboard = () => {
   }
 
   const tabs = [
+    { id: 'consultations', label: '상담 신청', icon: MessageSquare },
+    { id: 'formBuilder', label: '폼 설정', icon: Settings },
     { id: 'blog', label: '블로그 관리', icon: FileText },
     { id: 'partners', label: '파트너 관리', icon: Users },
     { id: 'stats', label: '통계', icon: BarChart3 }
@@ -87,6 +93,8 @@ const AdminDashboard = () => {
 
       {/* Content */}
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {activeTab === 'consultations' && <ConsultationManager />}
+        {activeTab === 'formBuilder' && <FormBuilder />}
         {activeTab === 'blog' && <BlogManager />}
         {activeTab === 'partners' && <PartnerManager />}
         {activeTab === 'stats' && (

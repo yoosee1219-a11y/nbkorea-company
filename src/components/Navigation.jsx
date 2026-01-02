@@ -25,6 +25,15 @@ const Navigation = () => {
 
   const isActive = (path) => location.pathname === path
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    // Close mobile menu if open
+    setIsMobileMenuOpen(false)
+  }
+
   return (
     <nav
       className={clsx(
@@ -73,13 +82,13 @@ const Navigation = () => {
             ))}
 
             {/* Contact CTA Button */}
-            <a
-              href="mailto:info_nbkorea@naver.com"
-              className="inline-flex items-center gap-2 px-4 lg:px-6 py-2 lg:py-2.5 bg-gradient-to-r from-nb-pink-600 to-rose-600 text-white font-semibold text-sm rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 focus:outline-none"
+            <button
+              onClick={scrollToContact}
+              className="inline-flex items-center gap-2 px-4 lg:px-6 py-2 lg:py-2.5 bg-gradient-to-r from-nb-pink-600 to-rose-600 text-white font-semibold text-sm rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 focus:outline-none cursor-pointer"
             >
               <Mail className="size-4" />
               <span className="hidden lg:inline">문의하기</span>
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -127,13 +136,13 @@ const Navigation = () => {
               ))}
 
               {/* Mobile Contact Button */}
-              <a
-                href="mailto:info_nbkorea@naver.com"
-                className="mt-4 inline-flex w-full items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-nb-pink-600 to-rose-600 text-white font-semibold text-base rounded-xl hover:shadow-lg transition-all duration-300 focus:outline-none"
+              <button
+                onClick={scrollToContact}
+                className="mt-4 inline-flex w-full items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-nb-pink-600 to-rose-600 text-white font-semibold text-base rounded-xl hover:shadow-lg transition-all duration-300 focus:outline-none cursor-pointer"
               >
                 <Mail className="size-5" />
                 문의하기
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
