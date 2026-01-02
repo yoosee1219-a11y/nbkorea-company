@@ -193,19 +193,19 @@ const Hero = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
             {/* Service 1 - 3D Icon */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="relative group"
+              className="relative group h-full flex"
             >
               {/* Glow Effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-nb-pink-600 to-rose-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-500"></div>
 
-              <div className="relative bg-white p-8 rounded-3xl border-2 border-nb-pink-100 group-hover:border-nb-pink-300 shadow-lg group-hover:shadow-2xl transition-all duration-500">
+              <div className="relative bg-white p-8 rounded-3xl border-2 border-nb-pink-100 group-hover:border-nb-pink-300 shadow-lg group-hover:shadow-2xl transition-all duration-500 flex flex-col w-full">
                 {/* 3D Icon - Phone/Signal */}
                 <div className="mb-6 relative flex justify-center">
                   <div className="w-24 h-24 relative">
@@ -236,10 +236,10 @@ const Hero = () => {
                 <h3 className="text-2xl font-black text-slate-900 mb-4">
                   LGU+ 외국인 전용 요금제
                 </h3>
-                <p className="text-slate-600 leading-relaxed mb-6">
+                <p className="text-slate-600 leading-relaxed mb-6 flex-1">
                   LGU+ 공식 파트너십을 통한 외국인 맞춤 통신 요금제 제공. 합리적인 가격과 안정적인 네트워크.
                 </p>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 mt-auto">
                   <span className="px-4 py-2 bg-gradient-to-r from-nb-pink-100 to-rose-100 text-nb-pink-700 text-sm font-bold rounded-xl">
                     ⚡ 직접 제공
                   </span>
@@ -254,12 +254,12 @@ const Hero = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="relative group"
+              className="relative group h-full flex"
             >
               {/* Glow Effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-500"></div>
 
-              <div className="relative bg-white p-8 rounded-3xl border-2 border-blue-100 group-hover:border-blue-300 shadow-lg group-hover:shadow-2xl transition-all duration-500">
+              <div className="relative bg-white p-8 rounded-3xl border-2 border-blue-100 group-hover:border-blue-300 shadow-lg group-hover:shadow-2xl transition-all duration-500 flex flex-col w-full">
                 {/* 3D Icon - Bank/Building */}
                 <div className="mb-6 relative flex justify-center">
                   <div className="w-24 h-24 relative">
@@ -292,10 +292,10 @@ const Hero = () => {
                 <h3 className="text-2xl font-black text-slate-900 mb-4">
                   1금융권 대출 연계
                 </h3>
-                <p className="text-slate-600 leading-relaxed mb-6">
+                <p className="text-slate-600 leading-relaxed mb-6 flex-1">
                   전북은행 협력을 통한 외국인 대출 서비스. 우대금리 적용으로 안정적인 정착 지원.
                 </p>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 mt-auto">
                   <span className="px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 text-sm font-bold rounded-xl">
                     💰 직접 제공
                   </span>
@@ -310,12 +310,12 @@ const Hero = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="relative group"
+              className="relative group h-full flex"
             >
               {/* Glow Effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-500"></div>
 
-              <div className="relative bg-white p-8 rounded-3xl border-2 border-purple-100 group-hover:border-purple-300 shadow-lg group-hover:shadow-2xl transition-all duration-500">
+              <div className="relative bg-white p-8 rounded-3xl border-2 border-purple-100 group-hover:border-purple-300 shadow-lg group-hover:shadow-2xl transition-all duration-500 flex flex-col w-full">
                 {/* 3D Icon - People Network */}
                 <div className="mb-6 relative flex justify-center">
                   <div className="w-24 h-24 relative">
@@ -351,10 +351,10 @@ const Hero = () => {
                 <h3 className="text-2xl font-black text-slate-900 mb-4">
                   파트너 네트워크
                 </h3>
-                <p className="text-slate-600 leading-relaxed mb-6">
+                <p className="text-slate-600 leading-relaxed mb-6 flex-1">
                   교육기관 및 근로자 송출업체 간 파트너십 연결. 윈윈 생태계 구축.
                 </p>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 mt-auto">
                   <span className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 text-sm font-bold rounded-xl">
                     🤝 파트너 연계
                   </span>
