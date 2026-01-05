@@ -249,18 +249,21 @@ const ConsultationModal = ({ isOpen, onClose }) => {
       const sheetData = {
         consultation_type: consultationData.consultation_type,
         status: 'pending',
-        form_data: consultationData.form_data,
+        form_data: JSON.stringify(consultationData.form_data),
         file_urls: fileUrls.length > 0 ? JSON.stringify(fileUrls) : ''
       }
 
-      await fetch('https://script.google.com/macros/s/AKfycbw_8wZUjjqfK3pZHfBIXKzUEAw5md1CLGuBwPApJnV-cXI2yVh3sN0fKAnYqy6vA1OGrg/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbw_8wZUjjqfK3pZHfBIXKzUEAw5md1CLGuBwPApJnV-cXI2yVh3sN0fKAnYqy6vA1OGrg/exec', {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(sheetData)
+        body: JSON.stringify(sheetData),
+        redirect: 'follow'
       })
+
+      const result = await response.json()
+      console.log('Google Sheets result:', result)
     } catch (sheetError) {
       console.error('Google Sheets error:', sheetError)
       // Google Sheets 전송 실패해도 계속 진행
