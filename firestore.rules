@@ -19,9 +19,8 @@ service cloud.firestore {
     match /consultations/{consultationId} {
       // 누구나 상담 신청 가능 (privacy_consent가 true일 때만)
       allow create: if request.resource.data.privacy_consent == true
-                    && request.resource.data.name is string
-                    && request.resource.data.phone is string
-                    && request.resource.data.consultation_type is string;
+                    && request.resource.data.consultation_type is string
+                    && request.resource.data.form_data is map;
 
       // 인증된 관리자만 조회/수정/삭제 가능
       allow read, update, delete: if request.auth != null;
