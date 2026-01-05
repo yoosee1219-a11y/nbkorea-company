@@ -227,8 +227,8 @@ const ConsultationModal = ({ isOpen, onClose }) => {
     }
 
     // 파일이 있으면 업로드
+    const fileUrls = []
     if (selectedFiles.length > 0 && data?.id) {
-      const fileUrls = []
       for (let i = 0; i < selectedFiles.length; i++) {
         setUploadProgress(Math.round(((i + 1) / selectedFiles.length) * 100))
         const { url, error: uploadError } = await uploadConsultationFile(selectedFiles[i], data.id)
@@ -242,8 +242,28 @@ const ConsultationModal = ({ isOpen, onClose }) => {
           console.error('File upload error:', uploadError)
         }
       }
-      // 파일 URL 배열을 consultationData에 추가 (실제로는 Firestore 업데이트 필요)
-      // 지금은 간단히 처리
+    }
+
+    // Google Sheets로 전송
+    try {
+      const sheetData = {
+        consultation_type: consultationData.consultation_type,
+        status: 'pending',
+        form_data: consultationData.form_data,
+        file_urls: fileUrls.length > 0 ? JSON.stringify(fileUrls) : ''
+      }
+
+      await fetch('https://script.google.com/macros/s/AKfycbw_8wZUjjqfK3pZHfBIXKzUEAw5md1CLGuBwPApJnV-cXI2yVh3sN0fKAnYqy6vA1OGrg/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(sheetData)
+      })
+    } catch (sheetError) {
+      console.error('Google Sheets error:', sheetError)
+      // Google Sheets 전송 실패해도 계속 진행
     }
 
     setLoading(false)
