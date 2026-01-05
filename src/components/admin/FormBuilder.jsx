@@ -264,6 +264,7 @@ const FormBuilder = () => {
                       <option value="tel">전화번호</option>
                       <option value="email">이메일</option>
                       <option value="number">숫자</option>
+                      <option value="select">드롭다운</option>
                       <option value="textarea">긴 텍스트</option>
                       <option value="file">파일 첨부</option>
                     </select>
@@ -288,6 +289,25 @@ const FormBuilder = () => {
                     </button>
                   </div>
                 </div>
+
+                {/* Select Options (only for select type) */}
+                {field.type === 'select' && (
+                  <div className="mt-3 pt-3 border-t border-slate-200">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      드롭다운 옵션 (쉼표로 구분)
+                    </label>
+                    <input
+                      type="text"
+                      value={field.options || ''}
+                      onChange={(e) => handleFieldChange(index, 'options', e.target.value)}
+                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
+                      placeholder="예: 옵션1,옵션2,옵션3"
+                    />
+                    <p className="text-xs text-slate-500 mt-1">
+                      각 옵션을 쉼표(,)로 구분해서 입력하세요
+                    </p>
+                  </div>
+                )}
               </div>
 
               {/* Field Preview */}
@@ -308,6 +328,16 @@ const FormBuilder = () => {
                     <div className="border-2 border-dashed border-slate-300 rounded-lg p-4 bg-slate-50">
                       <p className="text-sm text-slate-500 text-center">파일 선택 (최대 10MB)</p>
                     </div>
+                  ) : field.type === 'select' ? (
+                    <select
+                      disabled
+                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg bg-slate-50"
+                    >
+                      <option value="">선택해주세요</option>
+                      {(field.options || '').split(',').filter(opt => opt.trim()).map((option, i) => (
+                        <option key={i} value={option.trim()}>{option.trim()}</option>
+                      ))}
+                    </select>
                   ) : (
                     <input
                       type={field.type}

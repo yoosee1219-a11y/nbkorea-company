@@ -124,6 +124,17 @@ const ConsultationModal = ({ isOpen, onClose }) => {
               </div>
             </label>
           </div>
+        ) : field.type === 'select' ? (
+          <select
+            value={value}
+            onChange={(e) => handleDynamicFieldChange(field.id, e.target.value)}
+            className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
+          >
+            <option value="">선택해주세요</option>
+            {(field.options || '').split(',').filter(opt => opt.trim()).map((option, i) => (
+              <option key={i} value={option.trim()}>{option.trim()}</option>
+            ))}
+          </select>
         ) : (
           <input
             type={field.type}
