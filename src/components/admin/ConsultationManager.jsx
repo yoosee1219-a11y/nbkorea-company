@@ -616,17 +616,24 @@ const ConsultationManager = () => {
                 {(() => {
                   // Parse file_urls if it's a string
                   let fileUrls = []
+                  console.log('Raw file_urls from Firestore:', selectedConsultation.file_urls)
+                  console.log('Type:', typeof selectedConsultation.file_urls)
+
                   if (selectedConsultation.file_urls) {
                     if (typeof selectedConsultation.file_urls === 'string') {
                       try {
                         fileUrls = JSON.parse(selectedConsultation.file_urls)
+                        console.log('Parsed file_urls:', fileUrls)
                       } catch (e) {
                         console.error('Failed to parse file_urls:', e)
                       }
                     } else if (Array.isArray(selectedConsultation.file_urls)) {
                       fileUrls = selectedConsultation.file_urls
+                      console.log('file_urls is already array:', fileUrls)
                     }
                   }
+
+                  console.log('Final fileUrls count:', fileUrls.length)
 
                   const isImageFile = (url) => {
                     return /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(url)
