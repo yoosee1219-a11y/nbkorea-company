@@ -198,7 +198,15 @@ export const createConsultation = async (consultationData) => {
 export const getConsultations = async () => {
   try {
     const consultationsRef = collection(db, 'consultations')
-    const q = query(consultationsRef, orderBy('created_at', 'desc'))
+
+    // 사이트 구분으로 필터링 (환경 변수 기반)
+    const siteOrigin = import.meta.env.VITE_DEFAULT_LANGUAGE || 'ko'
+    const q = query(
+      consultationsRef,
+      where('site_origin', '==', siteOrigin),
+      orderBy('created_at', 'desc')
+    )
+
     const querySnapshot = await getDocs(q)
 
     const data = querySnapshot.docs.map(doc => ({
@@ -208,6 +216,8 @@ export const getConsultations = async () => {
       created_at: doc.data().created_at?.toDate?.()?.toISOString() || null,
       updated_at: doc.data().updated_at?.toDate?.()?.toISOString() || null
     }))
+
+    console.log(`Loaded ${data.length} consultations for site: ${siteOrigin}`)
 
     return { data, error: null }
   } catch (error) {

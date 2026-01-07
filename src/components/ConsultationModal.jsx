@@ -237,12 +237,16 @@ const ConsultationModal = ({ isOpen, onClose }) => {
       }
     }
 
+    // 사이트 구분 (환경 변수 기반)
+    const siteOrigin = import.meta.env.VITE_DEFAULT_LANGUAGE || 'ko'
+
     // 동적 폼 데이터를 consultation data로 구성
     const consultationData = {
       consultation_type: formData.consultation_type,
       form_data: dynamicFormData, // 모든 동적 필드 데이터
       privacy_consent: formData.privacy_consent,
-      referral_source: referralSource // 유입 경로 추가
+      referral_source: referralSource, // 유입 경로 추가
+      site_origin: siteOrigin // 사이트 구분 (ko 또는 vi)
       // file_urls는 파일 업로드 후 updateConsultation으로 추가
     }
 
