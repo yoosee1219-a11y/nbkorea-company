@@ -242,8 +242,8 @@ const ConsultationModal = ({ isOpen, onClose }) => {
       consultation_type: formData.consultation_type,
       form_data: dynamicFormData, // 모든 동적 필드 데이터
       privacy_consent: formData.privacy_consent,
-      referral_source: referralSource, // 유입 경로 추가
-      file_urls: [] // 파일 URL들을 저장할 배열
+      referral_source: referralSource // 유입 경로 추가
+      // file_urls는 파일 업로드 후 updateConsultation으로 추가
     }
 
     // 먼저 상담 신청 생성
@@ -275,9 +275,18 @@ const ConsultationModal = ({ isOpen, onClose }) => {
 
       // 파일 업로드 완료 후 Firestore 업데이트
       if (fileUrls.length > 0) {
-        const { updateConsultation } = await import('../services/dataService')
-        await updateConsultation(data.id, { file_urls: fileUrls })
-        console.log('Updated Firestore with file URLs:', fileUrls)
+        console.log('Attempting to update Firestore with file URLs:', fileUrls)
+        console.log('Consultation ID:', data.id)
+        try {
+          const { updateConsultation } = await import('../services/dataService')
+          const updateResult = await updateConsultation(data.id, { file_urls: fileUrls })
+          console.log('Firestore update result:', updateResult)
+          console.log('Successfully updated Firestore with file URLs')
+        } catch (updateError) {
+          console.error('Failed to update Firestore with file URLs:', updateError)
+        }
+      } else {
+        console.log('No files uploaded, skipping Firestore update')
       }
     }
 
