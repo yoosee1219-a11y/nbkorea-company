@@ -103,11 +103,6 @@ const ConsultationManager = () => {
   const handleEditClick = () => {
     setIsEditMode(true)
     setEditData({
-      name: selectedConsultation.name,
-      phone: selectedConsultation.phone,
-      email: selectedConsultation.email || '',
-      nationality: selectedConsultation.nationality,
-      visa_type: selectedConsultation.visa_type || '',
       admin_notes: selectedConsultation.admin_notes || ''
     })
   }
@@ -468,85 +463,14 @@ const ConsultationManager = () => {
 
               {/* Content */}
               <div className="p-6 overflow-y-auto max-h-[calc(90vh-120px)] space-y-6">
-                {/* Basic Info */}
-                <div className="bg-slate-50 rounded-xl p-6">
-                  <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                    <User className="w-5 h-5 text-nb-pink-600" />
-                    기본 정보
-                  </h4>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-sm text-slate-600 mb-1">이름</p>
-                      {isEditMode ? (
-                        <input
-                          type="text"
-                          value={editData.name}
-                          onChange={(e) => setEditData({ ...editData, name: e.target.value })}
-                          className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
-                        />
-                      ) : (
-                        <p className="font-semibold text-slate-900">{selectedConsultation.name}</p>
-                      )}
-                    </div>
-                    <div>
-                      <p className="text-sm text-slate-600 mb-1">국적</p>
-                      {isEditMode ? (
-                        <input
-                          type="text"
-                          value={editData.nationality}
-                          onChange={(e) => setEditData({ ...editData, nationality: e.target.value })}
-                          className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
-                        />
-                      ) : (
-                        <p className="font-semibold text-slate-900">{selectedConsultation.nationality}</p>
-                      )}
-                    </div>
-                    <div>
-                      <p className="text-sm text-slate-600 mb-1">연락처</p>
-                      {isEditMode ? (
-                        <input
-                          type="tel"
-                          value={editData.phone}
-                          onChange={(e) => setEditData({ ...editData, phone: e.target.value })}
-                          className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
-                        />
-                      ) : (
-                        <p className="font-semibold text-slate-900">{selectedConsultation.phone}</p>
-                      )}
-                    </div>
-                    <div>
-                      <p className="text-sm text-slate-600 mb-1">이메일</p>
-                      {isEditMode ? (
-                        <input
-                          type="email"
-                          value={editData.email}
-                          onChange={(e) => setEditData({ ...editData, email: e.target.value })}
-                          className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
-                        />
-                      ) : (
-                        <p className="font-semibold text-slate-900">{selectedConsultation.email || '-'}</p>
-                      )}
-                    </div>
-                    <div>
-                      <p className="text-sm text-slate-600 mb-1">비자 종류</p>
-                      {isEditMode ? (
-                        <input
-                          type="text"
-                          value={editData.visa_type}
-                          onChange={(e) => setEditData({ ...editData, visa_type: e.target.value })}
-                          className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
-                        />
-                      ) : (
-                        <p className="font-semibold text-slate-900">{selectedConsultation.visa_type || '-'}</p>
-                      )}
-                    </div>
-                    <div>
-                      <p className="text-sm text-slate-600 mb-1">상담 종류</p>
-                      <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold border ${getTypeColor(selectedConsultation.consultation_type)}`}>
-                        {getTypeIcon(selectedConsultation.consultation_type)}
-                        {getTypeLabel(selectedConsultation.consultation_type)}
-                      </span>
-                    </div>
+                {/* Consultation Type */}
+                <div className="bg-slate-50 rounded-xl p-4">
+                  <div className="flex items-center justify-between">
+                    <h4 className="font-bold text-slate-900">상담 종류</h4>
+                    <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold border ${getTypeColor(selectedConsultation.consultation_type)}`}>
+                      {getTypeIcon(selectedConsultation.consultation_type)}
+                      {getTypeLabel(selectedConsultation.consultation_type)}
+                    </span>
                   </div>
                 </div>
 
