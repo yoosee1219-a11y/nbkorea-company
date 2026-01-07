@@ -234,11 +234,11 @@ const ConsultationManager = () => {
     const headers = ['신청일시', '이름', '국적', '연락처', '이메일', '비자', '상담종류', '상태']
     const rows = filteredConsultations.map(c => [
       formatDate(c.created_at),
-      c.name,
-      c.nationality,
-      c.phone,
-      c.email || '',
-      c.visa_type || '',
+      c.form_data?.name || c.name || '-',
+      c.form_data?.nationality || c.nationality || '-',
+      c.form_data?.phone || c.phone || '-',
+      c.form_data?.email || c.email || '-',
+      c.form_data?.visa_type || c.visa_type || '-',
       getTypeLabel(c.consultation_type),
       c.status
     ])
@@ -376,14 +376,16 @@ const ConsultationManager = () => {
                       <div>
                         <div className="flex items-center gap-2">
                           <User className="w-4 h-4 text-slate-400" />
-                          <span className="font-semibold text-slate-900">{consultation.name}</span>
+                          <span className="font-semibold text-slate-900">
+                            {consultation.form_data?.name || consultation.name || '-'}
+                          </span>
                         </div>
                         <div className="text-sm text-slate-600 mt-1">
-                          {consultation.nationality} · {consultation.phone}
+                          {consultation.form_data?.nationality || consultation.nationality || '-'} · {consultation.form_data?.phone || consultation.phone || '-'}
                         </div>
-                        {consultation.visa_type && (
+                        {(consultation.form_data?.visa_type || consultation.visa_type) && (
                           <div className="text-xs text-slate-500 mt-1">
-                            비자: {consultation.visa_type}
+                            비자: {consultation.form_data?.visa_type || consultation.visa_type}
                           </div>
                         )}
                       </div>
