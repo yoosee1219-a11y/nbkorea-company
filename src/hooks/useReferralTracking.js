@@ -26,27 +26,24 @@ const useReferralTracking = () => {
           localStorage.setItem('session_id', sessionId)
         }
 
-        // 4. ref 파라미터가 있으면 저장
-        if (refParam) {
-          localStorage.setItem('referral_source', refParam)
-        }
+        // 4. 현재 방문의 referral_source 결정
+        // ref 파라미터가 있으면 그 값, 없으면 무조건 organic
+        const currentReferralSource = refParam || 'organic'
 
-        // 5. 첫 방문인 경우에만 방문 기록
+        // 5. localStorage에 현재 referral_source 저장 (상담 신청 시 사용)
+        localStorage.setItem('referral_source', currentReferralSource)
+
+        // 6. 첫 방문인 경우에만 방문 기록
         if (!isTracked) {
-          const referralSource = refParam || existingRef || 'organic'
-
           // Firestore에 방문 기록 저장
-          await recordVisit(referralSource, sessionId)
+          await recordVisit(currentReferralSource, sessionId)
 
           // 방문 추적 완료 표시
           localStorage.setItem('visit_tracked', 'true')
 
-          console.log('Visit tracked:', { referralSource, sessionId })
-        }
-
-        // 6. ref 파라미터가 없고 localStorage에도 없으면 organic으로 설정
-        if (!refParam && !existingRef) {
-          localStorage.setItem('referral_source', 'organic')
+          console.log('Visit tracked:', { referralSource: currentReferralSource, sessionId })
+        } else {
+          console.log('Already tracked, but updated referral source:', currentReferralSource)
         }
       } catch (error) {
         console.error('Error tracking visit:', error)
