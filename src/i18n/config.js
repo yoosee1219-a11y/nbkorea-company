@@ -270,12 +270,15 @@ const resources = {
   }
 }
 
+// Get default language from environment variable, fallback to 'ko'
+const defaultLanguage = import.meta.env.VITE_DEFAULT_LANGUAGE || 'ko'
+
 i18n
   .use(LanguageDetector) // Detect user language
   .use(initReactI18next) // Pass i18n instance to react-i18next
   .init({
     resources,
-    fallbackLng: 'ko', // Default language
+    fallbackLng: defaultLanguage, // Default language from env or 'ko'
     defaultNS: 'common',
     ns: ['common', 'navigation', 'hero', 'services', 'contact', 'consultation', 'footer', 'partners', 'blog'],
 
@@ -292,5 +295,7 @@ i18n
       useSuspense: false
     }
   })
+
+console.log('Default language:', defaultLanguage)
 
 export default i18n
