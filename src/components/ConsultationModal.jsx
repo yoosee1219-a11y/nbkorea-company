@@ -270,7 +270,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
         file_urls: fileUrls.length > 0 ? JSON.stringify(fileUrls) : ''
       }
 
-      const response = await fetch('https://script.google.com/macros/s/AKfycbw_8wZUjjqfK3pZHfBIXKzUEAw5md1CLGuBwPApJnV-cXI2yVh3sN0fKAnYqy6vA1OGrg/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxYJPK_s4bhYs80rjGSFt22qeSkS3zYlP8XSx75dQkbaZJ8zgJfy5n63Z3wKlaNTw4ulQ/exec', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
