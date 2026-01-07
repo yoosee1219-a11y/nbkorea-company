@@ -223,6 +223,20 @@ const ConsultationModal = ({ isOpen, onClose }) => {
     // 유입 경로 가져오기
     const referralSource = localStorage.getItem('referral_source') || 'organic'
 
+    // 인플루언서 이름 가져오기 (Google Sheets용)
+    let referralDisplay = referralSource
+    if (referralSource !== 'organic') {
+      try {
+        const { getInfluencerByCode } = await import('../services/dataService')
+        const { data: influencer } = await getInfluencerByCode(referralSource)
+        if (influencer) {
+          referralDisplay = `${referralSource} / ${influencer.name}`
+        }
+      } catch (error) {
+        console.error('Error fetching influencer name:', error)
+      }
+    }
+
     // 동적 폼 데이터를 consultation data로 구성
     const consultationData = {
       consultation_type: formData.consultation_type,
@@ -263,7 +277,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
     // Google Sheets로 전송
     try {
       const sheetData = {
-        referral_source: referralSource, // 맨 앞에 유입 경로 추가
+        referral_source: referralDisplay, // 유입 경로 (코드 / 이름 형식)
         consultation_type: consultationData.consultation_type,
         status: 'pending',
         form_data: JSON.stringify(consultationData.form_data),

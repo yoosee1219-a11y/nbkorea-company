@@ -17,6 +17,7 @@ import {
   updateDoc,
   deleteDoc,
   query,
+  where,
   orderBy,
   limit as firestoreLimit,
   serverTimestamp,
@@ -451,6 +452,35 @@ export const getInfluencers = async () => {
   } catch (error) {
     console.error('Error fetching influencers:', error)
     return { data: [], error }
+  }
+}
+
+/**
+ * 코드로 인플루언서 조회
+ * @param {string} code - 인플루언서 코드
+ * @returns {Promise<{data: Object|null, error: Error|null}>}
+ */
+export const getInfluencerByCode = async (code) => {
+  try {
+    const influencersRef = collection(db, 'influencers')
+    const q = query(influencersRef, where('code', '==', code))
+    const querySnapshot = await getDocs(q)
+
+    if (querySnapshot.empty) {
+      return { data: null, error: null }
+    }
+
+    const doc = querySnapshot.docs[0]
+    return {
+      data: {
+        id: doc.id,
+        ...doc.data()
+      },
+      error: null
+    }
+  } catch (error) {
+    console.error('Error fetching influencer by code:', error)
+    return { data: null, error }
   }
 }
 
