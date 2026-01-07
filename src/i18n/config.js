@@ -272,6 +272,7 @@ const resources = {
 
 // Get default language from environment variable, fallback to 'ko'
 const defaultLanguage = import.meta.env.VITE_DEFAULT_LANGUAGE || 'ko'
+const hasEnvLanguage = !!import.meta.env.VITE_DEFAULT_LANGUAGE
 
 i18n
   .use(LanguageDetector) // Detect user language
@@ -279,6 +280,7 @@ i18n
   .init({
     resources,
     fallbackLng: defaultLanguage, // Default language from env or 'ko'
+    lng: hasEnvLanguage ? defaultLanguage : undefined, // Force language if env var is set
     defaultNS: 'common',
     ns: ['common', 'navigation', 'hero', 'services', 'contact', 'consultation', 'footer', 'partners', 'blog'],
 
@@ -287,8 +289,8 @@ i18n
     },
 
     detection: {
-      order: ['localStorage', 'navigator', 'htmlTag'],
-      caches: ['localStorage']
+      order: hasEnvLanguage ? [] : ['localStorage', 'navigator', 'htmlTag'], // Skip detection if env var is set
+      caches: hasEnvLanguage ? [] : ['localStorage'] // Don't cache if env var is set
     },
 
     react: {
@@ -297,5 +299,6 @@ i18n
   })
 
 console.log('Default language:', defaultLanguage)
+console.log('Language detection:', hasEnvLanguage ? 'disabled (using env var)' : 'enabled')
 
 export default i18n
