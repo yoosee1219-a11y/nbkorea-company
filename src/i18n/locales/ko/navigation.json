@@ -1,8 +1,9 @@
 {
   "home": "회사소개",
+  "about": "about",
   "partners": "제휴 파트너사",
   "blog": "블로그",
-  "contact": "문의하기",
+  "contact": "무료상담신청",
   "menuOpen": "메뉴 열기",
   "menuClose": "메뉴 닫기"
 }

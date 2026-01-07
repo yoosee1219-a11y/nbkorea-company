@@ -90,7 +90,7 @@ const Navigation = () => {
               className="inline-flex items-center gap-2 px-4 lg:px-6 py-2 lg:py-2.5 bg-gradient-to-r from-nb-pink-600 to-rose-600 text-white font-semibold text-sm rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 focus:outline-none cursor-pointer"
             >
               <Mail className="size-4" />
-              <span className="hidden lg:inline">{t('menu.contact')}</span>
+              <span className="hidden lg:inline">{t('contact')}</span>
             </button>
 
             {/* Language Switcher - Desktop */}
