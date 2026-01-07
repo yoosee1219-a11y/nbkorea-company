@@ -1,0 +1,23 @@
+{
+  "title": "Hamkorlar",
+  "subtitle": "O'sib bormoqda",
+  "subtitleSuffix": "ishonchli hamkorlar bilan",
+  "loading": "Hamkorlar ma'lumotlari yuklanmoqda...",
+  "stats": {
+    "totalPartners": "Jami hamkorlar",
+    "countries": "Hamkorlik qiluvchi davlatlar",
+    "premiumPartners": "Premium hamkorlar"
+  },
+  "featured": {
+    "badge": "Premium Partners",
+    "title": "Asosiy hamkorlar",
+    "subtitle": "NB KOREA ning rasmiy hamkorlari"
+  },
+  "categories": {
+    "overseas": "Chet el ta'lim muassasalari",
+    "worker": "Ishchilarni jo'natish kompaniyalari",
+    "domestic": "Mahalliy hamkorlar",
+    "partnerCount": "{{count}} hamkor"
+  },
+  "empty": "Hamkorlar yo'q"
+}

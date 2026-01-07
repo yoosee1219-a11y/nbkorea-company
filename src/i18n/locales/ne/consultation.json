@@ -1,0 +1,55 @@
+{
+  "modalTitle": "नि:शुल्क परामर्शको लागि आवेदन",
+  "step": "चरण {{current}}/{{total}}",
+
+  "step1Title": "कृपया परामर्शको प्रकार छान्नुहोस्",
+  "typeTelecom": "LGU+ दूरसञ्चार",
+  "typeLoan": "Jeonbuk Bank ऋण",
+  "typeVisa": "भिसा परामर्श",
+  "typeOther": "अन्य",
+  "errorSelectType": "कृपया परामर्शको प्रकार छान्नुहोस्",
+
+  "step2TitleBasic": "आधारभूत जानकारी",
+  "step2TitleService": "{{service}} जानकारी",
+
+  "fileUploadTitle": "कागजात संलग्न गर्नुहोस् (ऐच्छिक)",
+  "fileUploadDesc": "कृपया परिचयपत्र, काम प्रमाणपत्र, आय प्रमाण आदि संलग्न गर्नुहोस्",
+  "fileUploadLimit": "अधिकतम 5 फाइल, प्रत्येक 10MB भन्दा कम (JPG, PNG, PDF आदि)",
+  "fileUploadMaxSize": "अधिकतम 10MB",
+  "fileSelectButton": "फाइल छान्नुहोस्",
+  "fileMaxError": "अधिकतम 5 फाइल मात्र अपलोड गर्न सकिन्छ।",
+  "fileSizeError": "प्रत्येक फाइलको साइज 10MB भन्दा बढी हुनु हुँदैन।",
+
+  "privacyConsentLabel": "म व्यक्तिगत जानकारी सङ्कलन र प्रयोगमा सहमत छु",
+  "privacyConsentDesc": "सङ्कलन गरिएको जानकारी: नाम, फोन नम्बर, इमेल आदि | उद्देश्य: परामर्श | राख्ने अवधि: परामर्श समाप्ति पछि 1 वर्ष",
+  "privacyConsentError": "कृपया व्यक्तिगत जानकारी सङ्कलनमा सहमति दिनुहोस्",
+
+  "buttonNext": "अर्को चरण",
+  "buttonPrevious": "अघिल्लो",
+  "buttonSubmit": "आवेदन पेश गर्नुहोस्",
+  "buttonSubmitting": "पेश गर्दै...",
+
+  "selectPlaceholder": "कृपया छान्नुहोस्",
+  "submitError": "परामर्श अनुरोध पेश गर्दा त्रुटि भयो। कृपया फेरि प्रयास गर्नुहोस्।",
+
+  "successTitle": "आवेदन पूरा भयो!",
+  "successMessage": "हामी चाँडै नै तपाईंलाई सम्पर्क गर्नेछौं।",
+
+  "fieldRequired": "कृपया {{field}} प्रविष्ट गर्नुहोस्",
+  "fieldPlaceholder": "{{field}} प्रविष्ट गर्नुहोस्",
+
+  "fieldName": "नाम",
+  "fieldPhone": "फोन नम्बर",
+  "fieldEmail": "इमेल",
+  "fieldMessage": "सन्देश",
+  "fieldNationality": "राष्ट्रियता",
+  "fieldVisaType": "भिसा प्रकार",
+  "fieldCurrentCarrier": "वर्तमान सेवा प्रदायक",
+  "fieldDesiredPlan": "चाहिएको योजना",
+  "fieldLoanAmount": "चाहिएको ऋण रकम",
+  "fieldIncome": "मासिक आय",
+  "fieldOccupation": "पेशा",
+  "fieldEmploymentPeriod": "रोजगार अवधि",
+  "fieldStayPeriod": "कोरियामा बस्ने अवधि",
+  "fieldPurpose": "परामर्श उद्देश्य"
+}

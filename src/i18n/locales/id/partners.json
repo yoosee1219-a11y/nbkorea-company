@@ -1,0 +1,23 @@
+{
+  "title": "Mitra",
+  "subtitle": "Berkembang bersama",
+  "subtitleSuffix": "mitra terpercaya",
+  "loading": "Memuat informasi mitra...",
+  "stats": {
+    "totalPartners": "Total Mitra",
+    "countries": "Negara Kerjasama",
+    "premiumPartners": "Mitra Premium"
+  },
+  "featured": {
+    "badge": "Premium Partners",
+    "title": "Mitra Utama",
+    "subtitle": "Mitra resmi NB KOREA"
+  },
+  "categories": {
+    "overseas": "Institusi pendidikan luar negeri",
+    "worker": "Perusahaan pengirim pekerja",
+    "domestic": "Mitra lokal",
+    "partnerCount": "{{count}} mitra"
+  },
+  "empty": "Tidak ada mitra"
+}

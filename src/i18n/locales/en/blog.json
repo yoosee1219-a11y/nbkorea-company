@@ -1,0 +1,10 @@
+{
+  "title": "Blog",
+  "subtitle": "Check out the latest news and useful information from NB KOREA",
+  "loading": "Loading blog posts...",
+  "empty": {
+    "title": "No blog posts available",
+    "subtitle": "We'll be back with new updates soon"
+  },
+  "readMore": "Read More"
+}

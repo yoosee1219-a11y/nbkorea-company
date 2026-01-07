@@ -1,0 +1,54 @@
+{
+  "modalTitle": "Daftar Konsultasi Gratis",
+  "step": "Langkah {{current}} dari {{total}}",
+
+  "step1Title": "Silakan pilih jenis konsultasi",
+  "typeTelecom": "LGU+ Telekomunikasi",
+  "typeLoan": "Jeonbuk Bank Pinjaman",
+  "typeVisa": "Konsultasi Visa",
+  "typeOther": "Lainnya",
+  "errorSelectType": "Silakan pilih jenis konsultasi",
+
+  "step2TitleBasic": "Informasi Dasar",
+  "step2TitleService": "Informasi {{service}}",
+
+  "fileUploadTitle": "Lampirkan Dokumen (opsional)",
+  "fileUploadDesc": "Silakan lampirkan KTP/Paspor, surat keterangan kerja, bukti penghasilan, dll.",
+  "fileUploadLimit": "Maksimal 5 file, masing-masing di bawah 10MB (JPG, PNG, PDF, dll.)",
+  "fileUploadMaxSize": "Maksimal 10MB",
+  "fileSelectButton": "Pilih File",
+  "fileMaxError": "Maksimal hanya dapat mengunggah 5 file.",
+  "fileSizeError": "Ukuran setiap file tidak boleh melebihi 10MB.",
+  "selectPlaceholder": "Silakan pilih",
+
+  "privacyConsentLabel": "Saya menyetujui pengumpulan dan penggunaan informasi pribadi",
+  "privacyConsentDesc": "Informasi yang dikumpulkan: Nama, nomor telepon, email, dll. | Tujuan: Konsultasi | Periode penyimpanan: 1 tahun setelah konsultasi selesai",
+  "privacyConsentError": "Silakan setujui pengumpulan informasi pribadi",
+
+  "buttonNext": "Langkah Berikutnya",
+  "buttonPrevious": "Kembali",
+  "buttonSubmit": "Kirim Pendaftaran",
+  "buttonSubmitting": "Mengirim...",
+
+  "successTitle": "Pendaftaran selesai!",
+  "successMessage": "Kami akan menghubungi Anda sesegera mungkin.",
+  "submitError": "Terjadi kesalahan saat mengirim permintaan konsultasi. Silakan coba lagi.",
+
+  "fieldRequired": "Silakan masukkan {{field}}",
+  "fieldPlaceholder": "Masukkan {{field}}",
+
+  "fieldName": "Nama",
+  "fieldPhone": "Nomor Telepon",
+  "fieldEmail": "Email",
+  "fieldMessage": "Pesan",
+  "fieldNationality": "Kewarganegaraan",
+  "fieldVisaType": "Jenis Visa",
+  "fieldCurrentCarrier": "Operator Saat Ini",
+  "fieldDesiredPlan": "Paket yang Diinginkan",
+  "fieldLoanAmount": "Jumlah Pinjaman yang Diinginkan",
+  "fieldIncome": "Pendapatan Bulanan",
+  "fieldOccupation": "Pekerjaan",
+  "fieldEmploymentPeriod": "Periode Kerja",
+  "fieldStayPeriod": "Periode Tinggal di Korea",
+  "fieldPurpose": "Tujuan Konsultasi"
+}

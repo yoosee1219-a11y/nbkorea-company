@@ -1,0 +1,23 @@
+{
+  "title": "제휴 파트너사",
+  "subtitle": "신뢰할 수 있는 파트너",
+  "subtitleSuffix": "와 함께 성장합니다",
+  "loading": "파트너사 정보를 불러오는 중...",
+  "stats": {
+    "totalPartners": "총 파트너사",
+    "countries": "협력 국가",
+    "premiumPartners": "프리미엄 파트너"
+  },
+  "featured": {
+    "badge": "Premium Partners",
+    "title": "주요 파트너",
+    "subtitle": "NB KOREA의 공식 파트너사"
+  },
+  "categories": {
+    "overseas": "해외 유학원",
+    "worker": "근로자 송출업체",
+    "domestic": "국내 파트너",
+    "partnerCount": "{{count}}개 파트너"
+  },
+  "empty": "파트너가 없습니다"
+}

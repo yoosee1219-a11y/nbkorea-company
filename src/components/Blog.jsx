@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Calendar, ArrowRight, Loader2, FileText, Newspaper } from 'lucide-react'
 import { getBlogPosts } from '../services/dataService'
+import { useTranslation } from 'react-i18next'
 
 const Blog = () => {
+  const { t, i18n } = useTranslation('blog')
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
 
@@ -25,7 +27,8 @@ const Blog = () => {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString)
-    return date.toLocaleDateString('ko-KR', {
+    const locale = i18n.language === 'ko' ? 'ko-KR' : 'en-US'
+    return date.toLocaleDateString(locale, {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -41,7 +44,7 @@ const Blog = () => {
               <Loader2 className="w-12 h-12 text-nb-pink-600 animate-spin" />
               <div className="absolute inset-0 w-12 h-12 border-4 border-rose-200 rounded-full animate-ping opacity-20"></div>
             </div>
-            <p className="text-slate-600 font-semibold text-lg">블로그 글을 불러오는 중...</p>
+            <p className="text-slate-600 font-semibold text-lg">{t('loading')}</p>
           </div>
         </div>
       </section>
@@ -65,7 +68,7 @@ const Blog = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight"
           >
-            블로그
+            {t('title')}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -73,7 +76,7 @@ const Blog = () => {
             transition={{ delay: 0.1 }}
             className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto"
           >
-            NB KOREA의 최신 소식과 유용한 정보를 확인하세요
+            {t('subtitle')}
           </motion.p>
         </div>
 
@@ -87,8 +90,8 @@ const Blog = () => {
               <div className="bg-slate-50 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
                 <FileText className="w-10 h-10 text-slate-300" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">블로그 포스트가 없습니다</h3>
-              <p className="text-slate-400 text-sm">곧 새로운 소식을 전해드리겠습니다</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">{t('empty.title')}</h3>
+              <p className="text-slate-400 text-sm">{t('empty.subtitle')}</p>
             </div>
           </motion.div>
         ) : (
@@ -135,7 +138,7 @@ const Blog = () => {
 
                   <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                     <span className="text-nb-pink-600 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-                      자세히 보기 <ArrowRight size={14} />
+                      {t('readMore')} <ArrowRight size={14} />
                     </span>
                   </div>
                 </div>

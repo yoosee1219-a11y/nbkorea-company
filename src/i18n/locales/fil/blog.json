@@ -1,0 +1,10 @@
+{
+  "title": "Blog",
+  "subtitle": "Tingnan ang pinakabagong balita at kapaki-pakinabang na impormasyon mula sa NB KOREA",
+  "loading": "Naglo-load ng mga blog post...",
+  "empty": {
+    "title": "Walang blog post",
+    "subtitle": "Magbabahagi kami ng bagong balita sa lalong madaling panahon"
+  },
+  "readMore": "Magbasa pa"
+}

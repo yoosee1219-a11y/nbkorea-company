@@ -1,0 +1,28 @@
+{
+  "companyDescription": "Mitra bisnis global yang menghubungkan Korea dengan dunia",
+  "partnerBadge": "Mitra LGU+ x Jeonbuk Bank",
+  "sections": {
+    "services": {
+      "title": "Layanan",
+      "items": {
+        "studentVisa": "Visa Pelajar (D2, D4)",
+        "workerVisa": "Visa Pekerja (E7, E9)",
+        "globalPartnership": "Kemitraan Global"
+      }
+    },
+    "quickLinks": {
+      "title": "Tautan Cepat",
+      "items": {
+        "about": "Tentang Perusahaan",
+        "partners": "Mitra",
+        "blog": "Blog"
+      }
+    },
+    "contact": {
+      "title": "Hubungi Kami",
+      "address": "911, Nam Gwang Centrex, 301 Bupyeong-daero,<br />Bupyeong-gu, Incheon"
+    }
+  },
+  "copyright": "© {{year}} NBKOREA. Hak cipta dilindungi.",
+  "tagline": "Dirancang dengan keunggulan untuk kemitraan global"
+}

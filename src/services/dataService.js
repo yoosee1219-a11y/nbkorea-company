@@ -425,3 +425,220 @@ function getDefaultFormConfig() {
     }
   }
 }
+
+// ==========================================
+// Influencer API
+// ==========================================
+
+/**
+ * 모든 인플루언서 조회
+ * @returns {Promise<{data: Array|null, error: Error|null}>}
+ */
+export const getInfluencers = async () => {
+  try {
+    const influencersRef = collection(db, 'influencers')
+    const q = query(influencersRef, orderBy('created_at', 'desc'))
+    const querySnapshot = await getDocs(q)
+
+    const data = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data(),
+      created_at: doc.data().created_at?.toDate?.()?.toISOString() || null,
+      updated_at: doc.data().updated_at?.toDate?.()?.toISOString() || null
+    }))
+
+    return { data, error: null }
+  } catch (error) {
+    console.error('Error fetching influencers:', error)
+    return { data: [], error }
+  }
+}
+
+/**
+ * 인플루언서 생성
+ * @param {Object} influencerData - 인플루언서 데이터 {code, name, description}
+ * @returns {Promise<{data: Object|null, error: Error|null}>}
+ */
+export const createInfluencer = async (influencerData) => {
+  try {
+    // 코드 중복 검증
+    const influencersRef = collection(db, 'influencers')
+    const q = query(influencersRef)
+    const querySnapshot = await getDocs(q)
+
+    const existingCodes = querySnapshot.docs.map(doc => doc.data().code)
+    if (existingCodes.includes(influencerData.code)) {
+      return {
+        data: null,
+        error: new Error('이미 존재하는 인플루언서 코드입니다.')
+      }
+    }
+
+    const docRef = await addDoc(influencersRef, {
+      ...influencerData,
+      is_active: influencerData.is_active !== undefined ? influencerData.is_active : true,
+      created_at: serverTimestamp(),
+      updated_at: serverTimestamp()
+    })
+
+    return {
+      data: { id: docRef.id, ...influencerData },
+      error: null
+    }
+  } catch (error) {
+    console.error('Error creating influencer:', error)
+    return { data: null, error }
+  }
+}
+
+/**
+ * 인플루언서 정보 수정
+ * @param {string} influencerId - 인플루언서 ID
+ * @param {Object} data - 수정할 데이터
+ * @returns {Promise<{success: boolean, error: Error|null}>}
+ */
+export const updateInfluencer = async (influencerId, data) => {
+  try {
+    const influencerRef = doc(db, 'influencers', influencerId)
+    await updateDoc(influencerRef, {
+      ...data,
+      updated_at: serverTimestamp()
+    })
+    return { success: true, error: null }
+  } catch (error) {
+    console.error('Error updating influencer:', error)
+    return { success: false, error }
+  }
+}
+
+/**
+ * 인플루언서 삭제
+ * @param {string} influencerId - 인플루언서 ID
+ * @returns {Promise<{success: boolean, error: Error|null}>}
+ */
+export const deleteInfluencer = async (influencerId) => {
+  try {
+    const influencerRef = doc(db, 'influencers', influencerId)
+    await deleteDoc(influencerRef)
+    return { success: true, error: null }
+  } catch (error) {
+    console.error('Error deleting influencer:', error)
+    return { success: false, error }
+  }
+}
+
+// ==========================================
+// Referral Tracking API
+// ==========================================
+
+/**
+ * 방문 기록 저장
+ * @param {string} influencerCode - 인플루언서 코드 (또는 "organic")
+ * @param {string} sessionId - 세션 ID (UUID)
+ * @returns {Promise<{success: boolean, error: Error|null}>}
+ */
+export const recordVisit = async (influencerCode, sessionId) => {
+  try {
+    const visitsRef = collection(db, 'referral_visits')
+    await addDoc(visitsRef, {
+      influencer_code: influencerCode,
+      session_id: sessionId,
+      visited_at: serverTimestamp()
+    })
+    return { success: true, error: null }
+  } catch (error) {
+    console.error('Error recording visit:', error)
+    return { success: false, error }
+  }
+}
+
+/**
+ * 인플루언서별 통계 조회
+ * @returns {Promise<{data: Object|null, error: Error|null}>}
+ */
+export const getInfluencerStats = async () => {
+  try {
+    // 1. 모든 인플루언서 조회
+    const { data: influencers } = await getInfluencers()
+
+    // 2. 모든 방문 기록 조회
+    const visitsRef = collection(db, 'referral_visits')
+    const visitsSnapshot = await getDocs(visitsRef)
+    const visits = visitsSnapshot.docs.map(doc => doc.data())
+
+    // 3. 모든 상담 신청 조회
+    const { data: consultations } = await getConsultations()
+
+    // 4. 인플루언서별 집계
+    const stats = {}
+
+    // 오가닉 유입 초기화
+    stats['organic'] = {
+      code: 'organic',
+      name: '오가닉',
+      visits: 0,
+      conversions: 0,
+      conversionRate: 0
+    }
+
+    // 각 인플루언서별 초기화
+    influencers?.forEach(inf => {
+      stats[inf.code] = {
+        id: inf.id,
+        code: inf.code,
+        name: inf.name,
+        visits: 0,
+        conversions: 0,
+        conversionRate: 0,
+        is_active: inf.is_active
+      }
+    })
+
+    // 방문 수 집계
+    visits.forEach(visit => {
+      const code = visit.influencer_code || 'organic'
+      if (stats[code]) {
+        stats[code].visits++
+      } else {
+        // 인플루언서 목록에 없는 코드는 오가닉으로 처리
+        stats['organic'].visits++
+      }
+    })
+
+    // 전환 수 집계
+    consultations?.forEach(consultation => {
+      const code = consultation.referral_source || 'organic'
+      if (stats[code]) {
+        stats[code].conversions++
+      } else {
+        stats['organic'].conversions++
+      }
+    })
+
+    // 전환율 계산
+    Object.keys(stats).forEach(code => {
+      const { visits, conversions } = stats[code]
+      stats[code].conversionRate = visits > 0 ? (conversions / visits) * 100 : 0
+    })
+
+    // 전체 통계 계산
+    const totalVisits = Object.values(stats).reduce((sum, s) => sum + s.visits, 0)
+    const totalConversions = Object.values(stats).reduce((sum, s) => sum + s.conversions, 0)
+    const totalConversionRate = totalVisits > 0 ? (totalConversions / totalVisits) * 100 : 0
+
+    return {
+      data: {
+        total: {
+          visits: totalVisits,
+          conversions: totalConversions,
+          conversionRate: totalConversionRate
+        },
+        byInfluencer: Object.values(stats)
+      },
+      error: null
+    }
+  } catch (error) {
+    console.error('Error fetching influencer stats:', error)
+    return { data: null, error }
+  }
+}

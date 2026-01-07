@@ -1,0 +1,55 @@
+{
+  "modalTitle": "Bepul maslahat uchun ariza",
+  "step": "{{current}}-qadam, jami {{total}}",
+
+  "step1Title": "Maslahat turini tanlang",
+  "typeTelecom": "LGU+ Telekommunikatsiya",
+  "typeLoan": "Jeonbuk Bank Kredit",
+  "typeVisa": "Viza bo'yicha maslahat",
+  "typeOther": "Boshqa",
+  "errorSelectType": "Maslahat turini tanlang",
+
+  "step2TitleBasic": "Asosiy ma'lumotlar",
+  "step2TitleService": "{{service}} ma'lumotlari",
+
+  "fileUploadTitle": "Hujjatlarni biriktirish (ixtiyoriy)",
+  "fileUploadDesc": "Pasport, ish ma'lumotnomasi, daromad tasdiqnomasi va boshqalarni biriktiring",
+  "fileUploadLimit": "Maksimal 5 ta fayl, har biri 10MB dan kam (JPG, PNG, PDF va boshqalar)",
+  "fileUploadMaxSize": "Maksimal 10MB",
+  "fileSelectButton": "Fayl tanlash",
+  "fileMaxError": "Maksimal 5 ta fayl yuklash mumkin.",
+  "fileSizeError": "Har bir fayl hajmi 10MB dan oshmasligi kerak.",
+
+  "privacyConsentLabel": "Shaxsiy ma'lumotlarni yig'ish va ishlatishga roziman",
+  "privacyConsentDesc": "Yig'iladigan ma'lumotlar: Ism, telefon, elektron pochta va boshqalar | Maqsad: Maslahat | Saqlash muddati: Maslahat tugaganidan keyin 1 yil",
+  "privacyConsentError": "Shaxsiy ma'lumotlarni yig'ishga rozilik bering",
+
+  "buttonNext": "Keyingi qadam",
+  "buttonPrevious": "Orqaga",
+  "buttonSubmit": "Ariza yuborish",
+  "buttonSubmitting": "Yuborilmoqda...",
+
+  "selectPlaceholder": "Iltimos tanlang",
+  "submitError": "Maslahat so'rovini yuborishda xatolik yuz berdi. Qayta urinib ko'ring.",
+
+  "successTitle": "Ariza qabul qilindi!",
+  "successMessage": "Tez orada siz bilan bog'lanamiz.",
+
+  "fieldRequired": "{{field}}ni kiriting",
+  "fieldPlaceholder": "{{field}}ni kiriting",
+
+  "fieldName": "Ism",
+  "fieldPhone": "Telefon raqami",
+  "fieldEmail": "Email",
+  "fieldMessage": "Xabar",
+  "fieldNationality": "Millati",
+  "fieldVisaType": "Viza turi",
+  "fieldCurrentCarrier": "Joriy operator",
+  "fieldDesiredPlan": "Kerakli tarif",
+  "fieldLoanAmount": "Kerakli kredit miqdori",
+  "fieldIncome": "Oylik daromad",
+  "fieldOccupation": "Kasb",
+  "fieldEmploymentPeriod": "Ish davri",
+  "fieldStayPeriod": "Koreyada yashash muddati",
+  "fieldPurpose": "Maslahat maqsadi"
+}

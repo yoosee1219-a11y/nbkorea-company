@@ -1,0 +1,28 @@
+{
+  "companyDescription": "Pandaigdigang kasosyo sa negosyo na nag-uugnay ng Korea sa mundo",
+  "partnerBadge": "Kasosyo ng LGU+ x Jeonbuk Bank",
+  "sections": {
+    "services": {
+      "title": "Mga Serbisyo",
+      "items": {
+        "studentVisa": "Student Visa (D2, D4)",
+        "workerVisa": "Worker Visa (E7, E9)",
+        "globalPartnership": "Pandaigdigang Pakikipagtulungan"
+      }
+    },
+    "quickLinks": {
+      "title": "Mabilis na Link",
+      "items": {
+        "about": "Tungkol sa Kumpanya",
+        "partners": "Mga Kasosyo",
+        "blog": "Blog"
+      }
+    },
+    "contact": {
+      "title": "Makipag-ugnayan",
+      "address": "911, Nam Gwang Centrex, 301 Bupyeong-daero,<br />Bupyeong-gu, Incheon"
+    }
+  },
+  "copyright": "© {{year}} NBKOREA. Nakalaan ang lahat ng karapatan.",
+  "tagline": "Dinisenyo nang mahusay para sa pandaigdigang pakikipagtulungan"
+}

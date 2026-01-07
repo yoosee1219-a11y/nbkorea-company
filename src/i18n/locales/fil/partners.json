@@ -1,0 +1,23 @@
+{
+  "title": "Mga Kasosyo",
+  "subtitle": "Lumalaki kasama ng",
+  "subtitleSuffix": "mapagkakatiwalaang kasosyo",
+  "loading": "Naglo-load ng impormasyon ng kasosyo...",
+  "stats": {
+    "totalPartners": "Kabuuang Kasosyo",
+    "countries": "Mga Bansang Kasosyo",
+    "premiumPartners": "Premium na Kasosyo"
+  },
+  "featured": {
+    "badge": "Premium Partners",
+    "title": "Pangunahing Kasosyo",
+    "subtitle": "Opisyal na kasosyo ng NB KOREA"
+  },
+  "categories": {
+    "overseas": "Dayuhang institusyon ng pag-aaral",
+    "worker": "Kumpanya ng pagpapadala ng manggagawa",
+    "domestic": "Lokal na kasosyo",
+    "partnerCount": "{{count}} kasosyo"
+  },
+  "empty": "Walang kasosyo"
+}

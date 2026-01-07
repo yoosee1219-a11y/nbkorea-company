@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import { MapPin, Mail, Phone, ArrowRight, Globe, Users, FileText } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
+  const { t } = useTranslation('footer')
   const currentYear = new Date().getFullYear()
 
   return (
@@ -20,12 +22,12 @@ const Footer = () => {
                 />
               </div>
               <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-6">
-                한국과 세계를 연결하는 글로벌 비즈니스 파트너
+                {t('companyDescription')}
               </p>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-nb-pink-600/20 to-rose-600/20 border border-nb-pink-500/30">
                 <span className="size-2 rounded-full bg-nb-pink-500 animate-pulse"></span>
                 <span className="text-nb-pink-400 text-xs font-semibold uppercase tracking-wider">
-                  LGU+ x 전북은행 파트너
+                  {t('partnerBadge')}
                 </span>
               </div>
             </div>
@@ -34,25 +36,25 @@ const Footer = () => {
             <div>
               <h3 className="font-bold text-base sm:text-lg mb-4 sm:mb-6 text-white flex items-center gap-2">
                 <Globe className="size-5 text-nb-pink-500" />
-                서비스
+                {t('sections.services.title')}
               </h3>
               <ul className="space-y-3">
                 <li>
                   <div className="text-slate-400 hover:text-white transition-colors text-sm sm:text-base flex items-start gap-2 group cursor-default">
                     <ArrowRight className="size-4 mt-1 text-nb-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span>유학 비자 (D2, D4)</span>
+                    <span>{t('sections.services.items.studentVisa')}</span>
                   </div>
                 </li>
                 <li>
                   <div className="text-slate-400 hover:text-white transition-colors text-sm sm:text-base flex items-start gap-2 group cursor-default">
                     <ArrowRight className="size-4 mt-1 text-nb-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span>근로자 비자 (E7, E9)</span>
+                    <span>{t('sections.services.items.workerVisa')}</span>
                   </div>
                 </li>
                 <li>
                   <div className="text-slate-400 hover:text-white transition-colors text-sm sm:text-base flex items-start gap-2 group cursor-default">
                     <ArrowRight className="size-4 mt-1 text-nb-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span>글로벌 파트너십</span>
+                    <span>{t('sections.services.items.globalPartnership')}</span>
                   </div>
                 </li>
               </ul>
@@ -62,7 +64,7 @@ const Footer = () => {
             <div>
               <h3 className="font-bold text-base sm:text-lg mb-4 sm:mb-6 text-white flex items-center gap-2">
                 <FileText className="size-5 text-nb-pink-500" />
-                빠른 링크
+                {t('sections.quickLinks.title')}
               </h3>
               <ul className="space-y-3">
                 <li>
@@ -71,7 +73,7 @@ const Footer = () => {
                     className="text-slate-400 hover:text-white transition-all duration-300 text-sm sm:text-base inline-flex items-center gap-2 group focus:outline-none focus:text-nb-pink-400"
                   >
                     <ArrowRight className="size-4 text-nb-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    회사소개
+                    {t('sections.quickLinks.items.about')}
                   </Link>
                 </li>
                 <li>
@@ -80,7 +82,7 @@ const Footer = () => {
                     className="text-slate-400 hover:text-white transition-all duration-300 text-sm sm:text-base inline-flex items-center gap-2 group focus:outline-none focus:text-nb-pink-400"
                   >
                     <ArrowRight className="size-4 text-nb-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    제휴 파트너사
+                    {t('sections.quickLinks.items.partners')}
                   </Link>
                 </li>
                 <li>
@@ -89,7 +91,7 @@ const Footer = () => {
                     className="text-slate-400 hover:text-white transition-all duration-300 text-sm sm:text-base inline-flex items-center gap-2 group focus:outline-none focus:text-nb-pink-400"
                   >
                     <ArrowRight className="size-4 text-nb-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    블로그
+                    {t('sections.quickLinks.items.blog')}
                   </Link>
                 </li>
               </ul>
@@ -99,15 +101,15 @@ const Footer = () => {
             <div>
               <h3 className="font-bold text-base sm:text-lg mb-4 sm:mb-6 text-white flex items-center gap-2">
                 <Users className="size-5 text-nb-pink-500" />
-                문의하기
+                {t('sections.contact.title')}
               </h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-slate-400 text-sm sm:text-base">
                   <MapPin className="size-5 text-nb-pink-500 flex-shrink-0 mt-0.5" />
-                  <span className="leading-relaxed">
-                    인천광역시 부평구 부평대로 301,<br />
-                    남광센트렉스 911호
-                  </span>
+                  <span
+                    className="leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: t('sections.contact.address') }}
+                  />
                 </li>
                 <li>
                   <a
@@ -128,10 +130,10 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs sm:text-sm text-slate-500 text-center sm:text-left">
-            &copy; {currentYear} NBKOREA. All rights reserved.
+            {t('copyright', { year: currentYear })}
           </p>
           <p className="text-xs sm:text-sm text-slate-600 text-center sm:text-right">
-            Designed with excellence for global partnerships
+            {t('tagline')}
           </p>
         </div>
       </div>

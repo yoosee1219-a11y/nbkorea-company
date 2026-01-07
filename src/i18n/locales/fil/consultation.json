@@ -1,0 +1,56 @@
+{
+  "modalTitle": "Mag-apply para sa Libreng Konsultasyon",
+  "step": "Hakbang {{current}} ng {{total}}",
+
+  "step1Title": "Pakiusap na piliin ang uri ng konsultasyon",
+  "typeTelecom": "LGU+ Telekomunikasyon",
+  "typeLoan": "Jeonbuk Bank Pautang",
+  "typeVisa": "Konsultasyon sa Visa",
+  "typeOther": "Iba pa",
+  "errorSelectType": "Pakiusap na piliin ang uri ng konsultasyon",
+
+  "step2TitleBasic": "Pangunahing Impormasyon",
+  "step2TitleService": "{{service}} Impormasyon",
+
+  "fileUploadTitle": "Maglakip ng Dokumento (opsyonal)",
+  "fileUploadDesc": "Pakiusap na maglakip ng ID, sertipiko ng trabaho, patunay ng kita, atbp.",
+  "fileUploadLimit": "Hanggang 5 file, bawat isa ay hindi hihigit sa 10MB (JPG, PNG, PDF, atbp.)",
+  "fileUploadMaxSize": "Hanggang 10MB",
+  "fileSelectButton": "Pumili ng File",
+  "fileMaxError": "Maaari lamang mag-upload ng hanggang 5 file.",
+  "fileSizeError": "Ang laki ng bawat file ay hindi dapat lumampas sa 10MB.",
+
+  "selectPlaceholder": "Pakiusap na pumili",
+
+  "privacyConsentLabel": "Sumasang-ayon ako sa pagkolekta at paggamit ng personal na impormasyon",
+  "privacyConsentDesc": "Nakolektang impormasyon: Pangalan, numero ng telepono, email, atbp. | Layunin: Konsultasyon | Panahon ng paghawak: 1 taon pagkatapos ng konsultasyon",
+  "privacyConsentError": "Pakiusap na sumang-ayon sa pagkolekta ng personal na impormasyon",
+
+  "buttonNext": "Susunod na Hakbang",
+  "buttonPrevious": "Nakaraan",
+  "buttonSubmit": "Isumite ang Aplikasyon",
+  "buttonSubmitting": "Isinusumite...",
+
+  "successTitle": "Kumpleto na ang aplikasyon!",
+  "successMessage": "Makikipag-ugnayan kami sa lalong madaling panahon.",
+
+  "submitError": "May pagkakamali sa pagsusumite ng kahilingan. Pakisubukan muli.",
+
+  "fieldRequired": "Pakiusap na ilagay ang {{field}}",
+  "fieldPlaceholder": "Ilagay ang {{field}}",
+
+  "fieldName": "Pangalan",
+  "fieldPhone": "Numero ng Telepono",
+  "fieldEmail": "Email",
+  "fieldMessage": "Mensahe",
+  "fieldNationality": "Nasyonalidad",
+  "fieldVisaType": "Uri ng Visa",
+  "fieldCurrentCarrier": "Kasalukuyang Carrier",
+  "fieldDesiredPlan": "Nais na Plan",
+  "fieldLoanAmount": "Nais na Halaga ng Pautang",
+  "fieldIncome": "Buwanang Kita",
+  "fieldOccupation": "Trabaho",
+  "fieldEmploymentPeriod": "Panahon ng Pagtatrabaho",
+  "fieldStayPeriod": "Panahon ng Pananatili sa Korea",
+  "fieldPurpose": "Layunin ng Konsultasyon"
+}

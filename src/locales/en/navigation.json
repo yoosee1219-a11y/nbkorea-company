@@ -1,0 +1,14 @@
+{
+  "menu": {
+    "about": "About Us",
+    "partners": "Partners",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "aria": {
+    "logo": "NB KOREA Logo - Go to Home",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "languageSwitch": "Change language"
+  }
+}

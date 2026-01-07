@@ -1,0 +1,56 @@
+{
+  "modalTitle": "Đăng ký tư vấn miễn phí",
+  "step": "Bước {{current}}/{{total}}",
+
+  "step1Title": "Vui lòng chọn loại tư vấn",
+  "typeTelecom": "Viễn thông LGU+",
+  "typeLoan": "Vay Jeonbuk Bank",
+  "typeVisa": "Tư vấn visa",
+  "typeOther": "Khác",
+  "errorSelectType": "Vui lòng chọn loại tư vấn",
+
+  "step2TitleBasic": "Thông tin cơ bản",
+  "step2TitleService": "Thông tin {{service}}",
+
+  "fileUploadTitle": "Đính kèm tài liệu (tùy chọn)",
+  "fileUploadDesc": "Vui lòng đính kèm CMND/Hộ chiếu, giấy xác nhận làm việc, chứng minh thu nhập, v.v.",
+  "fileUploadLimit": "Tối đa 5 file, mỗi file dưới 10MB (JPG, PNG, PDF, v.v.)",
+  "fileUploadMaxSize": "Tối đa 10MB",
+  "fileSelectButton": "Chọn file",
+  "fileMaxError": "Chỉ có thể tải lên tối đa 5 file.",
+  "fileSizeError": "Kích thước mỗi file không được vượt quá 10MB.",
+
+  "selectPlaceholder": "Vui lòng chọn",
+
+  "privacyConsentLabel": "Tôi đồng ý với việc thu thập và sử dụng thông tin cá nhân",
+  "privacyConsentDesc": "Thông tin thu thập: Họ tên, số điện thoại, email, v.v. | Mục đích: Tư vấn | Thời gian lưu trữ: 1 năm sau khi hoàn thành tư vấn",
+  "privacyConsentError": "Vui lòng đồng ý với việc thu thập thông tin cá nhân",
+
+  "buttonNext": "Bước tiếp theo",
+  "buttonPrevious": "Trước",
+  "buttonSubmit": "Gửi đăng ký",
+  "buttonSubmitting": "Đang gửi...",
+
+  "successTitle": "Đăng ký hoàn tất!",
+  "successMessage": "Chúng tôi sẽ liên hệ với bạn sớm nhất có thể.",
+
+  "submitError": "Đã xảy ra lỗi khi gửi yêu cầu tư vấn. Vui lòng thử lại.",
+
+  "fieldRequired": "Vui lòng nhập {{field}}",
+  "fieldPlaceholder": "Nhập {{field}}",
+
+  "fieldName": "Họ tên",
+  "fieldPhone": "Số điện thoại",
+  "fieldEmail": "Email",
+  "fieldMessage": "Nội dung",
+  "fieldNationality": "Quốc t적",
+  "fieldVisaType": "Loại visa",
+  "fieldCurrentCarrier": "Nhà mạng hiện tại",
+  "fieldDesiredPlan": "Gói cước mong muốn",
+  "fieldLoanAmount": "Số tiền vay mong muốn",
+  "fieldIncome": "Thu nhập hàng tháng",
+  "fieldOccupation": "Nghề nghiệp",
+  "fieldEmploymentPeriod": "Thời gian làm việc",
+  "fieldStayPeriod": "Thời gian lưu trú tại Hàn Quốc",
+  "fieldPurpose": "Mục đích tư vấn"
+}

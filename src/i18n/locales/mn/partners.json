@@ -1,0 +1,23 @@
+{
+  "title": "Түншүүд",
+  "subtitle": "Өсч байна",
+  "subtitleSuffix": "итгэлтэй түншүүдтэй хамт",
+  "loading": "Түншүүдийн мэдээлэл ачааллаж байна...",
+  "stats": {
+    "totalPartners": "Нийт түншүүд",
+    "countries": "Хамтран ажиллаж буй улсууд",
+    "premiumPartners": "Премиум түншүүд"
+  },
+  "featured": {
+    "badge": "Premium Partners",
+    "title": "Гол түншүүд",
+    "subtitle": "NB KOREA-ийн албан ёсны түншүүд"
+  },
+  "categories": {
+    "overseas": "Гадаадын боловсролын байгууллагууд",
+    "worker": "Ажилчин илгээгч компаниуд",
+    "domestic": "Дотоодын түншүүд",
+    "partnerCount": "{{count}} түншүүд"
+  },
+  "empty": "Түнш байхгүй"
+}

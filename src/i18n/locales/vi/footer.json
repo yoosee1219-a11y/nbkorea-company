@@ -1,0 +1,28 @@
+{
+  "companyDescription": "Đối tác kinh doanh toàn cầu kết nối Hàn Quốc với thế giới",
+  "partnerBadge": "Đối tác LGU+ x Jeonbuk Bank",
+  "sections": {
+    "services": {
+      "title": "Dịch vụ",
+      "items": {
+        "studentVisa": "Visa du học (D2, D4)",
+        "workerVisa": "Visa lao động (E7, E9)",
+        "globalPartnership": "Quan hệ đối tác toàn cầu"
+      }
+    },
+    "quickLinks": {
+      "title": "Liên kết nhanh",
+      "items": {
+        "about": "Giới thiệu",
+        "partners": "Đối tác",
+        "blog": "Blog"
+      }
+    },
+    "contact": {
+      "title": "Liên hệ",
+      "address": "911, Nam Gwang Centrex, 301 Bupyeong-daero,<br />Bupyeong-gu, Incheon"
+    }
+  },
+  "copyright": "© {{year}} NBKOREA. Bảo lưu mọi quyền.",
+  "tagline": "Thiết kế xuất sắc cho quan hệ đối tác toàn cầu"
+}

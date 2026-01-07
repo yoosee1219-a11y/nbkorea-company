@@ -1,0 +1,28 @@
+{
+  "companyDescription": "कोरिया र संसारलाई जोड्ने विश्वव्यापी व्यापार साझेदार",
+  "partnerBadge": "LGU+ x Jeonbuk Bank साझेदार",
+  "sections": {
+    "services": {
+      "title": "सेवाहरू",
+      "items": {
+        "studentVisa": "विद्यार्थी भिसा (D2, D4)",
+        "workerVisa": "श्रमिक भिसा (E7, E9)",
+        "globalPartnership": "विश्वव्यापी साझेदारी"
+      }
+    },
+    "quickLinks": {
+      "title": "छिटो लिङ्कहरू",
+      "items": {
+        "about": "कम्पनी परिचय",
+        "partners": "साझेदारहरू",
+        "blog": "ब्लग"
+      }
+    },
+    "contact": {
+      "title": "सम्पर्क गर्नुहोस्",
+      "address": "911, Nam Gwang Centrex, 301 Bupyeong-daero,<br />Bupyeong-gu, Incheon"
+    }
+  },
+  "copyright": "© {{year}} NBKOREA. सबै अधिकार सुरक्षित।",
+  "tagline": "विश्वव्यापी साझेदारीको लागि उत्कृष्टताका साथ डिजाइन गरिएको"
+}

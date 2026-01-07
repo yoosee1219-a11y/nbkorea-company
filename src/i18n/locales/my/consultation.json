@@ -1,0 +1,56 @@
+{
+  "modalTitle": "အခမဲ့အကြံပေးခြင်းအတွက် လျှောက်ထားမည်",
+  "step": "အဆင့် {{current}}/{{total}}",
+
+  "step1Title": "ကျေးဇူးပြု၍ အကြံပေးမှုအမျိုးအစားကို ရွေးချယ်ပါ",
+  "typeTelecom": "LGU+ ဆက်သွယ်ရေး",
+  "typeLoan": "Jeonbuk Bank ချေးငွေ",
+  "typeVisa": "ဗီဇာအကြံပေးခြင်း",
+  "typeOther": "အခြား",
+  "errorSelectType": "ကျေးဇူးပြု၍ အကြံပေးမှုအမျိုးအစားကို ရွေးချယ်ပါ",
+
+  "step2TitleBasic": "အခြေခံအချက်အလက်",
+  "step2TitleService": "{{service}} အချက်အလက်",
+
+  "selectPlaceholder": "ကျေးဇူးပြု၍ ရွေးချယ်ပါ",
+
+  "fileUploadTitle": "စာရွက်စာတမ်းများ ပူးတွဲရန် (ရွေးချယ်ခွင့်)",
+  "fileUploadDesc": "ကျေးဇူးပြု၍ မှတ်ပုံတင်၊ အလုပ်လက်မှတ်၊ ဝင်ငွေသက်သေခံ စသည်တို့ကို ပူးတွဲပါ",
+  "fileUploadLimit": "အများဆုံး 5 ဖိုင်၊ တစ်ခုချင်းစီ 10MB အောက် (JPG, PNG, PDF စသည်)",
+  "fileUploadMaxSize": "အများဆုံး 10MB",
+  "fileSelectButton": "ဖိုင်ရွေးချယ်ရန်",
+  "fileMaxError": "အများဆုံး 5 ဖိုင်သာ တင်နိုင်ပါသည်။",
+  "fileSizeError": "ဖိုင်တစ်ခုချင်းစီ၏ အရွယ်အစားသည် 10MB ထက်မပိုရပါ။",
+
+  "privacyConsentLabel": "ကိုယ်ရေးကိုယ်တာအချက်အလက် စုဆောင်းခြင်းနှင့် အသုံးပြုခြင်းကို သဘောတူပါသည်",
+  "privacyConsentDesc": "စုဆောင်းထားသောအချက်အလက်များ: အမည်၊ ဖုန်းနံပါတ်၊ အီးမေးလ် စသည် | ရည်ရွယ်ချက်: အကြံပေးခြင်း | သိမ်းဆည်းကာလ: အကြံပေးပြီးနောက် 1 နှစ်",
+  "privacyConsentError": "ကျေးဇူးပြု၍ ကိုယ်ရေးကိုယ်တာအချက်အလက် စုဆောင်းခြင်းကို သဘောတူပါ",
+
+  "buttonNext": "နောက်အဆင့်",
+  "buttonPrevious": "ယခင်",
+  "buttonSubmit": "လျှောက်လွှာတင်မည်",
+  "buttonSubmitting": "တင်သွင်းနေပါသည်...",
+
+  "successTitle": "လျှောက်လွှာပြီးပါပြီ!",
+  "successMessage": "အမြန်ဆုံး သင့်ကို ဆက်သွယ်ပါမည်။",
+
+  "submitError": "တိုင်ပင်မှု တောင်းဆိုချက် တင်သွင်းရာတွင် အမှားအယွင်း ဖြစ်ပွားခဲ့သည်။ ကျေးဇူးပြု၍ ထပ်မံကြိုးစားပါ။",
+
+  "fieldRequired": "ကျေးဇူးပြု၍ {{field}} ကို ထည့်ပါ",
+  "fieldPlaceholder": "{{field}} ထည့်ပါ",
+
+  "fieldName": "အမည်",
+  "fieldPhone": "ဖုန်းနံပါတ်",
+  "fieldEmail": "အီးမေးလ်",
+  "fieldMessage": "မက်ဆေ့ခ်ျ",
+  "fieldNationality": "နိုင်ငံသား",
+  "fieldVisaType": "ဗီဇာအမျိုးအစား",
+  "fieldCurrentCarrier": "လက်ရှိဝန်ဆောင်မှုပေးသူ",
+  "fieldDesiredPlan": "လိုချင်သောအစီအစဉ်",
+  "fieldLoanAmount": "လိုချင်သောချေးငွေပမာဏ",
+  "fieldIncome": "လစဉ်ဝင်ငွေ",
+  "fieldOccupation": "အလုပ်အကိုင်",
+  "fieldEmploymentPeriod": "အလုပ်လုပ်ကိုင်ချိန်",
+  "fieldStayPeriod": "ကိုရီးယားတွင်နေထိုင်သည့်ကာလ",
+  "fieldPurpose": "တိုင်ပင်မှု ရည်ရွယ်ချက်"
+}

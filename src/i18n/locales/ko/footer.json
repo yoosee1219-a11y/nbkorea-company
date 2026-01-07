@@ -1,0 +1,28 @@
+{
+  "companyDescription": "한국과 세계를 연결하는 글로벌 비즈니스 파트너",
+  "partnerBadge": "LGU+ x 전북은행 파트너",
+  "sections": {
+    "services": {
+      "title": "서비스",
+      "items": {
+        "studentVisa": "유학 비자 (D2, D4)",
+        "workerVisa": "근로자 비자 (E7, E9)",
+        "globalPartnership": "글로벌 파트너십"
+      }
+    },
+    "quickLinks": {
+      "title": "빠른 링크",
+      "items": {
+        "about": "회사소개",
+        "partners": "제휴 파트너사",
+        "blog": "블로그"
+      }
+    },
+    "contact": {
+      "title": "문의하기",
+      "address": "인천광역시 부평구 부평대로 301,<br />남광센트렉스 911호"
+    }
+  },
+  "copyright": "© {{year}} NBKOREA. All rights reserved.",
+  "tagline": "Designed with excellence for global partnerships"
+}

@@ -1,0 +1,23 @@
+{
+  "title": "Партнёры",
+  "subtitle": "Растём вместе с",
+  "subtitleSuffix": "надёжными партнёрами",
+  "loading": "Загрузка информации о партнёрах...",
+  "stats": {
+    "totalPartners": "Всего партнёров",
+    "countries": "Страны-партнёры",
+    "premiumPartners": "Премиум-партнёры"
+  },
+  "featured": {
+    "badge": "Premium Partners",
+    "title": "Основные партнёры",
+    "subtitle": "Официальные партнёры NB KOREA"
+  },
+  "categories": {
+    "overseas": "Зарубежные образовательные учреждения",
+    "worker": "Компании по трудоустройству",
+    "domestic": "Местные партнёры",
+    "partnerCount": "{{count}} партнёров"
+  },
+  "empty": "Партнёров нет"
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Blog",
+  "subtitle": "Xem tin tức mới nhất và thông tin hữu ích từ NB KOREA",
+  "loading": "Đang tải bài viết blog...",
+  "empty": {
+    "title": "Không có bài viết blog",
+    "subtitle": "Chúng tôi sẽ sớm chia sẻ tin tức mới"
+  },
+  "readMore": "Xem thêm"
+}

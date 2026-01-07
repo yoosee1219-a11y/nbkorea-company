@@ -1,0 +1,23 @@
+{
+  "title": "合作伙伴",
+  "subtitle": "与",
+  "subtitleSuffix": "可信赖的合作伙伴共同成长",
+  "loading": "正在加载合作伙伴信息...",
+  "stats": {
+    "totalPartners": "合作伙伴总数",
+    "countries": "合作国家",
+    "premiumPartners": "高级合作伙伴"
+  },
+  "featured": {
+    "badge": "Premium Partners",
+    "title": "主要合作伙伴",
+    "subtitle": "NB KOREA的官方合作伙伴"
+  },
+  "categories": {
+    "overseas": "海外教育机构",
+    "worker": "劳务派遣公司",
+    "domestic": "国内合作伙伴",
+    "partnerCount": "{{count}}个合作伙伴"
+  },
+  "empty": "没有合作伙伴"
+}

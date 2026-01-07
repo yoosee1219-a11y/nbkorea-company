@@ -1,0 +1,29 @@
+{
+  "title": "Түншлэлийн лавлагаа",
+  "subtitle": "NB KOREA-тай хамт өсөн дэвжих түншүүдийг хүлээж байна",
+  "infoTitle": "Холбоо барих мэдээлэл",
+  "formTitle": "Түншлэлийн хүсэлт илгээх",
+
+  "email": "Имэйл",
+  "phone": "Утас",
+  "address": "Хаяг",
+  "addressValue": "911, Nam Gwang Centrex, 301 Bupyeong-daero, Bupyeong-gu, Incheon",
+  "businessHours": "Ажлын цаг",
+  "weekdays": "Да-Ба: 09:00 - 18:00",
+  "weekend": "Амралтын өдөр болон баяр ёслолын өдрүүдэд хаалттай",
+
+  "nameLabel": "Компанийн нэр / Нэр",
+  "namePlaceholder": "Компанийн нэр эсвэл нэрээ оруулна уу",
+  "emailLabel": "Имэйл",
+  "emailPlaceholder": "your@email.com",
+  "phoneLabel": "Холбогдох дугаар",
+  "phonePlaceholder": "010-0000-0000",
+  "messageLabel": "Мессеж",
+  "messagePlaceholder": "Түншлэлийн тухай дэлгэрэнгүй бичнэ үү",
+
+  "submitButton": "Лавлагаа илгээх",
+  "submitting": "Илгээж байна...",
+
+  "successMessage": "Таны лавлагаа амжилттай илгээгдлээ!",
+  "errorMessage": "Илгээхэд алдаа гарлаа. Дахин оролдоно уу."
+}

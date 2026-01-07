@@ -2,10 +2,102 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Globe, Users, Building2, CheckCircle, Mail, Phone, Zap, Award, TrendingUp } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import ConsultationModal from './ConsultationModal'
 
 const Hero = () => {
+  const { t } = useTranslation('hero')
   const [isModalOpen, setIsModalOpen] = useState(false)
+
+  // Services data structure for dynamic rendering
+  const services = [
+    {
+      key: 'telecom',
+      gradientColors: 'from-nb-pink-600 to-rose-600',
+      badgeGradient: 'from-nb-pink-100 to-rose-100',
+      badgeText: 'text-nb-pink-700',
+      borderColor: 'border-nb-pink-100',
+      borderHoverColor: 'group-hover:border-nb-pink-300',
+      svgGradientId: 'phoneGradient',
+      svgElement: (
+        <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-xl">
+          <ellipse cx="50" cy="85" rx="35" ry="8" fill="#e11d48" opacity="0.2"/>
+          <path d="M35 25 L35 75 L65 75 L65 25 Z" fill="url(#phoneGradient)" stroke="#be123c" strokeWidth="2"/>
+          <rect x="40" y="32" width="20" height="28" rx="2" fill="#fff" opacity="0.9"/>
+          <rect x="42" y="50" width="3" height="6" fill="#10b981" rx="1"/>
+          <rect x="47" y="46" width="3" height="10" fill="#10b981" rx="1"/>
+          <rect x="52" y="42" width="3" height="14" fill="#10b981" rx="1"/>
+          <path d="M38 28 L38 50 L42 50 L42 28 Z" fill="#fff" opacity="0.3"/>
+          <defs>
+            <linearGradient id="phoneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ec4899"/>
+              <stop offset="100%" stopColor="#be123c"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      )
+    },
+    {
+      key: 'loan',
+      gradientColors: 'from-blue-600 to-indigo-600',
+      badgeGradient: 'from-blue-100 to-indigo-100',
+      badgeText: 'text-blue-700',
+      borderColor: 'border-blue-100',
+      borderHoverColor: 'group-hover:border-blue-300',
+      svgGradientId: 'buildingGradient',
+      svgElement: (
+        <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-xl">
+          <ellipse cx="50" cy="85" rx="35" ry="8" fill="#1d4ed8" opacity="0.2"/>
+          <path d="M50 20 L70 30 L70 75 L30 75 L30 30 Z" fill="url(#buildingGradient)" stroke="#1e40af" strokeWidth="2"/>
+          <path d="M50 20 L70 30 L50 35 L30 30 Z" fill="#3b82f6" stroke="#1e40af" strokeWidth="2"/>
+          <rect x="38" y="40" width="8" height="8" fill="#dbeafe" rx="1"/>
+          <rect x="54" y="40" width="8" height="8" fill="#dbeafe" rx="1"/>
+          <rect x="38" y="52" width="8" height="8" fill="#dbeafe" rx="1"/>
+          <rect x="54" y="52" width="8" height="8" fill="#dbeafe" rx="1"/>
+          <rect x="43" y="64" width="14" height="11" fill="#1e40af" rx="1"/>
+          <text x="50" y="30" fontSize="12" fill="#fbbf24" fontWeight="bold" textAnchor="middle">$</text>
+          <defs>
+            <linearGradient id="buildingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#60a5fa"/>
+              <stop offset="100%" stopColor="#2563eb"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      )
+    },
+    {
+      key: 'network',
+      gradientColors: 'from-purple-600 to-pink-600',
+      badgeGradient: 'from-purple-100 to-pink-100',
+      badgeText: 'text-purple-700',
+      borderColor: 'border-purple-100',
+      borderHoverColor: 'group-hover:border-purple-300',
+      svgGradientId: 'peopleGradient',
+      svgElement: (
+        <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-xl">
+          <ellipse cx="50" cy="85" rx="35" ry="8" fill="#a855f7" opacity="0.2"/>
+          <circle cx="50" cy="45" r="8" fill="url(#peopleGradient1)"/>
+          <path d="M42 55 L42 70 L58 70 L58 55 Z" fill="url(#peopleGradient1)" stroke="#7c3aed" strokeWidth="2"/>
+          <circle cx="28" cy="40" r="6" fill="url(#peopleGradient2)"/>
+          <path d="M22 48 L22 60 L34 60 L34 48 Z" fill="url(#peopleGradient2)" stroke="#9333ea" strokeWidth="1.5"/>
+          <circle cx="72" cy="40" r="6" fill="url(#peopleGradient2)"/>
+          <path d="M66 48 L66 60 L78 60 L78 48 Z" fill="url(#peopleGradient2)" stroke="#9333ea" strokeWidth="1.5"/>
+          <line x1="35" y1="50" x2="43" y2="55" stroke="#a855f7" strokeWidth="2" strokeDasharray="2,2"/>
+          <line x1="65" y1="50" x2="57" y2="55" stroke="#a855f7" strokeWidth="2" strokeDasharray="2,2"/>
+          <defs>
+            <linearGradient id="peopleGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#c084fc"/>
+              <stop offset="100%" stopColor="#9333ea"/>
+            </linearGradient>
+            <linearGradient id="peopleGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#e9d5ff"/>
+              <stop offset="100%" stopColor="#c084fc"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      )
+    }
+  ]
 
   return (
     <>
@@ -81,16 +173,16 @@ const Hero = () => {
                     <span className="size-3 rounded-full bg-nb-pink-600"></span>
                   </div>
                   <span className="text-slate-800 text-sm font-bold uppercase tracking-wider">
-                    🏆 LGU+ x 전북은행 공식 파트너
+                    {t('badge')}
                   </span>
                 </motion.div>
 
                 {/* Main Heading */}
                 <h1 className="text-slate-900 text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.1] mb-6">
-                  한국과 세계를<br />
+                  {t('headline')}<br />
                   <span className="relative inline-block">
                     <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-nb-pink-600 via-rose-600 to-purple-600">
-                      연결하는 파트너
+                      {t('headlineHighlight')}
                     </span>
                     <motion.span
                       initial={{ width: 0 }}
@@ -103,7 +195,7 @@ const Hero = () => {
 
                 {/* Subheading */}
                 <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                  LGU+ 통신 · 전북은행 금융 솔루션
+                  {t('subheadline')}
                 </p>
 
                 {/* CTA Buttons */}
@@ -115,7 +207,7 @@ const Hero = () => {
                     className="group w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-nb-pink-600 to-rose-600 hover:from-nb-pink-700 hover:to-rose-700 text-white text-base font-bold rounded-2xl shadow-xl shadow-nb-pink-600/30 transition-all cursor-pointer"
                   >
                     <Mail className="w-5 h-5" />
-                    무료 상담 신청
+                    {t('ctaConsultation')}
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </motion.button>
                   <Link to="/partners">
@@ -124,7 +216,7 @@ const Hero = () => {
                       whileTap={{ scale: 0.95 }}
                       className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-slate-50 text-slate-900 text-base font-bold rounded-2xl border-2 border-slate-200 hover:border-nb-pink-300 shadow-lg transition-all"
                     >
-                      파트너사 보기
+                      {t('ctaPartners')}
                     </motion.button>
                   </Link>
                 </div>
@@ -155,7 +247,7 @@ const Hero = () => {
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                     <img
                       src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1200"
-                      alt="글로벌 비즈니스"
+                      alt={t('imageAlt')}
                       className="w-full h-auto object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"></div>
@@ -182,185 +274,52 @@ const Hero = () => {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-nb-pink-100 to-rose-100 border border-nb-pink-200 mb-6"
             >
-              <span className="text-2xl">✨</span>
-              <span className="text-nb-pink-700 text-sm font-bold uppercase tracking-wider">Our Services</span>
+              <span className="text-nb-pink-700 text-sm font-bold uppercase tracking-wider">{t('servicesBadge')}</span>
             </motion.div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-6">
-              제공 서비스
+              {t('servicesTitle')}
             </h2>
             <p className="text-xl text-slate-600 leading-relaxed">
-              외국인의 성공적인 한국 정착을 위한 <span className="text-nb-pink-600 font-bold">토탈 솔루션</span>
+              {t('servicesSubtitle')}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
-            {/* Service 1 - 3D Icon */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="relative group h-full flex"
-            >
-              {/* Glow Effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-nb-pink-600 to-rose-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-500"></div>
+            {services.map((service, index) => (
+              <motion.div
+                key={service.key}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="relative group h-full flex"
+              >
+                {/* Glow Effect */}
+                <div className={`absolute -inset-1 bg-gradient-to-r ${service.gradientColors} rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-500`}></div>
 
-              <div className="relative bg-white p-8 rounded-3xl border-2 border-nb-pink-100 group-hover:border-nb-pink-300 shadow-lg group-hover:shadow-2xl transition-all duration-500 flex flex-col w-full">
-                {/* 3D Icon - Phone/Signal */}
-                <div className="mb-6 relative flex justify-center">
-                  <div className="w-24 h-24 relative">
-                    {/* Custom 3D-style SVG Icon */}
-                    <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-xl">
-                      {/* Base */}
-                      <ellipse cx="50" cy="85" rx="35" ry="8" fill="#e11d48" opacity="0.2"/>
-                      {/* Phone Body - Isometric */}
-                      <path d="M35 25 L35 75 L65 75 L65 25 Z" fill="url(#phoneGradient)" stroke="#be123c" strokeWidth="2"/>
-                      {/* Screen */}
-                      <rect x="40" y="32" width="20" height="28" rx="2" fill="#fff" opacity="0.9"/>
-                      {/* Signal bars */}
-                      <rect x="42" y="50" width="3" height="6" fill="#10b981" rx="1"/>
-                      <rect x="47" y="46" width="3" height="10" fill="#10b981" rx="1"/>
-                      <rect x="52" y="42" width="3" height="14" fill="#10b981" rx="1"/>
-                      {/* Shine effect */}
-                      <path d="M38 28 L38 50 L42 50 L42 28 Z" fill="#fff" opacity="0.3"/>
-                      <defs>
-                        <linearGradient id="phoneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#ec4899"/>
-                          <stop offset="100%" stopColor="#be123c"/>
-                        </linearGradient>
-                      </defs>
-                    </svg>
+                <div className={`relative bg-white p-8 rounded-3xl border-2 ${service.borderColor} ${service.borderHoverColor} shadow-lg group-hover:shadow-2xl transition-all duration-500 flex flex-col w-full`}>
+                  {/* 3D Icon */}
+                  <div className="mb-6 relative flex justify-center">
+                    <div className="w-24 h-24 relative">
+                      {service.svgElement}
+                    </div>
+                  </div>
+
+                  <h3 className="text-2xl font-black text-slate-900 mb-4">
+                    {t(`${service.key}Title`)}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed mb-6 flex-1">
+                    {t(`${service.key}Desc`)}
+                  </p>
+                  <div className="flex items-center gap-2 mt-auto">
+                    <span className={`px-4 py-2 bg-gradient-to-r ${service.badgeGradient} ${service.badgeText} text-sm font-bold rounded-xl`}>
+                      {t(`${service.key}Badge`)}
+                    </span>
                   </div>
                 </div>
-
-                <h3 className="text-2xl font-black text-slate-900 mb-4">
-                  LGU+ 외국인 전용 요금제
-                </h3>
-                <p className="text-slate-600 leading-relaxed mb-6 flex-1">
-                  LGU+ 공식 파트너십을 통한 외국인 맞춤 통신 요금제 제공. 합리적인 가격과 안정적인 네트워크.
-                </p>
-                <div className="flex items-center gap-2 mt-auto">
-                  <span className="px-4 py-2 bg-gradient-to-r from-nb-pink-100 to-rose-100 text-nb-pink-700 text-sm font-bold rounded-xl">
-                    ⚡ 직접 제공
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Service 2 - 3D Icon */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="relative group h-full flex"
-            >
-              {/* Glow Effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-500"></div>
-
-              <div className="relative bg-white p-8 rounded-3xl border-2 border-blue-100 group-hover:border-blue-300 shadow-lg group-hover:shadow-2xl transition-all duration-500 flex flex-col w-full">
-                {/* 3D Icon - Bank/Building */}
-                <div className="mb-6 relative flex justify-center">
-                  <div className="w-24 h-24 relative">
-                    <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-xl">
-                      {/* Shadow */}
-                      <ellipse cx="50" cy="85" rx="35" ry="8" fill="#1d4ed8" opacity="0.2"/>
-                      {/* Building - Isometric */}
-                      <path d="M50 20 L70 30 L70 75 L30 75 L30 30 Z" fill="url(#buildingGradient)" stroke="#1e40af" strokeWidth="2"/>
-                      {/* Roof */}
-                      <path d="M50 20 L70 30 L50 35 L30 30 Z" fill="#3b82f6" stroke="#1e40af" strokeWidth="2"/>
-                      {/* Windows */}
-                      <rect x="38" y="40" width="8" height="8" fill="#dbeafe" rx="1"/>
-                      <rect x="54" y="40" width="8" height="8" fill="#dbeafe" rx="1"/>
-                      <rect x="38" y="52" width="8" height="8" fill="#dbeafe" rx="1"/>
-                      <rect x="54" y="52" width="8" height="8" fill="#dbeafe" rx="1"/>
-                      {/* Door */}
-                      <rect x="43" y="64" width="14" height="11" fill="#1e40af" rx="1"/>
-                      {/* Dollar sign */}
-                      <text x="50" y="30" fontSize="12" fill="#fbbf24" fontWeight="bold" textAnchor="middle">$</text>
-                      <defs>
-                        <linearGradient id="buildingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#60a5fa"/>
-                          <stop offset="100%" stopColor="#2563eb"/>
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  </div>
-                </div>
-
-                <h3 className="text-2xl font-black text-slate-900 mb-4">
-                  1금융권 대출 연계
-                </h3>
-                <p className="text-slate-600 leading-relaxed mb-6 flex-1">
-                  전북은행 협력을 통한 외국인 대출 서비스. 우대금리 적용으로 안정적인 정착 지원.
-                </p>
-                <div className="flex items-center gap-2 mt-auto">
-                  <span className="px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 text-sm font-bold rounded-xl">
-                    💰 직접 제공
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Service 3 - 3D Icon */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="relative group h-full flex"
-            >
-              {/* Glow Effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-500"></div>
-
-              <div className="relative bg-white p-8 rounded-3xl border-2 border-purple-100 group-hover:border-purple-300 shadow-lg group-hover:shadow-2xl transition-all duration-500 flex flex-col w-full">
-                {/* 3D Icon - People Network */}
-                <div className="mb-6 relative flex justify-center">
-                  <div className="w-24 h-24 relative">
-                    <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-xl">
-                      {/* Shadow */}
-                      <ellipse cx="50" cy="85" rx="35" ry="8" fill="#a855f7" opacity="0.2"/>
-                      {/* Center person */}
-                      <circle cx="50" cy="45" r="8" fill="url(#peopleGradient1)"/>
-                      <path d="M42 55 L42 70 L58 70 L58 55 Z" fill="url(#peopleGradient1)" stroke="#7c3aed" strokeWidth="2"/>
-                      {/* Left person */}
-                      <circle cx="28" cy="40" r="6" fill="url(#peopleGradient2)"/>
-                      <path d="M22 48 L22 60 L34 60 L34 48 Z" fill="url(#peopleGradient2)" stroke="#9333ea" strokeWidth="1.5"/>
-                      {/* Right person */}
-                      <circle cx="72" cy="40" r="6" fill="url(#peopleGradient2)"/>
-                      <path d="M66 48 L66 60 L78 60 L78 48 Z" fill="url(#peopleGradient2)" stroke="#9333ea" strokeWidth="1.5"/>
-                      {/* Connection lines */}
-                      <line x1="35" y1="50" x2="43" y2="55" stroke="#a855f7" strokeWidth="2" strokeDasharray="2,2"/>
-                      <line x1="65" y1="50" x2="57" y2="55" stroke="#a855f7" strokeWidth="2" strokeDasharray="2,2"/>
-                      <defs>
-                        <linearGradient id="peopleGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#c084fc"/>
-                          <stop offset="100%" stopColor="#9333ea"/>
-                        </linearGradient>
-                        <linearGradient id="peopleGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#e9d5ff"/>
-                          <stop offset="100%" stopColor="#c084fc"/>
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  </div>
-                </div>
-
-                <h3 className="text-2xl font-black text-slate-900 mb-4">
-                  파트너 네트워크
-                </h3>
-                <p className="text-slate-600 leading-relaxed mb-6 flex-1">
-                  교육기관 및 근로자 송출업체 간 파트너십 연결. 윈윈 생태계 구축.
-                </p>
-                <div className="flex items-center gap-2 mt-auto">
-                  <span className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 text-sm font-bold rounded-xl">
-                    🤝 파트너 연계
-                  </span>
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -401,36 +360,29 @@ const Hero = () => {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6"
             >
-              <span className="text-2xl">🏆</span>
-              <span className="text-white text-sm font-bold uppercase tracking-wider">Why Choose Us</span>
+              <span className="text-white text-sm font-bold uppercase tracking-wider">{t('whyBadge')}</span>
             </motion.div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
-              NB KOREA를 선택해야 하는 이유
+              {t('whyTitle')}
             </h2>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-              검증된 파트너십과 실질적인 혜택으로 <span className="text-nb-pink-400 font-bold">완벽한 정착</span>을 지원합니다
+              {t('whySubtitle')}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: "🎯",
-                title: '검증된 파트너십',
-                description: 'LGU+, 전북은행 등 대한민국 주요 기업과의 공식 협력',
-                gradient: 'from-nb-pink-500 to-rose-500'
+                gradient: 'from-nb-pink-500 to-rose-500',
+                key: 'whyPartnership'
               },
               {
-                icon: "💎",
-                title: '실질적인 혜택',
-                description: '외국인 전용 통신 요금제와 우대금리 대출 지원',
-                gradient: 'from-blue-500 to-indigo-500'
+                gradient: 'from-blue-500 to-indigo-500',
+                key: 'whyBenefits'
               },
               {
-                icon: "🚀",
-                title: '토탈 케어',
-                description: '비자부터 통신·금융까지 원스톱 지원 서비스',
-                gradient: 'from-purple-500 to-pink-500'
+                gradient: 'from-purple-500 to-pink-500',
+                key: 'whyCare'
               }
             ].map((item, index) => (
               <motion.div
@@ -444,13 +396,13 @@ const Hero = () => {
               >
                 <div className="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 group-hover:bg-white/15 group-hover:border-white/30 transition-all duration-300">
                   <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center text-3xl mb-6 shadow-2xl group-hover:scale-110 transition-transform duration-300`}>
-                    {item.icon}
+                    {t(`${item.key}Icon`)}
                   </div>
                   <h3 className="text-2xl font-black mb-4">
-                    {item.title}
+                    {t(`${item.key}Title`)}
                   </h3>
                   <p className="text-slate-300 leading-relaxed text-lg">
-                    {item.description}
+                    {t(`${item.key}Desc`)}
                   </p>
                 </div>
               </motion.div>
@@ -481,11 +433,11 @@ const Hero = () => {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
             >
-              한국 정착의 첫 걸음,<br />
-              <span className="text-yellow-300">지금 시작하세요! 🎉</span>
+              {t('ctaTitle')}<br />
+              <span className="text-yellow-300">{t('ctaTitleHighlight')}</span>
             </motion.h2>
             <p className="text-xl text-white/90 max-w-2xl mx-auto">
-              통신·금융 솔루션부터 비자 파트너 연결까지 <span className="font-bold underline decoration-yellow-300 decoration-4">원스톱 지원</span>
+              {t('ctaSubtitle')}
             </p>
           </div>
 
@@ -498,10 +450,10 @@ const Hero = () => {
               whileHover={{ scale: 1.05, y: -5 }}
               className="bg-white text-slate-900 p-8 rounded-3xl shadow-2xl"
             >
-              <div className="text-5xl mb-4">🌍</div>
-              <h3 className="text-2xl font-black mb-3">외국인 고객</h3>
+              <div className="text-5xl mb-4">{t('ctaForeignersIcon')}</div>
+              <h3 className="text-2xl font-black mb-3">{t('ctaForeignersTitle')}</h3>
               <p className="text-slate-600 mb-6 leading-relaxed">
-                LGU+ 요금제 및 대출 서비스 문의
+                {t('ctaForeignersDesc')}
               </p>
               <motion.button
                 onClick={() => setIsModalOpen(true)}
@@ -510,7 +462,7 @@ const Hero = () => {
                 className="w-full bg-gradient-to-r from-nb-pink-600 to-rose-600 text-white font-bold py-4 px-6 rounded-2xl shadow-xl flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Mail className="w-5 h-5" />
-                무료 상담 신청
+                {t('ctaForeignersButton')}
               </motion.button>
             </motion.div>
 
@@ -523,10 +475,10 @@ const Hero = () => {
               whileHover={{ scale: 1.05, y: -5 }}
               className="bg-white/10 backdrop-blur-md text-white p-8 rounded-3xl border-2 border-white/30 shadow-2xl"
             >
-              <div className="text-5xl mb-4">🤝</div>
-              <h3 className="text-2xl font-black mb-3">제휴 파트너</h3>
+              <div className="text-5xl mb-4">{t('ctaPartnersIcon')}</div>
+              <h3 className="text-2xl font-black mb-3">{t('ctaPartnersTitle')}</h3>
               <p className="text-white/90 mb-6 leading-relaxed">
-                파트너십 네트워크 참여 문의
+                {t('ctaPartnersDesc')}
               </p>
               <Link to="/partners">
                 <motion.button
@@ -535,7 +487,7 @@ const Hero = () => {
                   className="w-full bg-white text-nb-pink-600 font-bold py-4 px-6 rounded-2xl shadow-xl flex items-center justify-center gap-2"
                 >
                   <Building2 className="w-5 h-5" />
-                  파트너사 보기
+                  {t('ctaPartnersButton')}
                 </motion.button>
               </Link>
             </motion.div>

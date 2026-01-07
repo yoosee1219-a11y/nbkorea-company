@@ -1,0 +1,28 @@
+{
+  "companyDescription": "Global business partner connecting Korea and the world",
+  "partnerBadge": "LGU+ x Jeonbuk Bank Partner",
+  "sections": {
+    "services": {
+      "title": "Services",
+      "items": {
+        "studentVisa": "Student Visa (D2, D4)",
+        "workerVisa": "Worker Visa (E7, E9)",
+        "globalPartnership": "Global Partnership"
+      }
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "items": {
+        "about": "About Us",
+        "partners": "Partner Companies",
+        "blog": "Blog"
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "address": "911, Namgwang Centrex,<br />301 Bupyeong-daero, Bupyeong-gu,<br />Incheon, South Korea"
+    }
+  },
+  "copyright": "© {{year}} NBKOREA. All rights reserved.",
+  "tagline": "Designed with excellence for global partnerships"
+}

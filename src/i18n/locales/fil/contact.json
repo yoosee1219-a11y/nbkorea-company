@@ -1,0 +1,29 @@
+{
+  "title": "Tanong tungkol sa Pakikipagtulungan",
+  "subtitle": "Hinihintay namin ang mga kasosyong lalago kasama ng NB KOREA",
+  "infoTitle": "Impormasyon ng Komunikasyon",
+  "formTitle": "Magtanong tungkol sa Pakikipagtulungan",
+
+  "email": "Email",
+  "phone": "Telepono",
+  "address": "Address",
+  "addressValue": "911, Nam Gwang Centrex, 301 Bupyeong-daero, Bupyeong-gu, Incheon",
+  "businessHours": "Oras ng Negosyo",
+  "weekdays": "Lun-Biy: 09:00 - 18:00",
+  "weekend": "Sarado tuwing weekend at holiday",
+
+  "nameLabel": "Pangalan ng Kumpanya / Pangalan",
+  "namePlaceholder": "Pakiusap na ilagay ang pangalan ng kumpanya o pangalan",
+  "emailLabel": "Email",
+  "emailPlaceholder": "your@email.com",
+  "phoneLabel": "Numero ng Telepono",
+  "phonePlaceholder": "010-0000-0000",
+  "messageLabel": "Mensahe",
+  "messagePlaceholder": "Pakiusap na isulat nang detalyado ang nilalaman ng pakikipagtulungan",
+
+  "submitButton": "Ipadala ang Tanong",
+  "submitting": "Ipinapadala...",
+
+  "successMessage": "Ang iyong tanong ay matagumpay na naipadala!",
+  "errorMessage": "May naganap na error sa pagpapadala. Pakisubukan ulit."
+}

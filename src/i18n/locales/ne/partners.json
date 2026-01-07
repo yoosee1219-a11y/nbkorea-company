@@ -1,0 +1,23 @@
+{
+  "title": "साझेदारहरू",
+  "subtitle": "बढ्दै छ",
+  "subtitleSuffix": "विश्वसनीय साझेदारहरूसँग",
+  "loading": "साझेदार जानकारी लोड गर्दै...",
+  "stats": {
+    "totalPartners": "कुल साझेदारहरू",
+    "countries": "सहयोगी देशहरू",
+    "premiumPartners": "प्रिमियम साझेदारहरू"
+  },
+  "featured": {
+    "badge": "Premium Partners",
+    "title": "मुख्य साझेदारहरू",
+    "subtitle": "NB KOREA को आधिकारिक साझेदारहरू"
+  },
+  "categories": {
+    "overseas": "विदेशी शैक्षिक संस्थाहरू",
+    "worker": "श्रमिक पठाउने कम्पनीहरू",
+    "domestic": "स्थानीय साझेदारहरू",
+    "partnerCount": "{{count}} साझेदारहरू"
+  },
+  "empty": "साझेदारहरू छैनन्"
+}

@@ -1,0 +1,58 @@
+{
+  "badge": "🏆 LGU+ x Jeonbuk Bank 官方合作伙伴",
+  "headline": "连接韩国",
+  "headlineHighlight": "与世界",
+  "subheadline": "LGU+ 通信 · Jeonbuk Bank 金融解决方案",
+  "ctaConsultation": "免费咨询",
+  "ctaPartners": "查看合作伙伴",
+  "imageAlt": "全球业务",
+
+  "servicesTitle": "我们的服务",
+  "servicesBadge": "✨ 服务",
+  "servicesSubtitle": "为在韩国成功定居提供全方位解决方案",
+  "servicesSubtitleHighlight": "全方位解决方案",
+
+  "telecomTitle": "外国人专属LGU+套餐",
+  "telecomDesc": "通过与LGU+的官方合作关系，为外国人提供定制通信套餐。价格实惠，网络稳定。",
+  "telecomBadge": "⚡ 直接服务",
+
+  "loanTitle": "一级银行贷款",
+  "loanDesc": "通过与Jeonbuk Bank的合作，为外国人提供贷款服务。优惠利率支持稳定定居。",
+  "loanBadge": "💰 直接服务",
+
+  "networkTitle": "合作伙伴网络",
+  "networkDesc": "连接教育机构与劳务派遣公司之间的合作关系。构建双赢生态系统。",
+  "networkBadge": "🤝 合作伙伴网络",
+
+  "whyTitle": "为什么选择NB KOREA",
+  "whyBadge": "🏆 为什么选择我们",
+  "whySubtitle": "通过经过验证的合作伙伴关系和实际利益支持完美定居",
+  "whySubtitleHighlight": "完美定居",
+
+  "whyPartnershipTitle": "经过验证的合作伙伴关系",
+  "whyPartnershipDesc": "与LGU+、Jeonbuk Bank等韩国主要企业的官方合作",
+  "whyPartnershipIcon": "🎯",
+
+  "whyBenefitsTitle": "实际利益",
+  "whyBenefitsDesc": "外国人专属通信套餐和优惠贷款利率",
+  "whyBenefitsIcon": "💎",
+
+  "whyCareTitle": "全方位服务",
+  "whyCareDesc": "从签证到通信、金融的一站式支持服务",
+  "whyCareIcon": "🚀",
+
+  "ctaTitle": "在韩国定居的第一步，",
+  "ctaTitleHighlight": "现在开始！🎉",
+  "ctaSubtitle": "从通信和金融解决方案到签证合作伙伴连接的一站式支持",
+  "ctaSubtitleHighlight": "一站式支持",
+
+  "ctaForeignersTitle": "外国人客户",
+  "ctaForeignersIcon": "🌍",
+  "ctaForeignersDesc": "咨询LGU+套餐和贷款服务",
+  "ctaForeignersButton": "免费咨询",
+
+  "ctaPartnersTitle": "合作伙伴",
+  "ctaPartnersIcon": "🤝",
+  "ctaPartnersDesc": "加入我们的合作伙伴网络",
+  "ctaPartnersButton": "查看合作伙伴"
+}

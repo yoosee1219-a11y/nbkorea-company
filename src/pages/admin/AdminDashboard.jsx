@@ -16,6 +16,8 @@ import BlogManager from '../../components/admin/BlogManager'
 import PartnerManager from '../../components/admin/PartnerManager'
 import ConsultationManager from '../../components/admin/ConsultationManager'
 import FormBuilder from '../../components/admin/FormBuilder'
+import InfluencerManager from '../../components/admin/InfluencerManager'
+import StatsTab from '../../components/admin/StatsTab'
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('consultations')
@@ -29,10 +31,11 @@ const AdminDashboard = () => {
 
   const tabs = [
     { id: 'consultations', label: '상담 신청', icon: MessageSquare },
+    { id: 'influencers', label: '인플루언서', icon: Users },
+    { id: 'stats', label: '통계', icon: BarChart3 },
     { id: 'formBuilder', label: '폼 설정', icon: Settings },
     { id: 'blog', label: '블로그 관리', icon: FileText },
-    { id: 'partners', label: '파트너 관리', icon: Users },
-    { id: 'stats', label: '통계', icon: BarChart3 }
+    { id: 'partners', label: '파트너 관리', icon: Users }
   ]
 
   return (
@@ -94,16 +97,11 @@ const AdminDashboard = () => {
       {/* Content */}
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === 'consultations' && <ConsultationManager />}
+        {activeTab === 'influencers' && <InfluencerManager />}
+        {activeTab === 'stats' && <StatsTab />}
         {activeTab === 'formBuilder' && <FormBuilder />}
         {activeTab === 'blog' && <BlogManager />}
         {activeTab === 'partners' && <PartnerManager />}
-        {activeTab === 'stats' && (
-          <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-200 text-center">
-            <BarChart3 className="w-16 h-16 text-slate-300 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-slate-900 mb-2">통계 (준비 중)</h3>
-            <p className="text-slate-600">통계 기능이 곧 추가됩니다.</p>
-          </div>
-        )}
       </main>
     </div>
   )

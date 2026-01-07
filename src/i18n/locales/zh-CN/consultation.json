@@ -1,0 +1,54 @@
+{
+  "modalTitle": "免费咨询申请",
+  "step": "第 {{current}} 步，共 {{total}} 步",
+
+  "step1Title": "请选择咨询类型",
+  "typeTelecom": "LGU+ 通信",
+  "typeLoan": "Jeonbuk Bank 贷款",
+  "typeVisa": "签证咨询",
+  "typeOther": "其他",
+  "errorSelectType": "请选择咨询类型",
+
+  "step2TitleBasic": "基本信息",
+  "step2TitleService": "{{service}} 信息",
+
+  "fileUploadTitle": "附件上传（可选）",
+  "fileUploadDesc": "请上传身份证、在职证明、收入证明等文件",
+  "fileUploadLimit": "最多5个文件，每个文件不超过10MB（支持JPG、PNG、PDF等格式）",
+  "fileUploadMaxSize": "最大10MB",
+  "fileSelectButton": "选择文件",
+  "fileMaxError": "最多只能上传5个文件。",
+  "fileSizeError": "每个文件大小不得超过10MB。",
+  "selectPlaceholder": "请选择",
+  "submitError": "提交咨询请求时出错。请重试。",
+
+  "privacyConsentLabel": "我同意收集和使用个人信息",
+  "privacyConsentDesc": "收集信息：姓名、电话、邮箱等 | 用途：咨询服务 | 保存期限：咨询完成后1年",
+  "privacyConsentError": "请同意个人信息收集",
+
+  "buttonNext": "下一步",
+  "buttonPrevious": "上一步",
+  "buttonSubmit": "提交申请",
+  "buttonSubmitting": "提交中...",
+
+  "successTitle": "申请完成！",
+  "successMessage": "我们将尽快与您联系。",
+
+  "fieldRequired": "请输入{{field}}",
+  "fieldPlaceholder": "输入{{field}}",
+
+  "fieldName": "姓名",
+  "fieldPhone": "电话号码",
+  "fieldEmail": "邮箱",
+  "fieldMessage": "留言",
+  "fieldNationality": "国籍",
+  "fieldVisaType": "签证类型",
+  "fieldCurrentCarrier": "当前运营商",
+  "fieldDesiredPlan": "期望套餐",
+  "fieldLoanAmount": "期望贷款金额",
+  "fieldIncome": "月收入",
+  "fieldOccupation": "职业",
+  "fieldEmploymentPeriod": "工作时间",
+  "fieldStayPeriod": "在韩停留时间",
+  "fieldPurpose": "咨询目的"
+}

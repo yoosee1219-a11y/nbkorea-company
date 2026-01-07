@@ -1,0 +1,23 @@
+{
+  "title": "พันธมิตร",
+  "subtitle": "เติบโตร่วมกับ",
+  "subtitleSuffix": "พันธมิตรที่เชื่อถือได้",
+  "loading": "กำลังโหลดข้อมูลพันธมิตร...",
+  "stats": {
+    "totalPartners": "พันธมิตรทั้งหมด",
+    "countries": "ประเทศที่ร่วมมือ",
+    "premiumPartners": "พันธมิตรระดับพรีเมียม"
+  },
+  "featured": {
+    "badge": "Premium Partners",
+    "title": "พันธมิตรหลัก",
+    "subtitle": "พันธมิตรอย่างเป็นทางการของ NB KOREA"
+  },
+  "categories": {
+    "overseas": "สถาบันการศึกษาต่างประเทศ",
+    "worker": "บริษัทส่งแรงงาน",
+    "domestic": "พันธมิตรในประเทศ",
+    "partnerCount": "{{count}} พันธมิตร"
+  },
+  "empty": "ไม่มีพันธมิตร"
+}

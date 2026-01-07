@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Phone, DollarSign, FileText, HelpCircle, Check, Loader2, Upload, File as FileIcon, Trash2 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { createConsultation, uploadConsultationFile, getFormConfig } from '../services/dataService'
 
 const ConsultationModal = ({ isOpen, onClose }) => {
+  const { t } = useTranslation('consultation')
   const [step, setStep] = useState(1)
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
@@ -34,10 +36,10 @@ const ConsultationModal = ({ isOpen, onClose }) => {
   const [errors, setErrors] = useState({})
 
   const consultationTypes = [
-    { id: 'telecom', label: 'LGU+ 통신', icon: Phone, color: 'from-nb-pink-500 to-rose-600' },
-    { id: 'loan', label: '전북은행 대출', icon: DollarSign, color: 'from-blue-500 to-indigo-600' },
-    { id: 'visa', label: '비자 상담', icon: FileText, color: 'from-purple-500 to-pink-600' },
-    { id: 'other', label: '기타 문의', icon: HelpCircle, color: 'from-slate-500 to-slate-700' }
+    { id: 'telecom', label: t('typeTelecom'), icon: Phone, color: 'from-nb-pink-500 to-rose-600' },
+    { id: 'loan', label: t('typeLoan'), icon: DollarSign, color: 'from-blue-500 to-indigo-600' },
+    { id: 'visa', label: t('typeVisa'), icon: FileText, color: 'from-purple-500 to-pink-600' },
+    { id: 'other', label: t('typeOther'), icon: HelpCircle, color: 'from-slate-500 to-slate-700' }
   ]
 
   const handleInputChange = (field, value) => {
@@ -61,14 +63,14 @@ const ConsultationModal = ({ isOpen, onClose }) => {
 
     // 최대 5개 파일 제한
     if (selectedFiles.length + files.length > 5) {
-      alert('최대 5개 파일까지 업로드 가능합니다.')
+      alert(t('fileMaxError'))
       return
     }
 
     // 각 파일 크기 검증 (10MB)
     const invalidFiles = files.filter(file => file.size > 10 * 1024 * 1024)
     if (invalidFiles.length > 0) {
-      alert('각 파일의 크기는 10MB를 초과할 수 없습니다.')
+      alert(t('fileSizeError'))
       return
     }
 
@@ -89,10 +91,14 @@ const ConsultationModal = ({ isOpen, onClose }) => {
   const renderDynamicField = (field) => {
     const value = dynamicFormData[field.id] || ''
 
+    // Translate field label using field ID as key
+    const fieldLabelKey = `field${field.id.charAt(0).toUpperCase() + field.id.slice(1)}`
+    const fieldLabel = t(fieldLabelKey, { defaultValue: field.label })
+
     return (
       <div key={field.id}>
         <label className="block text-sm font-semibold text-slate-700 mb-2">
-          {field.label} {field.required && <span className="text-red-600">*</span>}
+          {fieldLabel} {field.required && <span className="text-red-600">*</span>}
         </label>
 
         {field.type === 'textarea' ? (
@@ -101,7 +107,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
             onChange={(e) => handleDynamicFieldChange(field.id, e.target.value)}
             className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
             rows={4}
-            placeholder={`${field.label} 입력`}
+            placeholder={t('fieldPlaceholder', { field: fieldLabel })}
           />
         ) : field.type === 'file' ? (
           <div className="border-2 border-dashed border-slate-300 rounded-lg p-4 bg-slate-50">
@@ -116,10 +122,10 @@ const ConsultationModal = ({ isOpen, onClose }) => {
               <div className="text-center">
                 <Upload className="w-8 h-8 text-slate-400 mx-auto mb-2" />
                 <p className="text-sm text-slate-600 font-semibold mb-1">
-                  파일 선택
+                  {t('fileSelectButton')}
                 </p>
                 <p className="text-xs text-slate-500">
-                  최대 10MB
+                  {t('fileUploadMaxSize')}
                 </p>
               </div>
             </label>
@@ -130,7 +136,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
             onChange={(e) => handleDynamicFieldChange(field.id, e.target.value)}
             className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
           >
-            <option value="">선택해주세요</option>
+            <option value="">{t('selectPlaceholder')}</option>
             {(field.options || '').split(',').filter(opt => opt.trim()).map((option, i) => (
               <option key={i} value={option.trim()}>{option.trim()}</option>
             ))}
@@ -141,7 +147,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
             value={value}
             onChange={(e) => handleDynamicFieldChange(field.id, e.target.value)}
             className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
-            placeholder={`${field.label} 입력`}
+            placeholder={t('fieldPlaceholder', { field: fieldLabel })}
           />
         )}
 
@@ -154,7 +160,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
 
   const validateStep1 = () => {
     const newErrors = {}
-    if (!formData.consultation_type) newErrors.consultation_type = '상담 종류를 선택해주세요'
+    if (!formData.consultation_type) newErrors.consultation_type = t('errorSelectType')
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
@@ -162,13 +168,19 @@ const ConsultationModal = ({ isOpen, onClose }) => {
   const validateStep2 = () => {
     const newErrors = {}
 
+    // Helper function to get translated field label
+    const getFieldLabel = (field) => {
+      const fieldLabelKey = `field${field.id.charAt(0).toUpperCase() + field.id.slice(1)}`
+      return t(fieldLabelKey, { defaultValue: field.label })
+    }
+
     // Validate dynamic common fields
     if (formConfig?.common?.fields) {
       formConfig.common.fields.forEach(field => {
         if (field.required) {
           const value = dynamicFormData[field.id]
           if (!value || (typeof value === 'string' && !value.trim())) {
-            newErrors[field.id] = `${field.label}을(를) 입력해주세요`
+            newErrors[field.id] = t('fieldRequired', { field: getFieldLabel(field) })
           }
         }
       })
@@ -180,7 +192,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
         if (field.required) {
           const value = dynamicFormData[field.id]
           if (!value || (typeof value === 'string' && !value.trim())) {
-            newErrors[field.id] = `${field.label}을(를) 입력해주세요`
+            newErrors[field.id] = t('fieldRequired', { field: getFieldLabel(field) })
           }
         }
       })
@@ -188,7 +200,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
 
     // Privacy consent is always required
     if (!formData.privacy_consent) {
-      newErrors.privacy_consent = '개인정보 수집에 동의해주세요'
+      newErrors.privacy_consent = t('privacyConsentError')
     }
 
     setErrors(newErrors)
@@ -208,11 +220,15 @@ const ConsultationModal = ({ isOpen, onClose }) => {
 
     setLoading(true)
 
+    // 유입 경로 가져오기
+    const referralSource = localStorage.getItem('referral_source') || 'organic'
+
     // 동적 폼 데이터를 consultation data로 구성
     const consultationData = {
       consultation_type: formData.consultation_type,
       form_data: dynamicFormData, // 모든 동적 필드 데이터
       privacy_consent: formData.privacy_consent,
+      referral_source: referralSource, // 유입 경로 추가
       file_urls: [] // 파일 URL들을 저장할 배열
     }
 
@@ -221,7 +237,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
 
     if (error) {
       setLoading(false)
-      alert('상담 신청 중 오류가 발생했습니다. 다시 시도해주세요.')
+      alert(t('submitError'))
       console.error(error)
       return
     }
@@ -247,6 +263,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
     // Google Sheets로 전송
     try {
       const sheetData = {
+        referral_source: referralSource, // 맨 앞에 유입 경로 추가
         consultation_type: consultationData.consultation_type,
         status: 'pending',
         form_data: JSON.stringify(consultationData.form_data),
@@ -311,8 +328,8 @@ const ConsultationModal = ({ isOpen, onClose }) => {
           {/* Header */}
           <div className="bg-gradient-to-r from-nb-pink-600 to-rose-600 px-6 py-5 flex items-center justify-between">
             <div>
-              <h2 className="text-2xl font-bold text-white">무료 상담 신청</h2>
-              <p className="text-white/90 text-sm mt-1">Step {step} of 2</p>
+              <h2 className="text-2xl font-bold text-white">{t('modalTitle')}</h2>
+              <p className="text-white/90 text-sm mt-1">{t('step', { current: step, total: 2 })}</p>
             </div>
             <button
               onClick={onClose}
@@ -333,15 +350,15 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                 <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Check className="w-10 h-10 text-green-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">신청이 완료되었습니다!</h3>
-                <p className="text-slate-600">빠른 시일 내에 연락드리겠습니다.</p>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">{t('successTitle')}</h3>
+                <p className="text-slate-600">{t('successMessage')}</p>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit}>
                 {step === 1 && (
                   <div className="space-y-6">
                     <div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-4">상담 종류를 선택해주세요</h3>
+                      <h3 className="text-xl font-bold text-slate-900 mb-4">{t('step1Title')}</h3>
                       <div className="grid grid-cols-2 gap-4">
                         {consultationTypes.map((type) => (
                           <button
@@ -371,7 +388,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                       onClick={handleNext}
                       className="w-full px-6 py-3 bg-gradient-to-r from-nb-pink-600 to-rose-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
                     >
-                      다음 단계
+                      {t('buttonNext')}
                     </button>
                   </div>
                 )}
@@ -381,7 +398,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                     {/* 공통 필드 (동적) */}
                     {formConfig?.common?.fields && formConfig.common.fields.length > 0 && (
                       <div>
-                        <h3 className="text-xl font-bold text-slate-900 mb-4">기본 정보</h3>
+                        <h3 className="text-xl font-bold text-slate-900 mb-4">{t('step2TitleBasic')}</h3>
                         <div className="space-y-4">
                           {formConfig.common.fields
                             .sort((a, b) => a.order - b.order)
@@ -396,7 +413,9 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                      formConfig[formData.consultation_type].fields.length > 0 && (
                       <div>
                         <h3 className="text-xl font-bold text-slate-900 mb-4">
-                          {consultationTypes.find(t => t.id === formData.consultation_type)?.label} 정보
+                          {t('step2TitleService', {
+                            service: consultationTypes.find(type => type.id === formData.consultation_type)?.label
+                          })}
                         </h3>
                         <div className="space-y-4">
                           {formConfig[formData.consultation_type].fields
@@ -408,15 +427,15 @@ const ConsultationModal = ({ isOpen, onClose }) => {
 
                     {/* File Upload */}
                     <div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-4">서류 첨부 (선택)</h3>
+                      <h3 className="text-xl font-bold text-slate-900 mb-4">{t('fileUploadTitle')}</h3>
                       <div className="bg-blue-50 rounded-xl p-6 border-2 border-dashed border-blue-200">
                         <div className="text-center mb-4">
                           <Upload className="w-12 h-12 text-blue-600 mx-auto mb-3" />
                           <p className="text-sm text-slate-700 font-semibold mb-1">
-                            신분증, 재직증명서, 소득증빙 등 서류를 첨부해주세요
+                            {t('fileUploadDesc')}
                           </p>
                           <p className="text-xs text-slate-500">
-                            최대 5개 파일, 각 10MB 이하 (JPG, PNG, PDF 등)
+                            {t('fileUploadLimit')}
                           </p>
                         </div>
 
@@ -429,7 +448,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                             className="hidden"
                           />
                           <div className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-center cursor-pointer transition-colors">
-                            파일 선택
+                            {t('fileSelectButton')}
                           </div>
                         </label>
 
@@ -475,10 +494,10 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                         />
                         <div className="flex-1">
                           <p className="text-sm text-slate-700">
-                            <span className="font-bold text-red-600">*</span> 개인정보 수집 및 이용에 동의합니다
+                            <span className="font-bold text-red-600">*</span> {t('privacyConsentLabel')}
                           </p>
                           <p className="text-xs text-slate-500 mt-1">
-                            수집항목: 이름, 연락처, 이메일 등 | 이용목적: 상담 진행 | 보유기간: 상담 완료 후 1년
+                            {t('privacyConsentDesc')}
                           </p>
                         </div>
                       </label>
@@ -494,7 +513,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                         onClick={() => setStep(1)}
                         className="px-6 py-3 border border-slate-300 text-slate-700 font-semibold rounded-lg hover:bg-slate-50 transition-all duration-300"
                       >
-                        이전
+                        {t('buttonPrevious')}
                       </button>
                       <button
                         type="submit"
@@ -504,10 +523,10 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                         {loading ? (
                           <>
                             <Loader2 className="w-5 h-5 animate-spin" />
-                            제출 중...
+                            {t('buttonSubmitting')}
                           </>
                         ) : (
-                          '신청하기'
+                          t('buttonSubmit')
                         )}
                       </button>
                     </div>

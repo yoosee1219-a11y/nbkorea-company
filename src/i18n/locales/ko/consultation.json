@@ -1,0 +1,56 @@
+{
+  "modalTitle": "무료 상담 신청",
+  "step": "Step {{current}} of {{total}}",
+
+  "step1Title": "상담 종류를 선택해주세요",
+  "typeTelecom": "LGU+ 통신",
+  "typeLoan": "전북은행 대출",
+  "typeVisa": "비자 상담",
+  "typeOther": "기타 문의",
+  "errorSelectType": "상담 종류를 선택해주세요",
+
+  "step2TitleBasic": "기본 정보",
+  "step2TitleService": "{{service}} 정보",
+
+  "fileUploadTitle": "서류 첨부 (선택)",
+  "fileUploadDesc": "신분증, 재직증명서, 소득증빙 등 서류를 첨부해주세요",
+  "fileUploadLimit": "최대 5개 파일, 각 10MB 이하 (JPG, PNG, PDF 등)",
+  "fileUploadMaxSize": "최대 10MB",
+  "fileSelectButton": "파일 선택",
+  "fileMaxError": "최대 5개 파일까지 업로드 가능합니다.",
+  "fileSizeError": "각 파일의 크기는 10MB를 초과할 수 없습니다.",
+
+  "selectPlaceholder": "선택해주세요",
+
+  "privacyConsentLabel": "개인정보 수집 및 이용에 동의합니다",
+  "privacyConsentDesc": "수집항목: 이름, 연락처, 이메일 등 | 이용목적: 상담 진행 | 보유기간: 상담 완료 후 1년",
+  "privacyConsentError": "개인정보 수집에 동의해주세요",
+
+  "buttonNext": "다음 단계",
+  "buttonPrevious": "이전",
+  "buttonSubmit": "신청하기",
+  "buttonSubmitting": "제출 중...",
+
+  "successTitle": "신청이 완료되었습니다!",
+  "successMessage": "빠른 시일 내에 연락드리겠습니다.",
+
+  "submitError": "상담 신청 중 오류가 발생했습니다. 다시 시도해주세요.",
+
+  "fieldRequired": "{{field}}을(를) 입력해주세요",
+  "fieldPlaceholder": "{{field}} 입력",
+
+  "fieldName": "이름",
+  "fieldPhone": "연락처",
+  "fieldEmail": "이메일",
+  "fieldMessage": "문의 내용",
+  "fieldNationality": "국적",
+  "fieldVisaType": "비자 종류",
+  "fieldCurrentCarrier": "현재 통신사",
+  "fieldDesiredPlan": "희망 요금제",
+  "fieldLoanAmount": "대출 희망 금액",
+  "fieldIncome": "월 소득",
+  "fieldOccupation": "직업",
+  "fieldEmploymentPeriod": "재직 기간",
+  "fieldStayPeriod": "한국 체류 기간",
+  "fieldPurpose": "상담 목적"
+}

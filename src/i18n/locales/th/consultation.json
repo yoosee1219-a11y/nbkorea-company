@@ -1,0 +1,54 @@
+{
+  "modalTitle": "สมัครปรึกษาฟรี",
+  "step": "ขั้นตอน {{current}}/{{total}}",
+
+  "step1Title": "กรุณาเลือกประเภทการปรึกษา",
+  "typeTelecom": "โทรคมนาคม LGU+",
+  "typeLoan": "สินเชื่อ Jeonbuk Bank",
+  "typeVisa": "ปรึกษาวีซ่า",
+  "typeOther": "อื่นๆ",
+  "errorSelectType": "กรุณาเลือกประเภทการปรึกษา",
+
+  "step2TitleBasic": "ข้อมูลพื้นฐาน",
+  "step2TitleService": "ข้อมูล {{service}}",
+
+  "fileUploadTitle": "แนบเอกสาร (ไม่บังคับ)",
+  "fileUploadDesc": "กรุณาแนบบัตรประชาชน/พาสปอร์ต หนังสือรับรองการทำงาน หลักฐานรายได้ ฯลฯ",
+  "fileUploadLimit": "สูงสุด 5 ไฟล์ ไฟล์ละไม่เกิน 10MB (JPG, PNG, PDF ฯลฯ)",
+  "fileUploadMaxSize": "สูงสุด 10MB",
+  "fileSelectButton": "เลือกไฟล์",
+  "fileMaxError": "สามารถอัปโหลดได้สูงสุด 5 ไฟล์",
+  "fileSizeError": "ขนาดแต่ละไฟล์ต้องไม่เกิน 10MB",
+
+  "privacyConsentLabel": "ฉันยินยอมให้เก็บรวบรวมและใช้ข้อมูลส่วนบุคคล",
+  "privacyConsentDesc": "ข้อมูลที่เก็บรวบรวม: ชื่อ เบอร์โทร อีเมล ฯลฯ | วัตถุประสงค์: การปรึกษา | ระยะเวลาเก็บรักษา: 1 ปีหลังเสร็จสิ้นการปรึกษา",
+  "privacyConsentError": "กรุณายินยอมการเก็บรวบรวมข้อมูลส่วนบุคคล",
+
+  "buttonNext": "ขั้นตอนถัดไป",
+  "buttonPrevious": "ก่อนหน้า",
+  "buttonSubmit": "ส่งใบสมัคร",
+  "buttonSubmitting": "กำลังส่ง...",
+
+  "successTitle": "สมัครเรียบร้อยแล้ว!",
+  "successMessage": "เราจะติดต่อกลับโดยเร็วที่สุด",
+
+  "selectPlaceholder": "กรุณาเลือก",
+  "submitError": "เกิดข้อผิดพลาดในการส่งคำขอปรึกษา กรุณาลองอีกครั้ง",
+
+  "fieldRequired": "กรุณากรอก {{field}}",
+  "fieldPlaceholder": "กรอก {{field}}",
+  "fieldName": "ชื่อ",
+  "fieldPhone": "หมายเลขโทรศัพท์",
+  "fieldEmail": "อีเมล",
+  "fieldMessage": "ข้อความ",
+  "fieldNationality": "สัญชาติ",
+  "fieldVisaType": "ประเภทวีซ่า",
+  "fieldCurrentCarrier": "ผู้ให้บริการปัจจุบัน",
+  "fieldDesiredPlan": "แพ็กเกจที่ต้องการ",
+  "fieldLoanAmount": "จำนวนเงินกู้ที่ต้องการ",
+  "fieldIncome": "รายได้ต่อเดือน",
+  "fieldOccupation": "อาชีพ",
+  "fieldEmploymentPeriod": "ระยะเวลาการทำงาน",
+  "fieldStayPeriod": "ระยะเวลาพำนักในเกาหลี",
+  "fieldPurpose": "วัตถุประสงค์ของการปรึกษา"
+}

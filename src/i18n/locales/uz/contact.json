@@ -1,0 +1,29 @@
+{
+  "title": "Hamkorlik uchun murojaat",
+  "subtitle": "NB KOREA bilan birga o'sadigan hamkorlarni kutmoqdamiz",
+  "infoTitle": "Aloqa ma'lumotlari",
+  "formTitle": "Hamkorlik uchun so'rov yuborish",
+
+  "email": "Elektron pochta",
+  "phone": "Telefon",
+  "address": "Manzil",
+  "addressValue": "911, Nam Gwang Centrex, 301 Bupyeong-daero, Bupyeong-gu, Incheon",
+  "businessHours": "Ish vaqti",
+  "weekdays": "Dush-Jum: 09:00 - 18:00",
+  "weekend": "Dam olish kunlari va bayramlarda yopiq",
+
+  "nameLabel": "Kompaniya nomi / Ism",
+  "namePlaceholder": "Kompaniya nomi yoki ismingizni kiriting",
+  "emailLabel": "Elektron pochta",
+  "emailPlaceholder": "your@email.com",
+  "phoneLabel": "Telefon raqami",
+  "phonePlaceholder": "010-0000-0000",
+  "messageLabel": "Xabar matni",
+  "messagePlaceholder": "Hamkorlik haqida batafsil yozing",
+
+  "submitButton": "So'rov yuborish",
+  "submitting": "Yuborilmoqda...",
+
+  "successMessage": "So'rovingiz muvaffaqiyatli yuborildi!",
+  "errorMessage": "Yuborishda xatolik yuz berdi. Qaytadan urinib ko'ring."
+}

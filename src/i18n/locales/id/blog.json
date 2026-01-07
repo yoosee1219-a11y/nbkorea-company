@@ -1,0 +1,10 @@
+{
+  "title": "Blog",
+  "subtitle": "Lihat berita terbaru dan informasi berguna dari NB KOREA",
+  "loading": "Memuat postingan blog...",
+  "empty": {
+    "title": "Tidak ada postingan blog",
+    "subtitle": "Kami akan segera berbagi berita baru"
+  },
+  "readMore": "Baca Selengkapnya"
+}

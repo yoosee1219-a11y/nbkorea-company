@@ -1,0 +1,29 @@
+{
+  "title": "Запрос на партнёрство",
+  "subtitle": "Мы ждём партнёров, которые будут расти вместе с NB KOREA",
+  "infoTitle": "Контактная информация",
+  "formTitle": "Отправить запрос на партнёрство",
+
+  "email": "Электронная почта",
+  "phone": "Телефон",
+  "address": "Адрес",
+  "addressValue": "911, Nam Gwang Centrex, 301 Bupyeong-daero, Bupyeong-gu, Incheon",
+  "businessHours": "Часы работы",
+  "weekdays": "Пн-Пт: 09:00 - 18:00",
+  "weekend": "Закрыто по выходным и праздникам",
+
+  "nameLabel": "Название компании / Имя",
+  "namePlaceholder": "Пожалуйста, введите название компании или ваше имя",
+  "emailLabel": "Электронная почта",
+  "emailPlaceholder": "your@email.com",
+  "phoneLabel": "Контактный телефон",
+  "phonePlaceholder": "010-0000-0000",
+  "messageLabel": "Сообщение",
+  "messagePlaceholder": "Пожалуйста, подробно опишите детали партнёрства",
+
+  "submitButton": "Отправить запрос",
+  "submitting": "Отправка...",
+
+  "successMessage": "Ваш запрос успешно отправлен!",
+  "errorMessage": "Произошла ошибка при отправке. Пожалуйста, попробуйте снова."
+}

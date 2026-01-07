@@ -1,0 +1,29 @@
+{
+  "title": "साझेदारीको लागि सम्पर्क",
+  "subtitle": "NB KOREA सँग मिलेर बढ्ने साझेदारहरूको खोजीमा छौं",
+  "infoTitle": "सम्पर्क जानकारी",
+  "formTitle": "साझेदारीको लागि सोधपुछ",
+
+  "email": "इमेल",
+  "phone": "फोन",
+  "address": "ठेगाना",
+  "addressValue": "911, Nam Gwang Centrex, 301 Bupyeong-daero, Bupyeong-gu, Incheon",
+  "businessHours": "व्यापार समय",
+  "weekdays": "सोम-शुक्र: 09:00 - 18:00",
+  "weekend": "शनिबार र सार्वजनिक बिदामा बन्द",
+
+  "nameLabel": "कम्पनीको नाम / नाम",
+  "namePlaceholder": "कृपया कम्पनीको नाम वा तपाईंको नाम प्रविष्ट गर्नुहोस्",
+  "emailLabel": "इमेल",
+  "emailPlaceholder": "your@email.com",
+  "phoneLabel": "सम्पर्क नम्बर",
+  "phonePlaceholder": "010-0000-0000",
+  "messageLabel": "सन्देश",
+  "messagePlaceholder": "कृपया साझेदारीको बारेमा विस्तृत रूपमा लेख्नुहोस्",
+
+  "submitButton": "सोधपुछ पठाउनुहोस्",
+  "submitting": "पठाउँदै...",
+
+  "successMessage": "तपाईंको सोधपुछ सफलतापूर्वक पठाइयो!",
+  "errorMessage": "पठाउने क्रममा त्रुटि भयो। कृपया फेरि प्रयास गर्नुहोस्।"
+}

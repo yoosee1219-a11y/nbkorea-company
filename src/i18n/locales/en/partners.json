@@ -1,0 +1,23 @@
+{
+  "title": "Partner Companies",
+  "subtitle": "Growing together with",
+  "subtitleSuffix": "trusted partners",
+  "loading": "Loading partner information...",
+  "stats": {
+    "totalPartners": "Total Partners",
+    "countries": "Countries",
+    "premiumPartners": "Premium Partners"
+  },
+  "featured": {
+    "badge": "Premium Partners",
+    "title": "Key Partners",
+    "subtitle": "Official partners of NB KOREA"
+  },
+  "categories": {
+    "overseas": "Overseas Study Agencies",
+    "worker": "Worker Dispatch Agencies",
+    "domestic": "Domestic Partners",
+    "partnerCount": "{{count}} Partners"
+  },
+  "empty": "No partners available"
+}

@@ -1,0 +1,29 @@
+{
+  "title": "合作咨询",
+  "subtitle": "我们期待与NB KOREA共同成长的合作伙伴",
+  "infoTitle": "联系信息",
+  "formTitle": "合作咨询",
+
+  "email": "电子邮箱",
+  "phone": "电话",
+  "address": "地址",
+  "addressValue": "911, Nam Gwang Centrex, 301 Bupyeong-daero, Bupyeong-gu, Incheon",
+  "businessHours": "营业时间",
+  "weekdays": "周一至周五：09:00 - 18:00",
+  "weekend": "周末及节假日休息",
+
+  "nameLabel": "公司名称 / 姓名",
+  "namePlaceholder": "请输入公司名称或您的姓名",
+  "emailLabel": "电子邮箱",
+  "emailPlaceholder": "your@email.com",
+  "phoneLabel": "联系电话",
+  "phonePlaceholder": "010-0000-0000",
+  "messageLabel": "咨询内容",
+  "messagePlaceholder": "请详细描述合作内容",
+
+  "submitButton": "提交咨询",
+  "submitting": "提交中...",
+
+  "successMessage": "您的咨询已成功提交！",
+  "errorMessage": "提交时发生错误，请重试。"
+}

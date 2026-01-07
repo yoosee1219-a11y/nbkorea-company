@@ -1,0 +1,10 @@
+{
+  "title": "Blog",
+  "subtitle": "NB KOREA dan eng so'nggi yangiliklar va foydali ma'lumotlarni ko'ring",
+  "loading": "Blog postlari yuklanmoqda...",
+  "empty": {
+    "title": "Blog postlari yo'q",
+    "subtitle": "Tez orada yangi xabarlarni baham ko'ramiz"
+  },
+  "readMore": "Batafsil"
+}

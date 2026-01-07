@@ -3,14 +3,17 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Mail } from 'lucide-react'
 import { clsx } from 'clsx'
+import { useTranslation } from 'react-i18next'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const navItems = [
-  { label: "회사소개", path: "/" },
-  { label: "제휴 파트너사", path: "/partners" },
-  { label: "블로그", path: "/blog" },
+  { key: "about", path: "/" },
+  { key: "partners", path: "/partners" },
+  { key: "blog", path: "/blog" },
 ]
 
 const Navigation = () => {
+  const { t } = useTranslation('navigation')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const location = useLocation()
@@ -70,7 +73,7 @@ const Navigation = () => {
                       : "text-slate-700 hover:text-nb-pink-600"
                   )}
                 >
-                  {link.label}
+                  {t(link.key)}
                   {isActive(link.path) && (
                     <motion.div
                       layoutId="nav-indicator"
@@ -87,8 +90,11 @@ const Navigation = () => {
               className="inline-flex items-center gap-2 px-4 lg:px-6 py-2 lg:py-2.5 bg-gradient-to-r from-nb-pink-600 to-rose-600 text-white font-semibold text-sm rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 focus:outline-none cursor-pointer"
             >
               <Mail className="size-4" />
-              <span className="hidden lg:inline">문의하기</span>
+              <span className="hidden lg:inline">{t('menu.contact')}</span>
             </button>
+
+            {/* Language Switcher - Desktop */}
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
@@ -96,7 +102,7 @@ const Navigation = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-slate-800 p-2 hover:bg-slate-100 rounded-lg transition-all duration-300 focus:outline-none"
-              aria-label={isMobileMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
+              aria-label={isMobileMenuOpen ? t('menuClose') : t('menuOpen')}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -130,7 +136,7 @@ const Navigation = () => {
                         : "text-slate-700 hover:bg-slate-50 active:bg-slate-100"
                     )}
                   >
-                    {link.label}
+                    {t(link.key)}
                   </div>
                 </Link>
               ))}
@@ -141,8 +147,13 @@ const Navigation = () => {
                 className="mt-4 inline-flex w-full items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-nb-pink-600 to-rose-600 text-white font-semibold text-base rounded-xl hover:shadow-lg transition-all duration-300 focus:outline-none cursor-pointer"
               >
                 <Mail className="size-5" />
-                문의하기
+                {t('contact')}
               </button>
+
+              {/* Language Switcher - Mobile */}
+              <div className="mt-2">
+                <LanguageSwitcher isMobile={true} />
+              </div>
             </div>
           </motion.div>
         )}

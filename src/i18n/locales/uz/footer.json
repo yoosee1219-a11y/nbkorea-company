@@ -1,0 +1,28 @@
+{
+  "companyDescription": "Koreyani dunyo bilan bog'lovchi global biznes hamkori",
+  "partnerBadge": "LGU+ x Jeonbuk Bank hamkori",
+  "sections": {
+    "services": {
+      "title": "Xizmatlar",
+      "items": {
+        "studentVisa": "Talaba vizasi (D2, D4)",
+        "workerVisa": "Ishchi vizasi (E7, E9)",
+        "globalPartnership": "Global hamkorlik"
+      }
+    },
+    "quickLinks": {
+      "title": "Tez havolalar",
+      "items": {
+        "about": "Kompaniya haqida",
+        "partners": "Hamkorlar",
+        "blog": "Blog"
+      }
+    },
+    "contact": {
+      "title": "Bog'lanish",
+      "address": "911, Nam Gwang Centrex, 301 Bupyeong-daero,<br />Bupyeong-gu, Incheon"
+    }
+  },
+  "copyright": "© {{year}} NBKOREA. Barcha huquqlar himoyalangan.",
+  "tagline": "Global hamkorlik uchun mukammallik bilan ishlab chiqilgan"
+}

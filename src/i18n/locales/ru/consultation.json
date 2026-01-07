@@ -1,0 +1,55 @@
+{
+  "modalTitle": "Заявка на бесплатную консультацию",
+  "step": "Шаг {{current}} из {{total}}",
+
+  "step1Title": "Пожалуйста, выберите тип консультации",
+  "typeTelecom": "LGU+ Телекоммуникации",
+  "typeLoan": "Jeonbuk Bank Кредит",
+  "typeVisa": "Консультация по визе",
+  "typeOther": "Другое",
+  "errorSelectType": "Пожалуйста, выберите тип консультации",
+
+  "step2TitleBasic": "Основная информация",
+  "step2TitleService": "Информация о {{service}}",
+
+  "fileUploadTitle": "Прикрепить документы (необязательно)",
+  "fileUploadDesc": "Пожалуйста, приложите удостоверение личности, справку с работы, подтверждение дохода и т.д.",
+  "fileUploadLimit": "Максимум 5 файлов, каждый менее 10 МБ (JPG, PNG, PDF и т.д.)",
+  "fileSelectButton": "Выбрать файл",
+  "fileMaxError": "Можно загрузить максимум 5 файлов.",
+  "fileSizeError": "Размер каждого файла не должен превышать 10 МБ.",
+
+  "privacyConsentLabel": "Я согласен на сбор и использование персональных данных",
+  "privacyConsentDesc": "Собираемая информация: Имя, телефон, электронная почта и т.д. | Цель: Консультация | Срок хранения: 1 год после завершения консультации",
+  "privacyConsentError": "Пожалуйста, дайте согласие на сбор персональных данных",
+
+  "buttonNext": "Следующий шаг",
+  "buttonPrevious": "Назад",
+  "buttonSubmit": "Отправить заявку",
+  "buttonSubmitting": "Отправка...",
+
+  "successTitle": "Заявка отправлена!",
+  "successMessage": "Мы свяжемся с вами в ближайшее время.",
+
+  "fieldRequired": "Пожалуйста, введите {{field}}",
+  "fieldPlaceholder": "Введите {{field}}",
+
+  "fileUploadMaxSize": "Максимум 10MB",
+  "selectPlaceholder": "Пожалуйста, выберите",
+  "submitError": "Произошла ошибка при отправке запроса на консультацию. Пожалуйста, попробуйте еще раз.",
+
+  "fieldName": "Имя",
+  "fieldPhone": "Номер телефона",
+  "fieldEmail": "Электронная почта",
+  "fieldMessage": "Сообщение",
+  "fieldNationality": "Гражданство",
+  "fieldVisaType": "Тип визы",
+  "fieldCurrentCarrier": "Текущий оператор",
+  "fieldDesiredPlan": "Желаемый тариф",
+  "fieldLoanAmount": "Желаемая сумма кредита",
+  "fieldIncome": "Ежемесячный доход",
+  "fieldOccupation": "Профессия",
+  "fieldEmploymentPeriod": "Период работы",
+  "fieldStayPeriod": "Период пребывания в Корее",
+  "fieldPurpose": "Цель консультации"
+}

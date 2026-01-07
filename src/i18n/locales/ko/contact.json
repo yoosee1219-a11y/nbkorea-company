@@ -1,0 +1,29 @@
+{
+  "title": "제휴 문의",
+  "subtitle": "NB KOREA와 함께 성장할 파트너를 기다립니다",
+  "infoTitle": "연락처 정보",
+  "formTitle": "제휴 문의하기",
+
+  "email": "이메일",
+  "phone": "전화",
+  "address": "주소",
+  "addressValue": "인천광역시 부평구 부평대로 301, 남광센트렉스 911호",
+  "businessHours": "영업 시간",
+  "weekdays": "월-금: 09:00 - 18:00",
+  "weekend": "주말 및 공휴일 휴무",
+
+  "nameLabel": "회사명 / 이름",
+  "namePlaceholder": "회사명 또는 성함을 입력해주세요",
+  "emailLabel": "이메일",
+  "emailPlaceholder": "your@email.com",
+  "phoneLabel": "연락처",
+  "phonePlaceholder": "010-0000-0000",
+  "messageLabel": "문의 내용",
+  "messagePlaceholder": "제휴 문의 내용을 자세히 작성해주세요",
+
+  "submitButton": "문의 보내기",
+  "submitting": "전송 중...",
+
+  "successMessage": "문의가 성공적으로 전송되었습니다!",
+  "errorMessage": "전송 중 오류가 발생했습니다. 다시 시도해주세요."
+}

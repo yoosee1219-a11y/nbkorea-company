@@ -1,0 +1,29 @@
+{
+  "title": "Liên hệ hợp tác",
+  "subtitle": "Chúng tôi đang tìm kiếm đối tác để cùng phát triển với NB KOREA",
+  "infoTitle": "Thông tin liên hệ",
+  "formTitle": "Gửi yêu cầu hợp tác",
+
+  "email": "Email",
+  "phone": "Điện thoại",
+  "address": "Địa chỉ",
+  "addressValue": "911, Nam Gwang Centrex, 301 Bupyeong-daero, Bupyeong-gu, Incheon",
+  "businessHours": "Giờ làm việc",
+  "weekdays": "Thứ 2-6: 09:00 - 18:00",
+  "weekend": "Đóng cửa vào cuối tuần và ngày lễ",
+
+  "nameLabel": "Tên công ty / Họ tên",
+  "namePlaceholder": "Vui lòng nhập tên công ty hoặc họ tên",
+  "emailLabel": "Email",
+  "emailPlaceholder": "your@email.com",
+  "phoneLabel": "Số điện thoại",
+  "phonePlaceholder": "010-0000-0000",
+  "messageLabel": "Nội dung",
+  "messagePlaceholder": "Vui lòng mô tả chi tiết nội dung hợp tác",
+
+  "submitButton": "Gửi yêu cầu",
+  "submitting": "Đang gửi...",
+
+  "successMessage": "Yêu cầu của bạn đã được gửi thành công!",
+  "errorMessage": "Đã xảy ra lỗi trong quá trình gửi. Vui lòng thử lại."
+}

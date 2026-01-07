@@ -1,0 +1,23 @@
+{
+  "title": "Đối tác",
+  "subtitle": "Phát triển cùng",
+  "subtitleSuffix": "đối tác đáng tin cậy",
+  "loading": "Đang tải thông tin đối tác...",
+  "stats": {
+    "totalPartners": "Tổng số đối tác",
+    "countries": "Quốc gia hợp tác",
+    "premiumPartners": "Đối tác cao cấp"
+  },
+  "featured": {
+    "badge": "Premium Partners",
+    "title": "Đối tác chính",
+    "subtitle": "Đối tác chính thức của NB KOREA"
+  },
+  "categories": {
+    "overseas": "Trung tâm du học nước ngoài",
+    "worker": "Công ty xuất khẩu lao động",
+    "domestic": "Đối tác trong nước",
+    "partnerCount": "{{count}} đối tác"
+  },
+  "empty": "Không có đối tác"
+}

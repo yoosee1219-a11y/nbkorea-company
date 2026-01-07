@@ -1,0 +1,56 @@
+{
+  "modalTitle": "Free Consultation Request",
+  "step": "Step {{current}} of {{total}}",
+
+  "step1Title": "Please select consultation type",
+  "typeTelecom": "LGU+ Telecom",
+  "typeLoan": "Jeonbuk Bank Loan",
+  "typeVisa": "Visa Consultation",
+  "typeOther": "Other Inquiry",
+  "errorSelectType": "Please select a consultation type",
+
+  "step2TitleBasic": "Basic Information",
+  "step2TitleService": "{{service}} Information",
+
+  "fileUploadTitle": "Attach Documents (Optional)",
+  "fileUploadDesc": "Please attach documents such as ID, employment certificate, proof of income, etc.",
+  "fileUploadLimit": "Max 5 files, each under 10MB (JPG, PNG, PDF, etc.)",
+  "fileUploadMaxSize": "Max 10MB",
+  "fileSelectButton": "Select Files",
+  "fileMaxError": "You can upload up to 5 files.",
+  "fileSizeError": "Each file size cannot exceed 10MB.",
+
+  "selectPlaceholder": "Please select",
+
+  "privacyConsentLabel": "I agree to the collection and use of personal information",
+  "privacyConsentDesc": "Collection items: Name, contact, email, etc. | Purpose: Consultation | Retention period: 1 year after consultation completion",
+  "privacyConsentError": "Please agree to the collection of personal information",
+
+  "buttonNext": "Next Step",
+  "buttonPrevious": "Previous",
+  "buttonSubmit": "Submit",
+  "buttonSubmitting": "Submitting...",
+
+  "successTitle": "Application Completed!",
+  "successMessage": "We will contact you soon.",
+
+  "submitError": "An error occurred while submitting the consultation request. Please try again.",
+
+  "fieldRequired": "Please enter {{field}}",
+  "fieldPlaceholder": "Enter {{field}}",
+
+  "fieldName": "Name",
+  "fieldPhone": "Phone Number",
+  "fieldEmail": "Email",
+  "fieldMessage": "Message",
+  "fieldNationality": "Nationality",
+  "fieldVisaType": "Visa Type",
+  "fieldCurrentCarrier": "Current Carrier",
+  "fieldDesiredPlan": "Desired Plan",
+  "fieldLoanAmount": "Desired Loan Amount",
+  "fieldIncome": "Monthly Income",
+  "fieldOccupation": "Occupation",
+  "fieldEmploymentPeriod": "Employment Period",
+  "fieldStayPeriod": "Period of Stay in Korea",
+  "fieldPurpose": "Purpose of Consultation"
+}

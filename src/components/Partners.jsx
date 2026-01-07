@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence, useInView, useMotionValue, useSpring } from 'framer-motion'
 import { Building2, Globe2, Loader2, ChevronDown, Sparkles, Award, Users, MapPin, ArrowLeft, ArrowRight } from 'lucide-react'
 import { getPartners } from '../services/dataService'
+import { useTranslation } from 'react-i18next'
 
 // Animated Counter Component
 const AnimatedCounter = ({ value, duration = 2 }) => {
@@ -27,6 +28,7 @@ const AnimatedCounter = ({ value, duration = 2 }) => {
 }
 
 const Partners = () => {
+  const { t } = useTranslation('partners')
   const [partners, setPartners] = useState([])
   const [loading, setLoading] = useState(true)
   const [openCategory, setOpenCategory] = useState('overseas')
@@ -77,7 +79,7 @@ const Partners = () => {
               <Loader2 className="w-12 h-12 text-nb-pink-600 animate-spin" />
               <div className="absolute inset-0 w-12 h-12 border-4 border-rose-200 rounded-full animate-ping opacity-20"></div>
             </div>
-            <p className="text-slate-600 font-semibold text-lg">파트너사 정보를 불러오는 중...</p>
+            <p className="text-slate-600 font-semibold text-lg">{t('loading')}</p>
           </div>
         </div>
       </section>
@@ -173,14 +175,14 @@ const Partners = () => {
               <div>
                 <h3 className="text-lg font-black text-slate-900">{title}</h3>
                 <p className={`text-sm font-semibold ${gradientFrom.includes('pink') ? 'text-nb-pink-600' : gradientFrom.includes('blue') ? 'text-blue-600' : 'text-purple-600'}`}>
-                  {partners.length}개 파트너
+                  {t('categories.partnerCount', { count: partners.length })}
                 </p>
               </div>
             </div>
           </div>
           <div className="text-center py-16 bg-white rounded-2xl border-2 border-dashed border-slate-200">
             <Building2 className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-            <p className="text-slate-400 text-sm font-semibold">파트너가 없습니다</p>
+            <p className="text-slate-400 text-sm font-semibold">{t('empty')}</p>
           </div>
         </div>
       )
@@ -197,7 +199,7 @@ const Partners = () => {
               <div>
                 <h3 className="text-lg font-black text-slate-900">{title}</h3>
                 <p className={`text-sm font-semibold ${gradientFrom.includes('pink') ? 'text-nb-pink-600' : gradientFrom.includes('blue') ? 'text-blue-600' : 'text-purple-600'}`}>
-                  {partners.length}개 파트너
+                  {t('categories.partnerCount', { count: partners.length })}
                 </p>
               </div>
             </div>
@@ -299,7 +301,7 @@ const Partners = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight"
           >
-            제휴 파트너사
+            {t('title')}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -307,7 +309,7 @@ const Partners = () => {
             transition={{ delay: 0.1 }}
             className="text-xl text-slate-600 max-w-2xl mx-auto"
           >
-            <span className="text-nb-pink-600 font-bold">신뢰할 수 있는 파트너</span>와 함께 성장합니다
+            <span className="text-nb-pink-600 font-bold">{t('subtitle')}</span>{t('subtitleSuffix')}
           </motion.p>
         </div>
 
@@ -327,7 +329,7 @@ const Partners = () => {
                 <div className="text-5xl font-black text-white mb-2">
                   <AnimatedCounter value={partners.length} />+
                 </div>
-                <p className="text-white/90 font-semibold text-lg">총 파트너사</p>
+                <p className="text-white/90 font-semibold text-lg">{t('stats.totalPartners')}</p>
               </div>
             </div>
 
@@ -339,7 +341,7 @@ const Partners = () => {
                 <div className="text-5xl font-black text-white mb-2">
                   <AnimatedCounter value={[...new Set(partners.map(p => p.country).filter(Boolean))].length} />+
                 </div>
-                <p className="text-white/90 font-semibold text-lg">협력 국가</p>
+                <p className="text-white/90 font-semibold text-lg">{t('stats.countries')}</p>
               </div>
             </div>
 
@@ -351,7 +353,7 @@ const Partners = () => {
                 <div className="text-5xl font-black text-white mb-2">
                   <AnimatedCounter value={partners.filter(p => p.category === 'featured').length} />
                 </div>
-                <p className="text-white/90 font-semibold text-lg">프리미엄 파트너</p>
+                <p className="text-white/90 font-semibold text-lg">{t('stats.premiumPartners')}</p>
               </div>
             </div>
           </div>
@@ -367,12 +369,12 @@ const Partners = () => {
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-amber-100 to-yellow-100 border border-amber-200 mb-4">
                 <Award className="w-5 h-5 text-amber-600" />
-                <span className="text-sm font-bold text-amber-700 uppercase tracking-wider">Premium Partners</span>
+                <span className="text-sm font-bold text-amber-700 uppercase tracking-wider">{t('featured.badge')}</span>
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
-                주요 파트너
+                {t('featured.title')}
               </h3>
-              <p className="text-slate-600">NB KOREA의 공식 파트너사</p>
+              <p className="text-slate-600">{t('featured.subtitle')}</p>
             </div>
 
             <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 lg:gap-16">
@@ -437,7 +439,7 @@ const Partners = () => {
           <PartnerCarousel
             partners={overseasPartners}
             category="overseas"
-            title="해외 유학원"
+            title={t('categories.overseas')}
             icon={Globe2}
             gradientFrom="from-nb-pink-50"
             gradientTo="to-rose-50"
@@ -448,7 +450,7 @@ const Partners = () => {
           <PartnerCarousel
             partners={workerDispatchPartners}
             category="worker"
-            title="근로자 송출업체"
+            title={t('categories.worker')}
             icon={Building2}
             gradientFrom="from-blue-50"
             gradientTo="to-indigo-50"
@@ -459,7 +461,7 @@ const Partners = () => {
           <PartnerCarousel
             partners={domesticPartners}
             category="domestic"
-            title="국내 파트너"
+            title={t('categories.domestic')}
             icon={Sparkles}
             gradientFrom="from-purple-50"
             gradientTo="to-pink-50"
@@ -485,8 +487,8 @@ const Partners = () => {
                   <Globe2 className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-left">
-                  <span className="text-base font-black text-slate-900 block">해외 유학원</span>
-                  <span className="text-sm text-nb-pink-600 font-semibold">{overseasPartners.length}개 파트너</span>
+                  <span className="text-base font-black text-slate-900 block">{t('categories.overseas')}</span>
+                  <span className="text-sm text-nb-pink-600 font-semibold">{t('categories.partnerCount', { count: overseasPartners.length })}</span>
                 </div>
               </div>
               <motion.div
@@ -532,8 +534,8 @@ const Partners = () => {
                   <Building2 className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-left">
-                  <span className="text-base font-black text-slate-900 block">근로자 송출업체</span>
-                  <span className="text-sm text-blue-600 font-semibold">{workerDispatchPartners.length}개 파트너</span>
+                  <span className="text-base font-black text-slate-900 block">{t('categories.worker')}</span>
+                  <span className="text-sm text-blue-600 font-semibold">{t('categories.partnerCount', { count: workerDispatchPartners.length })}</span>
                 </div>
               </div>
               <motion.div
@@ -579,8 +581,8 @@ const Partners = () => {
                   <Sparkles className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-left">
-                  <span className="text-base font-black text-slate-900 block">국내 파트너</span>
-                  <span className="text-sm text-purple-600 font-semibold">{domesticPartners.length}개 파트너</span>
+                  <span className="text-base font-black text-slate-900 block">{t('categories.domestic')}</span>
+                  <span className="text-sm text-purple-600 font-semibold">{t('categories.partnerCount', { count: domesticPartners.length })}</span>
                 </div>
               </div>
               <motion.div

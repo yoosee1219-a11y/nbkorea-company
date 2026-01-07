@@ -1,0 +1,10 @@
+{
+  "title": "博客",
+  "subtitle": "查看NB KOREA的最新消息和有用信息",
+  "loading": "正在加载博客文章...",
+  "empty": {
+    "title": "没有博客文章",
+    "subtitle": "我们将很快分享新消息"
+  },
+  "readMore": "阅读更多"
+}

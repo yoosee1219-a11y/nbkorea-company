@@ -1,0 +1,55 @@
+{
+  "modalTitle": "Үнэгүй зөвлөгөө авах хүсэлт",
+  "step": "{{current}}-р алхам, нийт {{total}}",
+
+  "step1Title": "Зөвлөгөөний төрлөө сонгоно уу",
+  "typeTelecom": "LGU+ Холбоо",
+  "typeLoan": "Jeonbuk Bank Зээл",
+  "typeVisa": "Визний зөвлөгөө",
+  "typeOther": "Бусад",
+  "errorSelectType": "Зөвлөгөөний төрлөө сонгоно уу",
+
+  "step2TitleBasic": "Үндсэн мэдээлэл",
+  "step2TitleService": "{{service}} мэдээлэл",
+
+  "fileUploadTitle": "Баримт бичиг хавсаргах (заавал биш)",
+  "fileUploadDesc": "Иргэний үнэмлэх, ажлын баталгаа, орлогын нотолгоо гэх мэт хавсаргана уу",
+  "fileUploadLimit": "Хамгийн ихдээ 5 файл, тус бүр 10MB-аас бага (JPG, PNG, PDF гэх мэт)",
+  "fileSelectButton": "Файл сонгох",
+  "fileMaxError": "Хамгийн ихдээ 5 файл байршуулж болно.",
+  "fileSizeError": "Файл бүрийн хэмжээ 10MB-аас ихгүй байх ёстой.",
+  "fileUploadMaxSize": "Хамгийн ихдээ 10MB",
+
+  "selectPlaceholder": "Сонгоно уу",
+
+  "privacyConsentLabel": "Би хувийн мэдээлэл цуглуулах, ашиглахыг зөвшөөрч байна",
+  "privacyConsentDesc": "Цуглуулах мэдээлэл: Нэр, утасны дугаар, имэйл гэх мэт | Зорилго: Зөвлөгөө | Хадгалах хугацаа: Зөвлөгөө дууссанаас хойш 1 жил",
+  "privacyConsentError": "Хувийн мэдээлэл цуглуулахыг зөвшөөрнө үү",
+
+  "buttonNext": "Дараагийн алхам",
+  "buttonPrevious": "Буцах",
+  "buttonSubmit": "Хүсэлт илгээх",
+  "buttonSubmitting": "Илгээж байна...",
+
+  "successTitle": "Хүсэлт илгээгдлээ!",
+  "successMessage": "Бид тантай удахгүй холбогдох болно.",
+  "submitError": "Зөвлөгөө хүсэлт илгээхэд алдаа гарлаа. Дахин оролдоно уу.",
+
+  "fieldRequired": "{{field}}-ыг оруулна уу",
+  "fieldPlaceholder": "{{field}} оруулах",
+
+  "fieldName": "Нэр",
+  "fieldPhone": "Утасны дугаар",
+  "fieldEmail": "Имэйл",
+  "fieldMessage": "Мессеж",
+  "fieldNationality": "Харьяалал",
+  "fieldVisaType": "Визийн төрөл",
+  "fieldCurrentCarrier": "Одоогийн оператор",
+  "fieldDesiredPlan": "Хүссэн багц",
+  "fieldLoanAmount": "Хүссэн зээлийн хэмжээ",
+  "fieldIncome": "Сарын орлого",
+  "fieldOccupation": "Мэргэжил",
+  "fieldEmploymentPeriod": "Ажилласан хугацаа",
+  "fieldStayPeriod": "Солонгост байгаа хугацаа",
+  "fieldPurpose": "Зөвлөгөөний зорилго"
+}

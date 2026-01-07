@@ -8,10 +8,15 @@ import BlogPage from './pages/BlogPage'
 import AdminLogin from './pages/admin/AdminLogin'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import ProtectedRoute from './components/admin/ProtectedRoute'
+import useReferralTracking from './hooks/useReferralTracking'
+import './i18n/config'
 
 function AppContent() {
   const location = useLocation()
   const isAdminRoute = location.pathname.startsWith('/admin')
+
+  // 리퍼럴 트래킹 (첫 방문 시 한 번만 기록)
+  useReferralTracking()
 
   return (
     <div className="min-h-screen flex flex-col">

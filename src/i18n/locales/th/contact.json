@@ -1,0 +1,29 @@
+{
+  "title": "สอบถามความร่วมมือ",
+  "subtitle": "เรากำลังมองหาพันธมิตรที่จะเติบโตไปพร้อมกับ NB KOREA",
+  "infoTitle": "ข้อมูลติดต่อ",
+  "formTitle": "ส่งคำขอความร่วมมือ",
+
+  "email": "อีเมล",
+  "phone": "โทรศัพท์",
+  "address": "ที่อยู่",
+  "addressValue": "911, Nam Gwang Centrex, 301 Bupyeong-daero, Bupyeong-gu, Incheon",
+  "businessHours": "เวลาทำการ",
+  "weekdays": "จันทร์-ศุกร์: 09:00 - 18:00",
+  "weekend": "ปิดทำการวันเสาร์-อาทิตย์และวันหยุดนักขัตฤกษ์",
+
+  "nameLabel": "ชื่อบริษัท / ชื่อ",
+  "namePlaceholder": "กรุณากรอกชื่อบริษัทหรือชื่อของคุณ",
+  "emailLabel": "อีเมล",
+  "emailPlaceholder": "your@email.com",
+  "phoneLabel": "เบอร์ติดต่อ",
+  "phonePlaceholder": "010-0000-0000",
+  "messageLabel": "เนื้อหา",
+  "messagePlaceholder": "กรุณาอธิบายรายละเอียดเกี่ยวกับความร่วมมือ",
+
+  "submitButton": "ส่งคำขอ",
+  "submitting": "กำลังส่ง...",
+
+  "successMessage": "คำขอของคุณถูกส่งเรียบร้อยแล้ว!",
+  "errorMessage": "เกิดข้อผิดพลาดในการส่ง กรุณาลองอีกครั้ง"
+}

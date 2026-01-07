@@ -1,0 +1,29 @@
+{
+  "title": "Pertanyaan Kemitraan",
+  "subtitle": "Kami menunggu mitra yang akan tumbuh bersama NB KOREA",
+  "infoTitle": "Informasi Kontak",
+  "formTitle": "Ajukan Pertanyaan Kemitraan",
+
+  "email": "Email",
+  "phone": "Telepon",
+  "address": "Alamat",
+  "addressValue": "911, Nam Gwang Centrex, 301 Bupyeong-daero, Bupyeong-gu, Incheon",
+  "businessHours": "Jam Operasional",
+  "weekdays": "Sen-Jum: 09:00 - 18:00",
+  "weekend": "Tutup pada akhir pekan dan hari libur",
+
+  "nameLabel": "Nama Perusahaan / Nama",
+  "namePlaceholder": "Silakan masukkan nama perusahaan atau nama Anda",
+  "emailLabel": "Email",
+  "emailPlaceholder": "your@email.com",
+  "phoneLabel": "Nomor Kontak",
+  "phonePlaceholder": "010-0000-0000",
+  "messageLabel": "Pesan",
+  "messagePlaceholder": "Silakan jelaskan secara rinci tentang kemitraan",
+
+  "submitButton": "Kirim Pertanyaan",
+  "submitting": "Mengirim...",
+
+  "successMessage": "Pertanyaan Anda telah berhasil dikirim!",
+  "errorMessage": "Terjadi kesalahan saat mengirim. Silakan coba lagi."
+}
