@@ -5,6 +5,7 @@ import { Menu, X, Mail } from 'lucide-react'
 import { clsx } from 'clsx'
 import { useTranslation } from 'react-i18next'
 import LanguageSwitcher from './LanguageSwitcher'
+import ConsultationModal from './ConsultationModal'
 
 const navItems = [
   { key: "about", path: "/" },
@@ -16,6 +17,7 @@ const Navigation = () => {
   const { t } = useTranslation('navigation')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
@@ -28,11 +30,8 @@ const Navigation = () => {
 
   const isActive = (path) => location.pathname === path
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact')
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
+  const openConsultationModal = () => {
+    setIsModalOpen(true)
     // Close mobile menu if open
     setIsMobileMenuOpen(false)
   }
@@ -86,7 +85,7 @@ const Navigation = () => {
 
             {/* Contact CTA Button */}
             <button
-              onClick={scrollToContact}
+              onClick={openConsultationModal}
               className="inline-flex items-center gap-2 px-4 lg:px-6 py-2 lg:py-2.5 bg-gradient-to-r from-nb-pink-600 to-rose-600 text-white font-semibold text-sm rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 focus:outline-none cursor-pointer"
             >
               <Mail className="size-4" />
@@ -143,7 +142,7 @@ const Navigation = () => {
 
               {/* Mobile Contact Button */}
               <button
-                onClick={scrollToContact}
+                onClick={openConsultationModal}
                 className="mt-4 inline-flex w-full items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-nb-pink-600 to-rose-600 text-white font-semibold text-base rounded-xl hover:shadow-lg transition-all duration-300 focus:outline-none cursor-pointer"
               >
                 <Mail className="size-5" />
@@ -158,6 +157,9 @@ const Navigation = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Consultation Modal */}
+      <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </nav>
   )
 }
