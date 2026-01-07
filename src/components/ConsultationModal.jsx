@@ -294,31 +294,35 @@ const ConsultationModal = ({ isOpen, onClose }) => {
       }
     }
 
-    // Google Sheets로 전송
-    try {
-      const sheetData = {
-        referral_source: referralDisplay, // 유입 경로 (코드 / 이름 형식)
-        consultation_type: consultationData.consultation_type,
-        status: 'pending',
-        form_data: JSON.stringify(consultationData.form_data),
-        file_urls: fileUrls.length > 0 ? JSON.stringify(fileUrls) : ''
+    // Google Sheets로 전송 (한국 사이트만)
+    if (siteOrigin === 'ko') {
+      try {
+        const sheetData = {
+          referral_source: referralDisplay, // 유입 경로 (코드 / 이름 형식)
+          consultation_type: consultationData.consultation_type,
+          status: 'pending',
+          form_data: JSON.stringify(consultationData.form_data),
+          file_urls: fileUrls.length > 0 ? JSON.stringify(fileUrls) : ''
+        }
+
+        // Use no-cors mode to avoid CORS preflight issues with Google Apps Script
+        const response = await fetch('https://script.google.com/macros/s/AKfycbxYJPK_s4bhYs80rjGSFt22qeSkS3zYlP8XSx75dQkbaZJ8zgJfy5n63Z3wKlaNTw4ulQ/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(sheetData)
+        })
+
+        // no-cors mode doesn't allow reading response, but request is sent
+        console.log('Google Sheets request sent (Korean site only)')
+      } catch (sheetError) {
+        console.error('Google Sheets error:', sheetError)
+        // Google Sheets 전송 실패해도 계속 진행
       }
-
-      // Use no-cors mode to avoid CORS preflight issues with Google Apps Script
-      const response = await fetch('https://script.google.com/macros/s/AKfycbxYJPK_s4bhYs80rjGSFt22qeSkS3zYlP8XSx75dQkbaZJ8zgJfy5n63Z3wKlaNTw4ulQ/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(sheetData)
-      })
-
-      // no-cors mode doesn't allow reading response, but request is sent
-      console.log('Google Sheets request sent (no-cors mode)')
-    } catch (sheetError) {
-      console.error('Google Sheets error:', sheetError)
-      // Google Sheets 전송 실패해도 계속 진행
+    } else {
+      console.log('Skipping Google Sheets (Vietnamese site)')
     }
 
     setLoading(false)
