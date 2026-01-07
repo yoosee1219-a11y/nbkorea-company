@@ -323,7 +323,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
+      <div className="fixed inset-0 z-50 overflow-y-auto">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -333,13 +333,15 @@ const ConsultationModal = ({ isOpen, onClose }) => {
           className="fixed inset-0 bg-black/50 backdrop-blur-sm"
         />
 
-        {/* Modal */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden my-8"
-        >
+        {/* Centering Container */}
+        <div className="min-h-screen flex items-center justify-center p-4">
+          {/* Modal */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
+          >
           {/* Header */}
           <div className="bg-gradient-to-r from-nb-pink-600 to-rose-600 px-6 py-5 flex items-center justify-between">
             <div>
@@ -551,6 +553,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
             )}
           </div>
         </motion.div>
+        </div>
       </div>
     </AnimatePresence>
   )
