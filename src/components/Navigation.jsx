@@ -37,6 +37,7 @@ const Navigation = () => {
   }
 
   return (
+    <>
     <nav
       className={clsx(
         "fixed top-0 w-full z-50 transition-all duration-500",
@@ -157,10 +158,11 @@ const Navigation = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Consultation Modal */}
-      <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </nav>
+
+    {/* Consultation Modal */}
+    <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   )
 }
 
