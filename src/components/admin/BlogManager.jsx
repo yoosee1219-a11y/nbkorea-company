@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { PlusCircle, Edit2, Trash2, Save, X, Loader2 } from 'lucide-react'
-import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, serverTimestamp } from 'firebase/firestore'
+import { collection, addDoc, updateDoc, deleteDoc, doc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
+import { getBlogPosts } from '../../services/dataService'
 import ImageUpload from './ImageUpload'
 
 const BlogManager = () => {
@@ -23,12 +24,9 @@ const BlogManager = () => {
 
   const fetchPosts = async () => {
     try {
-      const querySnapshot = await getDocs(collection(db, 'blog_posts'))
-      const postsData = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }))
-      setPosts(postsData.sort((a, b) => b.created_at?.seconds - a.created_at?.seconds))
+      const { data, error } = await getBlogPosts(999)
+      if (error) throw error
+      setPosts(data)
     } catch (error) {
       console.error('Error fetching posts:', error)
       alert('블로그 포스트를 불러오는데 실패했습니다')
@@ -42,10 +40,14 @@ const BlogManager = () => {
     setLoading(true)
 
     try {
+      // 사이트 구분 추가
+      const siteOrigin = import.meta.env.VITE_DEFAULT_LANGUAGE || 'ko'
+
       if (editingPost) {
         // Update existing post
         await updateDoc(doc(db, 'blog_posts', editingPost.id), {
           ...formData,
+          site_origin: siteOrigin,
           updated_at: serverTimestamp()
         })
         alert('블로그 포스트가 수정되었습니다')
@@ -53,6 +55,7 @@ const BlogManager = () => {
         // Create new post
         await addDoc(collection(db, 'blog_posts'), {
           ...formData,
+          site_origin: siteOrigin,
           created_at: serverTimestamp(),
           updated_at: serverTimestamp()
         })

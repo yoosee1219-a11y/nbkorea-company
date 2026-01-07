@@ -18,13 +18,15 @@ import {
   Trash2,
   AlertTriangle,
   Edit2,
-  Save
+  Save,
+  Link as LinkIcon
 } from 'lucide-react'
 import {
   getConsultations,
   deleteConsultation,
   updateConsultationStatus,
-  updateConsultation
+  updateConsultation,
+  getInfluencers
 } from '../../services/dataService'
 
 const ConsultationManager = () => {
@@ -41,9 +43,11 @@ const ConsultationManager = () => {
   const [editData, setEditData] = useState(null)
   const [selectedIds, setSelectedIds] = useState([]) // 체크박스 선택된 ID들
   const [showBulkActions, setShowBulkActions] = useState(false) // 일괄 작업 모달
+  const [influencers, setInfluencers] = useState({}) // 인플루언서 코드 -> 이름 매핑
 
   useEffect(() => {
     fetchConsultations()
+    fetchInfluencers()
   }, [])
 
   const fetchConsultations = async () => {
@@ -55,6 +59,29 @@ const ConsultationManager = () => {
     }
     setConsultations(data || [])
     setLoading(false)
+  }
+
+  const fetchInfluencers = async () => {
+    const { data, error } = await getInfluencers()
+    if (error) {
+      console.error('Error fetching influencers:', error)
+      return
+    }
+    // 인플루언서 코드 -> 이름 매핑
+    const influencerMap = {}
+    data?.forEach(inf => {
+      influencerMap[inf.code] = inf.name
+    })
+    setInfluencers(influencerMap)
+  }
+
+  // 유입 경로 표시 함수
+  const getReferralDisplay = (referralSource) => {
+    if (!referralSource || referralSource === 'organic') {
+      return '오가닉'
+    }
+    // 인플루언서 이름이 있으면 이름 표시, 없으면 코드 표시
+    return influencers[referralSource] || referralSource
   }
 
   const handleStatusChange = async (consultationId, newStatus) => {
@@ -454,6 +481,9 @@ const ConsultationManager = () => {
                     신청일시
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-bold text-slate-700 uppercase tracking-wider">
+                    유입 경로
+                  </th>
+                  <th className="px-6 py-4 text-left text-xs font-bold text-slate-700 uppercase tracking-wider">
                     고객 정보
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-bold text-slate-700 uppercase tracking-wider">
@@ -489,6 +519,16 @@ const ConsultationManager = () => {
                         <Calendar className="w-4 h-4 text-slate-400" />
                         {formatDate(consultation.created_at)}
                       </div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-medium ${
+                        consultation.referral_source === 'organic' || !consultation.referral_source
+                          ? 'bg-slate-100 text-slate-700'
+                          : 'bg-green-100 text-green-700'
+                      }`}>
+                        <LinkIcon className="w-3 h-3" />
+                        {getReferralDisplay(consultation.referral_source)}
+                      </span>
                     </td>
                     <td className="px-6 py-4">
                       <div>
@@ -593,6 +633,23 @@ const ConsultationManager = () => {
                     <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold border ${getTypeColor(selectedConsultation.consultation_type)}`}>
                       {getTypeIcon(selectedConsultation.consultation_type)}
                       {getTypeLabel(selectedConsultation.consultation_type)}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Referral Source */}
+                <div className="bg-green-50 rounded-xl p-4">
+                  <div className="flex items-center justify-between">
+                    <h4 className="font-bold text-slate-900 flex items-center gap-2">
+                      <LinkIcon className="w-5 h-5 text-green-600" />
+                      유입 경로
+                    </h4>
+                    <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold ${
+                      selectedConsultation.referral_source === 'organic' || !selectedConsultation.referral_source
+                        ? 'bg-slate-100 text-slate-700 border border-slate-300'
+                        : 'bg-green-100 text-green-700 border border-green-300'
+                    }`}>
+                      {getReferralDisplay(selectedConsultation.referral_source)}
                     </span>
                   </div>
                 </div>

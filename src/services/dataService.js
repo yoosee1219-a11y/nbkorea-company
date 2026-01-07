@@ -48,12 +48,18 @@ export const getPartners = async () => {
     case 'firebase':
       try {
         const partnersRef = collection(db, 'partners')
-        const querySnapshot = await getDocs(partnersRef)
+
+        // 사이트 구분으로 필터링
+        const siteOrigin = import.meta.env.VITE_DEFAULT_LANGUAGE || 'ko'
+        const q = query(partnersRef, where('site_origin', '==', siteOrigin))
+        const querySnapshot = await getDocs(q)
 
         const data = querySnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
         }))
+
+        console.log(`Loaded ${data.length} partners for site: ${siteOrigin}`)
 
         return { data, error: null }
       } catch (error) {
@@ -99,8 +105,12 @@ export const getBlogPosts = async (limit = 6) => {
     case 'firebase':
       try {
         const postsRef = collection(db, 'blog_posts')
+
+        // 사이트 구분으로 필터링
+        const siteOrigin = import.meta.env.VITE_DEFAULT_LANGUAGE || 'ko'
         const q = query(
           postsRef,
+          where('site_origin', '==', siteOrigin),
           orderBy('created_at', 'desc'),
           firestoreLimit(limit)
         )
@@ -110,6 +120,8 @@ export const getBlogPosts = async (limit = 6) => {
           id: doc.id,
           ...doc.data()
         }))
+
+        console.log(`Loaded ${data.length} blog posts for site: ${siteOrigin}`)
 
         return { data, error: null }
       } catch (error) {

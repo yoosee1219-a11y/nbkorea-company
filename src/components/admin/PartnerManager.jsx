@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { PlusCircle, Edit2, Trash2, Save, X, Loader2 } from 'lucide-react'
-import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore'
+import { collection, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
+import { getPartners } from '../../services/dataService'
 import ImageUpload from './ImageUpload'
 
 const PartnerManager = () => {
@@ -31,12 +32,9 @@ const PartnerManager = () => {
 
   const fetchPartners = async () => {
     try {
-      const querySnapshot = await getDocs(collection(db, 'partners'))
-      const partnersData = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }))
-      setPartners(partnersData)
+      const { data, error } = await getPartners()
+      if (error) throw error
+      setPartners(data)
     } catch (error) {
       console.error('Error fetching partners:', error)
       alert('파트너를 불러오는데 실패했습니다')
@@ -50,13 +48,20 @@ const PartnerManager = () => {
     setLoading(true)
 
     try {
+      // 사이트 구분 추가
+      const siteOrigin = import.meta.env.VITE_DEFAULT_LANGUAGE || 'ko'
+      const dataToSave = {
+        ...formData,
+        site_origin: siteOrigin
+      }
+
       if (editingPartner) {
         // Update existing partner
-        await updateDoc(doc(db, 'partners', editingPartner.id), formData)
+        await updateDoc(doc(db, 'partners', editingPartner.id), dataToSave)
         alert('파트너가 수정되었습니다')
       } else {
         // Create new partner
-        await addDoc(collection(db, 'partners'), formData)
+        await addDoc(collection(db, 'partners'), dataToSave)
         alert('파트너가 추가되었습니다')
       }
 

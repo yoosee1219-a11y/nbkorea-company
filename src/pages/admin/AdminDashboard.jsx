@@ -10,7 +10,8 @@ import {
   PlusCircle,
   List,
   MessageSquare,
-  Settings
+  Settings,
+  Database
 } from 'lucide-react'
 import BlogManager from '../../components/admin/BlogManager'
 import PartnerManager from '../../components/admin/PartnerManager'
@@ -18,6 +19,7 @@ import ConsultationManager from '../../components/admin/ConsultationManager'
 import FormBuilder from '../../components/admin/FormBuilder'
 import InfluencerManager from '../../components/admin/InfluencerManager'
 import StatsTab from '../../components/admin/StatsTab'
+import DataMigration from '../../components/admin/DataMigration'
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('consultations')
@@ -35,7 +37,8 @@ const AdminDashboard = () => {
     { id: 'stats', label: '통계', icon: BarChart3 },
     { id: 'formBuilder', label: '폼 설정', icon: Settings },
     { id: 'blog', label: '블로그 관리', icon: FileText },
-    { id: 'partners', label: '파트너 관리', icon: Users }
+    { id: 'partners', label: '파트너 관리', icon: Users },
+    { id: 'migration', label: '데이터 마이그레이션', icon: Database }
   ]
 
   return (
@@ -102,6 +105,7 @@ const AdminDashboard = () => {
         {activeTab === 'formBuilder' && <FormBuilder />}
         {activeTab === 'blog' && <BlogManager />}
         {activeTab === 'partners' && <PartnerManager />}
+        {activeTab === 'migration' && <DataMigration />}
       </main>
     </div>
   )
