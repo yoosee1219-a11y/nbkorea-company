@@ -94,7 +94,7 @@ const Navigation = () => {
             </button>
 
             {/* Language Switcher - Desktop */}
-            <LanguageSwitcher />
+            {import.meta.env.VITE_HIDE_LANGUAGE_SWITCHER !== 'true' && <LanguageSwitcher />}
           </div>
 
           {/* Mobile Menu Button */}
@@ -151,9 +151,11 @@ const Navigation = () => {
               </button>
 
               {/* Language Switcher - Mobile */}
-              <div className="mt-2">
-                <LanguageSwitcher isMobile={true} />
-              </div>
+              {import.meta.env.VITE_HIDE_LANGUAGE_SWITCHER !== 'true' && (
+                <div className="mt-2">
+                  <LanguageSwitcher isMobile={true} />
+                </div>
+              )}
             </div>
           </motion.div>
         )}
