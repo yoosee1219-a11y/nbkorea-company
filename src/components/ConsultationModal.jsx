@@ -272,6 +272,13 @@ const ConsultationModal = ({ isOpen, onClose }) => {
           console.error('File upload error:', uploadError)
         }
       }
+
+      // 파일 업로드 완료 후 Firestore 업데이트
+      if (fileUrls.length > 0) {
+        const { updateConsultation } = await import('../services/dataService')
+        await updateConsultation(data.id, { file_urls: fileUrls })
+        console.log('Updated Firestore with file URLs:', fileUrls)
+      }
     }
 
     // Google Sheets로 전송
