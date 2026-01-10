@@ -1,10 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import PartnersPage from './pages/PartnersPage'
 import BlogPage from './pages/BlogPage'
+import JobsBoard from './pages/JobsBoard'
+import UniversitiesBoard from './pages/UniversitiesBoard'
+import PostDetail from './pages/PostDetail'
 import AdminLogin from './pages/admin/AdminLogin'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import ProtectedRoute from './components/admin/ProtectedRoute'
@@ -28,6 +32,10 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/jobs" element={<JobsBoard />} />
+          <Route path="/jobs/:id" element={<PostDetail />} />
+          <Route path="/universities" element={<UniversitiesBoard />} />
+          <Route path="/universities/:id" element={<PostDetail />} />
 
           {/* Admin Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />
@@ -56,9 +64,11 @@ function AppContent() {
 
 function App() {
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </HelmetProvider>
   )
 }
 

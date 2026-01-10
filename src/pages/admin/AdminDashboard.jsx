@@ -11,7 +11,9 @@ import {
   List,
   MessageSquare,
   Settings,
-  Database
+  Database,
+  Briefcase,
+  GraduationCap
 } from 'lucide-react'
 import BlogManager from '../../components/admin/BlogManager'
 import PartnerManager from '../../components/admin/PartnerManager'
@@ -20,6 +22,9 @@ import FormBuilder from '../../components/admin/FormBuilder'
 import InfluencerManager from '../../components/admin/InfluencerManager'
 import StatsTab from '../../components/admin/StatsTab'
 import DataMigration from '../../components/admin/DataMigration'
+import JobsManager from '../../components/admin/JobsManager'
+import UniversitiesManager from '../../components/admin/UniversitiesManager'
+import AnalyticsDashboard from '../../components/admin/AnalyticsDashboard'
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('consultations')
@@ -33,6 +38,9 @@ const AdminDashboard = () => {
 
   const tabs = [
     { id: 'consultations', label: '상담 신청', icon: MessageSquare },
+    { id: 'jobs', label: '일자리 관리', icon: Briefcase },
+    { id: 'universities', label: '대학교 관리', icon: GraduationCap },
+    { id: 'analytics', label: '게시판 분석', icon: BarChart3 },
     { id: 'influencers', label: '인플루언서', icon: Users },
     { id: 'stats', label: '통계', icon: BarChart3 },
     { id: 'formBuilder', label: '폼 설정', icon: Settings },
@@ -100,6 +108,9 @@ const AdminDashboard = () => {
       {/* Content */}
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === 'consultations' && <ConsultationManager />}
+        {activeTab === 'jobs' && <JobsManager />}
+        {activeTab === 'universities' && <UniversitiesManager />}
+        {activeTab === 'analytics' && <AnalyticsDashboard />}
         {activeTab === 'influencers' && <InfluencerManager />}
         {activeTab === 'stats' && <StatsTab />}
         {activeTab === 'formBuilder' && <FormBuilder />}

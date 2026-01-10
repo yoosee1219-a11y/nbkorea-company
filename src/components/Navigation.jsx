@@ -11,6 +11,8 @@ const navItems = [
   { key: "about", path: "/" },
   { key: "partners", path: "/partners" },
   { key: "blog", path: "/blog" },
+  { key: "jobs", path: "/jobs" },
+  { key: "universities", path: "/universities" },
 ]
 
 const Navigation = () => {

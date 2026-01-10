@@ -12,6 +12,7 @@ import koConsultation from './locales/ko/consultation.json'
 import koFooter from './locales/ko/footer.json'
 import koPartners from './locales/ko/partners.json'
 import koBlog from './locales/ko/blog.json'
+import koJobs from './locales/ko/jobs.json'
 
 // English (en)
 import enCommon from './locales/en/common.json'
@@ -23,6 +24,7 @@ import enConsultation from './locales/en/consultation.json'
 import enFooter from './locales/en/footer.json'
 import enPartners from './locales/en/partners.json'
 import enBlog from './locales/en/blog.json'
+import enJobs from './locales/en/jobs.json'
 
 // Vietnamese (vi)
 import viCommon from './locales/vi/common.json'
@@ -34,6 +36,7 @@ import viConsultation from './locales/vi/consultation.json'
 import viFooter from './locales/vi/footer.json'
 import viPartners from './locales/vi/partners.json'
 import viBlog from './locales/vi/blog.json'
+import viJobs from './locales/vi/jobs.json'
 
 // Thai (th)
 import thCommon from './locales/th/common.json'
@@ -45,6 +48,7 @@ import thConsultation from './locales/th/consultation.json'
 import thFooter from './locales/th/footer.json'
 import thPartners from './locales/th/partners.json'
 import thBlog from './locales/th/blog.json'
+import thJobs from './locales/th/jobs.json'
 
 // Filipino (fil)
 import filCommon from './locales/fil/common.json'
@@ -56,6 +60,7 @@ import filConsultation from './locales/fil/consultation.json'
 import filFooter from './locales/fil/footer.json'
 import filPartners from './locales/fil/partners.json'
 import filBlog from './locales/fil/blog.json'
+import filJobs from './locales/fil/jobs.json'
 
 // Uzbek (uz)
 import uzCommon from './locales/uz/common.json'
@@ -67,6 +72,7 @@ import uzConsultation from './locales/uz/consultation.json'
 import uzFooter from './locales/uz/footer.json'
 import uzPartners from './locales/uz/partners.json'
 import uzBlog from './locales/uz/blog.json'
+import uzJobs from './locales/uz/jobs.json'
 
 // Nepali (ne)
 import neCommon from './locales/ne/common.json'
@@ -78,6 +84,7 @@ import neConsultation from './locales/ne/consultation.json'
 import neFooter from './locales/ne/footer.json'
 import nePartners from './locales/ne/partners.json'
 import neBlog from './locales/ne/blog.json'
+import neJobs from './locales/ne/jobs.json'
 
 // Mongolian (mn)
 import mnCommon from './locales/mn/common.json'
@@ -89,6 +96,7 @@ import mnConsultation from './locales/mn/consultation.json'
 import mnFooter from './locales/mn/footer.json'
 import mnPartners from './locales/mn/partners.json'
 import mnBlog from './locales/mn/blog.json'
+import mnJobs from './locales/mn/jobs.json'
 
 // Indonesian (id)
 import idCommon from './locales/id/common.json'
@@ -100,6 +108,7 @@ import idConsultation from './locales/id/consultation.json'
 import idFooter from './locales/id/footer.json'
 import idPartners from './locales/id/partners.json'
 import idBlog from './locales/id/blog.json'
+import idJobs from './locales/id/jobs.json'
 
 // Myanmar (my)
 import myCommon from './locales/my/common.json'
@@ -111,6 +120,7 @@ import myConsultation from './locales/my/consultation.json'
 import myFooter from './locales/my/footer.json'
 import myPartners from './locales/my/partners.json'
 import myBlog from './locales/my/blog.json'
+import myJobs from './locales/my/jobs.json'
 
 // Chinese Simplified (zh-CN)
 import zhCNCommon from './locales/zh-CN/common.json'
@@ -122,6 +132,7 @@ import zhCNConsultation from './locales/zh-CN/consultation.json'
 import zhCNFooter from './locales/zh-CN/footer.json'
 import zhCNPartners from './locales/zh-CN/partners.json'
 import zhCNBlog from './locales/zh-CN/blog.json'
+import zhCNJobs from './locales/zh-CN/jobs.json'
 
 // Russian (ru)
 import ruCommon from './locales/ru/common.json'
@@ -133,6 +144,7 @@ import ruConsultation from './locales/ru/consultation.json'
 import ruFooter from './locales/ru/footer.json'
 import ruPartners from './locales/ru/partners.json'
 import ruBlog from './locales/ru/blog.json'
+import ruJobs from './locales/ru/jobs.json'
 
 // Translation resources
 const resources = {
@@ -145,7 +157,8 @@ const resources = {
     consultation: koConsultation,
     footer: koFooter,
     partners: koPartners,
-    blog: koBlog
+    blog: koBlog,
+    jobs: koJobs
   },
   en: {
     common: enCommon,
@@ -156,7 +169,8 @@ const resources = {
     consultation: enConsultation,
     footer: enFooter,
     partners: enPartners,
-    blog: enBlog
+    blog: enBlog,
+    jobs: enJobs
   },
   vi: {
     common: viCommon,
@@ -167,7 +181,8 @@ const resources = {
     consultation: viConsultation,
     footer: viFooter,
     partners: viPartners,
-    blog: viBlog
+    blog: viBlog,
+    jobs: viJobs
   },
   th: {
     common: thCommon,
@@ -178,7 +193,8 @@ const resources = {
     consultation: thConsultation,
     footer: thFooter,
     partners: thPartners,
-    blog: thBlog
+    blog: thBlog,
+    jobs: thJobs
   },
   fil: {
     common: filCommon,
@@ -189,7 +205,8 @@ const resources = {
     consultation: filConsultation,
     footer: filFooter,
     partners: filPartners,
-    blog: filBlog
+    blog: filBlog,
+    jobs: filJobs
   },
   uz: {
     common: uzCommon,
@@ -200,7 +217,8 @@ const resources = {
     consultation: uzConsultation,
     footer: uzFooter,
     partners: uzPartners,
-    blog: uzBlog
+    blog: uzBlog,
+    jobs: uzJobs
   },
   ne: {
     common: neCommon,
@@ -211,7 +229,8 @@ const resources = {
     consultation: neConsultation,
     footer: neFooter,
     partners: nePartners,
-    blog: neBlog
+    blog: neBlog,
+    jobs: neJobs
   },
   mn: {
     common: mnCommon,
@@ -222,7 +241,8 @@ const resources = {
     consultation: mnConsultation,
     footer: mnFooter,
     partners: mnPartners,
-    blog: mnBlog
+    blog: mnBlog,
+    jobs: mnJobs
   },
   id: {
     common: idCommon,
@@ -233,7 +253,8 @@ const resources = {
     consultation: idConsultation,
     footer: idFooter,
     partners: idPartners,
-    blog: idBlog
+    blog: idBlog,
+    jobs: idJobs
   },
   my: {
     common: myCommon,
@@ -244,7 +265,8 @@ const resources = {
     consultation: myConsultation,
     footer: myFooter,
     partners: myPartners,
-    blog: myBlog
+    blog: myBlog,
+    jobs: myJobs
   },
   'zh-CN': {
     common: zhCNCommon,
@@ -255,7 +277,8 @@ const resources = {
     consultation: zhCNConsultation,
     footer: zhCNFooter,
     partners: zhCNPartners,
-    blog: zhCNBlog
+    blog: zhCNBlog,
+    jobs: zhCNJobs
   },
   ru: {
     common: ruCommon,
@@ -266,7 +289,8 @@ const resources = {
     consultation: ruConsultation,
     footer: ruFooter,
     partners: ruPartners,
-    blog: ruBlog
+    blog: ruBlog,
+    jobs: ruJobs
   }
 }
 
@@ -282,7 +306,7 @@ i18n
     fallbackLng: defaultLanguage, // Default language from env or 'ko'
     lng: hasEnvLanguage ? defaultLanguage : undefined, // Force language if env var is set
     defaultNS: 'common',
-    ns: ['common', 'navigation', 'hero', 'services', 'contact', 'consultation', 'footer', 'partners', 'blog'],
+    ns: ['common', 'navigation', 'hero', 'services', 'contact', 'consultation', 'footer', 'partners', 'blog', 'jobs'],
 
     interpolation: {
       escapeValue: false // React already escapes values
