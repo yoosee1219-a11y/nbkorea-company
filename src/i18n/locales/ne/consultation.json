@@ -46,10 +46,18 @@
   "fieldVisaType": "भिसा प्रकार",
   "fieldCurrentCarrier": "वर्तमान सेवा प्रदायक",
   "fieldDesiredPlan": "चाहिएको योजना",
+  "fieldPhoneModel": "फोन मोडेल",
   "fieldLoanAmount": "चाहिएको ऋण रकम",
+  "fieldLoanPurpose": "ऋण उद्देश्य",
+  "fieldEmploymentStatus": "रोजगार स्थिति",
+  "fieldMonthlyIncome": "मासिक आय",
   "fieldIncome": "मासिक आय",
   "fieldOccupation": "पेशा",
   "fieldEmploymentPeriod": "रोजगार अवधि",
+  "fieldVisaTypeDetail": "भिसा प्रकार",
   "fieldStayPeriod": "कोरियामा बस्ने अवधि",
-  "fieldPurpose": "परामर्श उद्देश्य"
+  "fieldVisaPurpose": "भिसा उद्देश्य",
+  "fieldPurpose": "परामर्श उद्देश्य",
+  "fieldInquirySubject": "सोधपुछ विषय",
+  "fieldInquiryDetail": "सोधपुछ विवरण"
 }

@@ -47,10 +47,18 @@
   "fieldVisaType": "비자 종류",
   "fieldCurrentCarrier": "현재 통신사",
   "fieldDesiredPlan": "희망 요금제",
+  "fieldPhoneModel": "휴대폰 기종",
   "fieldLoanAmount": "대출 희망 금액",
+  "fieldLoanPurpose": "대출 용도",
+  "fieldEmploymentStatus": "재직 상태",
+  "fieldMonthlyIncome": "월 소득",
   "fieldIncome": "월 소득",
   "fieldOccupation": "직업",
   "fieldEmploymentPeriod": "재직 기간",
+  "fieldVisaTypeDetail": "비자 종류",
   "fieldStayPeriod": "한국 체류 기간",
-  "fieldPurpose": "상담 목적"
+  "fieldVisaPurpose": "비자 목적",
+  "fieldPurpose": "상담 목적",
+  "fieldInquirySubject": "문의 제목",
+  "fieldInquiryDetail": "문의 내용"
 }

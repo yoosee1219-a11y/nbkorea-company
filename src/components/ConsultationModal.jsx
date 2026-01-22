@@ -87,12 +87,15 @@ const ConsultationModal = ({ isOpen, onClose }) => {
     return (bytes / (1024 * 1024)).toFixed(1) + ' MB'
   }
 
+  // Convert snake_case to PascalCase (e.g., visa_type -> VisaType)
+  const toPascalCase = (str) => str.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('')
+
   // Dynamic field renderer
   const renderDynamicField = (field) => {
     const value = dynamicFormData[field.id] || ''
 
-    // Translate field label using field ID as key
-    const fieldLabelKey = `field${field.id.charAt(0).toUpperCase() + field.id.slice(1)}`
+    // Translate field label using field ID as key (snake_case -> PascalCase)
+    const fieldLabelKey = `field${toPascalCase(field.id)}`
     const fieldLabel = t(fieldLabelKey, { defaultValue: field.label })
 
     return (

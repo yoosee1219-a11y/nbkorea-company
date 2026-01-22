@@ -46,10 +46,18 @@
   "fieldVisaType": "Viza turi",
   "fieldCurrentCarrier": "Joriy operator",
   "fieldDesiredPlan": "Kerakli tarif",
+  "fieldPhoneModel": "Telefon modeli",
   "fieldLoanAmount": "Kerakli kredit miqdori",
+  "fieldLoanPurpose": "Kredit maqsadi",
+  "fieldEmploymentStatus": "Ish holati",
+  "fieldMonthlyIncome": "Oylik daromad",
   "fieldIncome": "Oylik daromad",
   "fieldOccupation": "Kasb",
   "fieldEmploymentPeriod": "Ish davri",
+  "fieldVisaTypeDetail": "Viza turi",
   "fieldStayPeriod": "Koreyada yashash muddati",
-  "fieldPurpose": "Maslahat maqsadi"
+  "fieldVisaPurpose": "Viza maqsadi",
+  "fieldPurpose": "Maslahat maqsadi",
+  "fieldInquirySubject": "So'rov mavzusi",
+  "fieldInquiryDetail": "So'rov tafsilotlari"
 }

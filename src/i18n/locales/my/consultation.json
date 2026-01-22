@@ -47,10 +47,18 @@
   "fieldVisaType": "ဗီဇာအမျိုးအစား",
   "fieldCurrentCarrier": "လက်ရှိဝန်ဆောင်မှုပေးသူ",
   "fieldDesiredPlan": "လိုချင်သောအစီအစဉ်",
+  "fieldPhoneModel": "ဖုန်းမော်ဒယ်",
   "fieldLoanAmount": "လိုချင်သောချေးငွေပမာဏ",
+  "fieldLoanPurpose": "ချေးငွေရည်ရွယ်ချက်",
+  "fieldEmploymentStatus": "အလုပ်အကိုင်အခြေအနေ",
+  "fieldMonthlyIncome": "လစဉ်ဝင်ငွေ",
   "fieldIncome": "လစဉ်ဝင်ငွေ",
   "fieldOccupation": "အလုပ်အကိုင်",
   "fieldEmploymentPeriod": "အလုပ်လုပ်ကိုင်ချိန်",
+  "fieldVisaTypeDetail": "ဗီဇာအမျိုးအစား",
   "fieldStayPeriod": "ကိုရီးယားတွင်နေထိုင်သည့်ကာလ",
-  "fieldPurpose": "တိုင်ပင်မှု ရည်ရွယ်ချက်"
+  "fieldVisaPurpose": "ဗီဇာရည်ရွယ်ချက်",
+  "fieldPurpose": "တိုင်ပင်မှု ရည်ရွယ်ချက်",
+  "fieldInquirySubject": "မေးမြန်းချက်ခေါင်းစဉ်",
+  "fieldInquiryDetail": "မေးမြန်းချက်အသေးစိတ်"
 }

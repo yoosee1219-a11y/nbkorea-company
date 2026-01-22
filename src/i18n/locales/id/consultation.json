@@ -45,10 +45,18 @@
   "fieldVisaType": "Jenis Visa",
   "fieldCurrentCarrier": "Operator Saat Ini",
   "fieldDesiredPlan": "Paket yang Diinginkan",
+  "fieldPhoneModel": "Model Telepon",
   "fieldLoanAmount": "Jumlah Pinjaman yang Diinginkan",
+  "fieldLoanPurpose": "Tujuan Pinjaman",
+  "fieldEmploymentStatus": "Status Pekerjaan",
+  "fieldMonthlyIncome": "Pendapatan Bulanan",
   "fieldIncome": "Pendapatan Bulanan",
   "fieldOccupation": "Pekerjaan",
   "fieldEmploymentPeriod": "Periode Kerja",
+  "fieldVisaTypeDetail": "Jenis Visa",
   "fieldStayPeriod": "Periode Tinggal di Korea",
-  "fieldPurpose": "Tujuan Konsultasi"
+  "fieldVisaPurpose": "Tujuan Visa",
+  "fieldPurpose": "Tujuan Konsultasi",
+  "fieldInquirySubject": "Subjek Pertanyaan",
+  "fieldInquiryDetail": "Detail Pertanyaan"
 }

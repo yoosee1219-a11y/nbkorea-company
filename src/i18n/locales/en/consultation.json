@@ -47,10 +47,18 @@
   "fieldVisaType": "Visa Type",
   "fieldCurrentCarrier": "Current Carrier",
   "fieldDesiredPlan": "Desired Plan",
+  "fieldPhoneModel": "Phone Model",
   "fieldLoanAmount": "Desired Loan Amount",
+  "fieldLoanPurpose": "Loan Purpose",
+  "fieldEmploymentStatus": "Employment Status",
+  "fieldMonthlyIncome": "Monthly Income",
   "fieldIncome": "Monthly Income",
   "fieldOccupation": "Occupation",
   "fieldEmploymentPeriod": "Employment Period",
+  "fieldVisaTypeDetail": "Visa Type",
   "fieldStayPeriod": "Period of Stay in Korea",
-  "fieldPurpose": "Purpose of Consultation"
+  "fieldVisaPurpose": "Visa Purpose",
+  "fieldPurpose": "Purpose of Consultation",
+  "fieldInquirySubject": "Inquiry Subject",
+  "fieldInquiryDetail": "Inquiry Details"
 }

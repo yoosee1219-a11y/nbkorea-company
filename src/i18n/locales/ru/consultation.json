@@ -46,10 +46,18 @@
   "fieldVisaType": "Тип визы",
   "fieldCurrentCarrier": "Текущий оператор",
   "fieldDesiredPlan": "Желаемый тариф",
+  "fieldPhoneModel": "Модель телефона",
   "fieldLoanAmount": "Желаемая сумма кредита",
+  "fieldLoanPurpose": "Цель кредита",
+  "fieldEmploymentStatus": "Статус занятости",
+  "fieldMonthlyIncome": "Ежемесячный доход",
   "fieldIncome": "Ежемесячный доход",
   "fieldOccupation": "Профессия",
   "fieldEmploymentPeriod": "Период работы",
+  "fieldVisaTypeDetail": "Тип визы",
   "fieldStayPeriod": "Период пребывания в Корее",
-  "fieldPurpose": "Цель консультации"
+  "fieldVisaPurpose": "Цель визы",
+  "fieldPurpose": "Цель консультации",
+  "fieldInquirySubject": "Тема вопроса",
+  "fieldInquiryDetail": "Подробности вопроса"
 }

@@ -45,10 +45,18 @@
   "fieldVisaType": "签证类型",
   "fieldCurrentCarrier": "当前运营商",
   "fieldDesiredPlan": "期望套餐",
+  "fieldPhoneModel": "手机型号",
   "fieldLoanAmount": "期望贷款金额",
+  "fieldLoanPurpose": "贷款用途",
+  "fieldEmploymentStatus": "就业状态",
+  "fieldMonthlyIncome": "月收入",
   "fieldIncome": "月收入",
   "fieldOccupation": "职业",
   "fieldEmploymentPeriod": "工作时间",
+  "fieldVisaTypeDetail": "签证类型",
   "fieldStayPeriod": "在韩停留时间",
-  "fieldPurpose": "咨询目的"
+  "fieldVisaPurpose": "签证目的",
+  "fieldPurpose": "咨询目的",
+  "fieldInquirySubject": "咨询主题",
+  "fieldInquiryDetail": "详细内容"
 }

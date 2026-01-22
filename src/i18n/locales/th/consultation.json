@@ -45,10 +45,18 @@
   "fieldVisaType": "ประเภทวีซ่า",
   "fieldCurrentCarrier": "ผู้ให้บริการปัจจุบัน",
   "fieldDesiredPlan": "แพ็กเกจที่ต้องการ",
+  "fieldPhoneModel": "รุ่นโทรศัพท์",
   "fieldLoanAmount": "จำนวนเงินกู้ที่ต้องการ",
+  "fieldLoanPurpose": "วัตถุประสงค์ของเงินกู้",
+  "fieldEmploymentStatus": "สถานะการทำงาน",
+  "fieldMonthlyIncome": "รายได้ต่อเดือน",
   "fieldIncome": "รายได้ต่อเดือน",
   "fieldOccupation": "อาชีพ",
   "fieldEmploymentPeriod": "ระยะเวลาการทำงาน",
+  "fieldVisaTypeDetail": "ประเภทวีซ่า",
   "fieldStayPeriod": "ระยะเวลาพำนักในเกาหลี",
-  "fieldPurpose": "วัตถุประสงค์ของการปรึกษา"
+  "fieldVisaPurpose": "วัตถุประสงค์ของวีซ่า",
+  "fieldPurpose": "วัตถุประสงค์ของการปรึกษา",
+  "fieldInquirySubject": "หัวข้อสอบถาม",
+  "fieldInquiryDetail": "รายละเอียดการสอบถาม"
 }

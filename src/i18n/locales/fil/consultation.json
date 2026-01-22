@@ -47,10 +47,18 @@
   "fieldVisaType": "Uri ng Visa",
   "fieldCurrentCarrier": "Kasalukuyang Carrier",
   "fieldDesiredPlan": "Nais na Plan",
+  "fieldPhoneModel": "Modelo ng Telepono",
   "fieldLoanAmount": "Nais na Halaga ng Pautang",
+  "fieldLoanPurpose": "Layunin ng Pautang",
+  "fieldEmploymentStatus": "Katayuan sa Trabaho",
+  "fieldMonthlyIncome": "Buwanang Kita",
   "fieldIncome": "Buwanang Kita",
   "fieldOccupation": "Trabaho",
   "fieldEmploymentPeriod": "Panahon ng Pagtatrabaho",
+  "fieldVisaTypeDetail": "Uri ng Visa",
   "fieldStayPeriod": "Panahon ng Pananatili sa Korea",
-  "fieldPurpose": "Layunin ng Konsultasyon"
+  "fieldVisaPurpose": "Layunin ng Visa",
+  "fieldPurpose": "Layunin ng Konsultasyon",
+  "fieldInquirySubject": "Paksa ng Tanong",
+  "fieldInquiryDetail": "Detalye ng Tanong"
 }

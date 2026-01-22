@@ -47,10 +47,18 @@
   "fieldVisaType": "Loại visa",
   "fieldCurrentCarrier": "Nhà mạng hiện tại",
   "fieldDesiredPlan": "Gói cước mong muốn",
+  "fieldPhoneModel": "Mẫu điện thoại",
   "fieldLoanAmount": "Số tiền vay mong muốn",
+  "fieldLoanPurpose": "Mục đích vay",
+  "fieldEmploymentStatus": "Tình trạng việc làm",
+  "fieldMonthlyIncome": "Thu nhập hàng tháng",
   "fieldIncome": "Thu nhập hàng tháng",
   "fieldOccupation": "Nghề nghiệp",
   "fieldEmploymentPeriod": "Thời gian làm việc",
+  "fieldVisaTypeDetail": "Loại visa",
   "fieldStayPeriod": "Thời gian lưu trú tại Hàn Quốc",
-  "fieldPurpose": "Mục đích tư vấn"
+  "fieldVisaPurpose": "Mục đích visa",
+  "fieldPurpose": "Mục đích tư vấn",
+  "fieldInquirySubject": "Tiêu đề câu hỏi",
+  "fieldInquiryDetail": "Nội dung chi tiết"
 }

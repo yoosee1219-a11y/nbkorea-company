@@ -46,10 +46,18 @@
   "fieldVisaType": "Визийн төрөл",
   "fieldCurrentCarrier": "Одоогийн оператор",
   "fieldDesiredPlan": "Хүссэн багц",
+  "fieldPhoneModel": "Утасны загвар",
   "fieldLoanAmount": "Хүссэн зээлийн хэмжээ",
+  "fieldLoanPurpose": "Зээлийн зорилго",
+  "fieldEmploymentStatus": "Ажил эрхлэлтийн байдал",
+  "fieldMonthlyIncome": "Сарын орлого",
   "fieldIncome": "Сарын орлого",
   "fieldOccupation": "Мэргэжил",
   "fieldEmploymentPeriod": "Ажилласан хугацаа",
+  "fieldVisaTypeDetail": "Визийн төрөл",
   "fieldStayPeriod": "Солонгост байгаа хугацаа",
-  "fieldPurpose": "Зөвлөгөөний зорилго"
+  "fieldVisaPurpose": "Визийн зорилго",
+  "fieldPurpose": "Зөвлөгөөний зорилго",
+  "fieldInquirySubject": "Асуултын сэдэв",
+  "fieldInquiryDetail": "Асуултын дэлгэрэнгүй"
 }
