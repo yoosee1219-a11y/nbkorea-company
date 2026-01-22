@@ -51,25 +51,32 @@ const FormBuilder = () => {
 
   const handleSave = async () => {
     setSaving(true)
-    // 모든 타입의 필드 순서 재정렬
-    const updatedConfig = {}
-    Object.keys(formConfig).forEach(type => {
-      updatedConfig[type] = {
-        fields: formConfig[type].fields.map((field, index) => ({
-          ...field,
-          order: index + 1
-        }))
+    try {
+      // 모든 타입의 필드 순서 재정렬
+      const updatedConfig = {}
+      Object.keys(formConfig).forEach(type => {
+        const fields = formConfig[type]?.fields || []
+        updatedConfig[type] = {
+          fields: fields.map((field, index) => ({
+            ...field,
+            order: index + 1
+          }))
+        }
+      })
+
+      const { success } = await updateFormConfig(updatedConfig)
+
+      if (success) {
+        alert('폼 설정이 저장되었습니다!')
+        setFormConfig(updatedConfig)
+      } else {
+        alert('저장 실패')
       }
-    })
-
-    const { success } = await updateFormConfig(updatedConfig)
-    setSaving(false)
-
-    if (success) {
-      alert('폼 설정이 저장되었습니다!')
-      setFormConfig(updatedConfig)
-    } else {
-      alert('저장 실패')
+    } catch (error) {
+      console.error('Error saving form config:', error)
+      alert('저장 중 오류가 발생했습니다.')
+    } finally {
+      setSaving(false)
     }
   }
 
