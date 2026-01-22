@@ -477,10 +477,10 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                       <div className="bg-blue-50 rounded-xl p-6 border-2 border-dashed border-blue-200">
                         <div className="text-center mb-4">
                           <Upload className="w-12 h-12 text-blue-600 mx-auto mb-3" />
-                          <p className="text-sm text-slate-700 font-semibold mb-1">
+                          <p className="text-sm text-slate-700 font-semibold mb-1 whitespace-pre-line">
                             {formConfig?.common?.fileUploadSettings?.description || t('fileUploadDesc')}
                           </p>
-                          <p className="text-xs text-slate-500">
+                          <p className="text-xs text-slate-500 whitespace-pre-line">
                             {formConfig?.common?.fileUploadSettings?.limitText || t('fileUploadLimit')}
                           </p>
                         </div>
