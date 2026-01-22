@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Phone, DollarSign, FileText, HelpCircle, Check, Loader2, Upload, File as FileIcon, Trash2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import i18n from '../i18n'
 import { createConsultation, uploadConsultationFile, getFormConfig } from '../services/dataService'
 
 const ConsultationModal = ({ isOpen, onClose }) => {
@@ -94,9 +95,22 @@ const ConsultationModal = ({ isOpen, onClose }) => {
   const renderDynamicField = (field) => {
     const value = dynamicFormData[field.id] || ''
 
+    // Get current language
+    const currentLang = i18n.language
+
     // Translate field label using field ID as key (snake_case -> PascalCase)
     const fieldLabelKey = `field${toPascalCase(field.id)}`
-    const fieldLabel = t(fieldLabelKey, { defaultValue: field.label })
+    const translatedLabel = t(fieldLabelKey, { defaultValue: '' })
+
+    // Priority: 1. Translation key 2. labelEn (for non-Korean) 3. label (Korean fallback)
+    let fieldLabel
+    if (translatedLabel) {
+      fieldLabel = translatedLabel
+    } else if (currentLang !== 'ko' && field.labelEn) {
+      fieldLabel = field.labelEn
+    } else {
+      fieldLabel = field.label
+    }
 
     return (
       <div key={field.id}>
@@ -171,10 +185,21 @@ const ConsultationModal = ({ isOpen, onClose }) => {
   const validateStep2 = () => {
     const newErrors = {}
 
+    // Get current language
+    const currentLang = i18n.language
+
     // Helper function to get translated field label
     const getFieldLabel = (field) => {
-      const fieldLabelKey = `field${field.id.charAt(0).toUpperCase() + field.id.slice(1)}`
-      return t(fieldLabelKey, { defaultValue: field.label })
+      const fieldLabelKey = `field${toPascalCase(field.id)}`
+      const translatedLabel = t(fieldLabelKey, { defaultValue: '' })
+
+      if (translatedLabel) {
+        return translatedLabel
+      } else if (currentLang !== 'ko' && field.labelEn) {
+        return field.labelEn
+      } else {
+        return field.label
+      }
     }
 
     // Validate dynamic common fields

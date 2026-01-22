@@ -358,67 +358,85 @@ const FormBuilder = () => {
                 </div>
 
                 {/* Field Settings */}
-                <div className="flex-1 grid grid-cols-1 md:grid-cols-4 gap-3">
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      필드 ID
-                    </label>
-                    <input
-                      type="text"
-                      value={field.id}
-                      disabled
-                      className="w-full px-3 py-2 text-sm bg-slate-200 border border-slate-300 rounded-lg cursor-not-allowed"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      레이블 (표시명)
-                    </label>
-                    <input
-                      type="text"
-                      value={field.label}
-                      onChange={(e) => handleFieldChange(index, 'label', e.target.value)}
-                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      타입
-                    </label>
-                    <select
-                      value={field.type}
-                      onChange={(e) => handleFieldChange(index, 'type', e.target.value)}
-                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
-                    >
-                      <option value="text">텍스트</option>
-                      <option value="tel">전화번호</option>
-                      <option value="email">이메일</option>
-                      <option value="number">숫자</option>
-                      <option value="select">드롭다운</option>
-                      <option value="textarea">긴 텍스트</option>
-                      <option value="file">파일 첨부</option>
-                    </select>
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <label className="flex items-center gap-2 text-sm">
+                <div className="flex-1 space-y-3">
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                        필드 ID
+                      </label>
                       <input
-                        type="checkbox"
-                        checked={field.required}
-                        onChange={(e) => handleFieldChange(index, 'required', e.target.checked)}
-                        className="w-4 h-4 text-nb-pink-600 rounded focus:ring-nb-pink-600"
+                        type="text"
+                        value={field.id}
+                        disabled
+                        className="w-full px-3 py-2 text-sm bg-slate-200 border border-slate-300 rounded-lg cursor-not-allowed"
                       />
-                      <span className="font-semibold text-slate-700">필수</span>
-                    </label>
+                    </div>
 
-                    <button
-                      onClick={() => handleRemoveField(index)}
-                      className="ml-auto p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                        타입
+                      </label>
+                      <select
+                        value={field.type}
+                        onChange={(e) => handleFieldChange(index, 'type', e.target.value)}
+                        className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
+                      >
+                        <option value="text">텍스트</option>
+                        <option value="tel">전화번호</option>
+                        <option value="email">이메일</option>
+                        <option value="number">숫자</option>
+                        <option value="select">드롭다운</option>
+                        <option value="textarea">긴 텍스트</option>
+                        <option value="file">파일 첨부</option>
+                      </select>
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                      <label className="flex items-center gap-2 text-sm">
+                        <input
+                          type="checkbox"
+                          checked={field.required}
+                          onChange={(e) => handleFieldChange(index, 'required', e.target.checked)}
+                          className="w-4 h-4 text-nb-pink-600 rounded focus:ring-nb-pink-600"
+                        />
+                        <span className="font-semibold text-slate-700">필수</span>
+                      </label>
+
+                      <button
+                        onClick={() => handleRemoveField(index)}
+                        className="ml-auto p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Label Fields - Korean and English */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 bg-white rounded-lg border border-slate-200">
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                        🇰🇷 한국어 레이블
+                      </label>
+                      <input
+                        type="text"
+                        value={field.label}
+                        onChange={(e) => handleFieldChange(index, 'label', e.target.value)}
+                        placeholder="예: 가입자 주소"
+                        className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                        🇺🇸 영문 레이블 (다국어용)
+                      </label>
+                      <input
+                        type="text"
+                        value={field.labelEn || ''}
+                        onChange={(e) => handleFieldChange(index, 'labelEn', e.target.value)}
+                        placeholder="예: Subscriber Address"
+                        className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
+                      />
+                    </div>
                   </div>
                 </div>
 
