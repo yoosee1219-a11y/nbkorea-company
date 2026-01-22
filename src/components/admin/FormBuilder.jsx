@@ -7,7 +7,10 @@ import {
   Save,
   ArrowUp,
   ArrowDown,
-  Settings
+  Settings,
+  Upload,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react'
 import { getFormConfig, updateFormConfig } from '../../services/dataService'
 
@@ -24,6 +27,7 @@ const FormBuilder = () => {
   const [activeType, setActiveType] = useState('common')
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
+  const [showFileUploadSettings, setShowFileUploadSettings] = useState(false)
 
   useEffect(() => {
     loadFormConfig()
@@ -45,7 +49,38 @@ const FormBuilder = () => {
   const setCurrentFields = (fields) => {
     setFormConfig({
       ...formConfig,
-      [activeType]: { fields }
+      [activeType]: {
+        ...formConfig[activeType],
+        fields
+      }
+    })
+  }
+
+  // 파일 업로드 설정 가져오기 (common에서만 관리)
+  const getFileUploadSettings = () => {
+    return formConfig.common?.fileUploadSettings || {
+      title: '',
+      description: '',
+      limitText: ''
+    }
+  }
+
+  // 파일 업로드 설정 저장
+  const setFileUploadSettings = (settings) => {
+    setFormConfig({
+      ...formConfig,
+      common: {
+        ...formConfig.common,
+        fileUploadSettings: settings
+      }
+    })
+  }
+
+  const handleFileUploadSettingChange = (key, value) => {
+    const currentSettings = getFileUploadSettings()
+    setFileUploadSettings({
+      ...currentSettings,
+      [key]: value
     })
   }
 
@@ -57,6 +92,7 @@ const FormBuilder = () => {
       Object.keys(formConfig).forEach(type => {
         const fields = formConfig[type]?.fields || []
         updatedConfig[type] = {
+          ...formConfig[type], // 기존 설정 보존 (fileUploadSettings 등)
           fields: fields.map((field, index) => ({
             ...field,
             order: index + 1
@@ -189,6 +225,95 @@ const FormBuilder = () => {
           </p>
         </div>
       </div>
+
+      {/* File Upload Settings (공통 설정) */}
+      {activeType === 'common' && (
+        <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+          <button
+            onClick={() => setShowFileUploadSettings(!showFileUploadSettings)}
+            className="w-full px-6 py-4 flex items-center justify-between bg-slate-50 hover:bg-slate-100 transition-colors"
+          >
+            <div className="flex items-center gap-3">
+              <Upload className="w-5 h-5 text-blue-600" />
+              <span className="font-bold text-slate-900">서류 첨부 영역 설정</span>
+              <span className="text-sm text-slate-500">(모든 상담에 공통 적용)</span>
+            </div>
+            {showFileUploadSettings ? (
+              <ChevronUp className="w-5 h-5 text-slate-400" />
+            ) : (
+              <ChevronDown className="w-5 h-5 text-slate-400" />
+            )}
+          </button>
+
+          {showFileUploadSettings && (
+            <div className="p-6 space-y-4 border-t border-slate-200">
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                <p className="text-sm text-blue-800">
+                  <strong>안내:</strong> 비워두면 기본 번역이 사용됩니다. 상담 유형에 맞는 맞춤 가이드를 입력하세요.
+                </p>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  타이틀 (예: 서류 첨부)
+                </label>
+                <input
+                  type="text"
+                  value={getFileUploadSettings().title}
+                  onChange={(e) => handleFileUploadSettingChange('title', e.target.value)}
+                  placeholder="비워두면 기본값: 서류 첨부 (선택)"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  설명 문구 (어떤 서류가 필요한지 안내)
+                </label>
+                <textarea
+                  value={getFileUploadSettings().description}
+                  onChange={(e) => handleFileUploadSettingChange('description', e.target.value)}
+                  placeholder="비워두면 기본값: 신분증, 재직증명서, 소득증빙 등 서류를 첨부해주세요"
+                  rows={2}
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  파일 제한 안내 문구
+                </label>
+                <input
+                  type="text"
+                  value={getFileUploadSettings().limitText}
+                  onChange={(e) => handleFileUploadSettingChange('limitText', e.target.value)}
+                  placeholder="비워두면 기본값: 최대 5개 파일, 각 10MB 이하 (JPG, PNG, PDF 등)"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
+                />
+              </div>
+
+              {/* Preview */}
+              <div className="mt-4 pt-4 border-t border-slate-200">
+                <p className="text-xs text-slate-500 mb-2">미리보기:</p>
+                <div className="bg-blue-50 rounded-xl p-6 border-2 border-dashed border-blue-200">
+                  <div className="text-center">
+                    <Upload className="w-12 h-12 text-blue-600 mx-auto mb-3" />
+                    <p className="text-sm text-slate-700 font-semibold mb-1">
+                      {getFileUploadSettings().description || '신분증, 재직증명서, 소득증빙 등 서류를 첨부해주세요'}
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      {getFileUploadSettings().limitText || '최대 5개 파일, 각 10MB 이하 (JPG, PNG, PDF 등)'}
+                    </p>
+                  </div>
+                  <div className="mt-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg text-center">
+                    파일 선택
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Form Fields */}
       <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">

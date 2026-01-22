@@ -471,15 +471,17 @@ const ConsultationModal = ({ isOpen, onClose }) => {
 
                     {/* File Upload */}
                     <div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-4">{t('fileUploadTitle')}</h3>
+                      <h3 className="text-xl font-bold text-slate-900 mb-4">
+                        {formConfig?.common?.fileUploadSettings?.title || t('fileUploadTitle')}
+                      </h3>
                       <div className="bg-blue-50 rounded-xl p-6 border-2 border-dashed border-blue-200">
                         <div className="text-center mb-4">
                           <Upload className="w-12 h-12 text-blue-600 mx-auto mb-3" />
                           <p className="text-sm text-slate-700 font-semibold mb-1">
-                            {t('fileUploadDesc')}
+                            {formConfig?.common?.fileUploadSettings?.description || t('fileUploadDesc')}
                           </p>
                           <p className="text-xs text-slate-500">
-                            {t('fileUploadLimit')}
+                            {formConfig?.common?.fileUploadSettings?.limitText || t('fileUploadLimit')}
                           </p>
                         </div>
 
