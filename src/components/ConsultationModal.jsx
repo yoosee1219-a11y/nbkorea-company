@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Phone, DollarSign, FileText, HelpCircle, Check, Loader2, Upload, File as FileIcon, Trash2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import i18n from '../i18n'
+import i18n from '../i18n/config'
 import { createConsultation, uploadConsultationFile, getFormConfig } from '../services/dataService'
 
 const ConsultationModal = ({ isOpen, onClose }) => {
