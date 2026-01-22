@@ -19,14 +19,18 @@ import {
   AlertTriangle,
   Edit2,
   Save,
-  Link as LinkIcon
+  Link as LinkIcon,
+  Upload,
+  Loader2
 } from 'lucide-react'
 import {
   getConsultations,
   deleteConsultation,
   updateConsultationStatus,
   updateConsultation,
-  getInfluencers
+  getInfluencers,
+  uploadConsultationFile,
+  updateConsultationFiles
 } from '../../services/dataService'
 
 const ConsultationManager = () => {
@@ -44,6 +48,7 @@ const ConsultationManager = () => {
   const [selectedIds, setSelectedIds] = useState([]) // 체크박스 선택된 ID들
   const [showBulkActions, setShowBulkActions] = useState(false) // 일괄 작업 모달
   const [influencers, setInfluencers] = useState({}) // 인플루언서 코드 -> 이름 매핑
+  const [isUploadingFiles, setIsUploadingFiles] = useState(false) // 파일 업로드 중 상태
 
   useEffect(() => {
     fetchConsultations()
@@ -233,6 +238,117 @@ const ConsultationManager = () => {
 
     alert(`${successCount}건 상태 변경 완료${failCount > 0 ? `, ${failCount}건 실패` : ''}`)
     setSelectedIds([])
+  }
+
+  // 파일 업로드 핸들러
+  const handleFileUpload = async (e) => {
+    const files = Array.from(e.target.files)
+    if (files.length === 0) return
+
+    setIsUploadingFiles(true)
+
+    try {
+      // 현재 파일 목록 파싱
+      let currentFiles = []
+      if (selectedConsultation.file_urls) {
+        if (typeof selectedConsultation.file_urls === 'string') {
+          try {
+            currentFiles = JSON.parse(selectedConsultation.file_urls)
+          } catch (err) {
+            console.error('Failed to parse file_urls:', err)
+          }
+        } else if (Array.isArray(selectedConsultation.file_urls)) {
+          currentFiles = selectedConsultation.file_urls
+        }
+      }
+
+      // 최대 5개 파일 제한
+      if (currentFiles.length + files.length > 5) {
+        alert('파일은 최대 5개까지 첨부할 수 있습니다.')
+        setIsUploadingFiles(false)
+        return
+      }
+
+      // 새 파일들 업로드
+      const uploadedFiles = []
+      for (const file of files) {
+        const { url, error } = await uploadConsultationFile(file, selectedConsultation.id)
+        if (error) {
+          alert(`파일 업로드 실패: ${file.name} - ${error.message}`)
+          continue
+        }
+        uploadedFiles.push({
+          name: file.name,
+          size: file.size,
+          url: url
+        })
+      }
+
+      // 새 파일 목록
+      const newFileUrls = [...currentFiles, ...uploadedFiles]
+
+      // Firestore 업데이트
+      const { success, error } = await updateConsultationFiles(selectedConsultation.id, newFileUrls)
+      if (success) {
+        // 로컬 상태 업데이트
+        const updatedConsultation = { ...selectedConsultation, file_urls: newFileUrls }
+        setConsultations(prev =>
+          prev.map(c => (c.id === selectedConsultation.id ? updatedConsultation : c))
+        )
+        setSelectedConsultation(updatedConsultation)
+        alert(`${uploadedFiles.length}개 파일이 추가되었습니다.`)
+      } else {
+        alert('파일 URL 업데이트 실패: ' + (error?.message || '알 수 없는 오류'))
+      }
+    } catch (error) {
+      console.error('Error uploading files:', error)
+      alert('파일 업로드 중 오류가 발생했습니다.')
+    } finally {
+      setIsUploadingFiles(false)
+      // input 초기화
+      e.target.value = ''
+    }
+  }
+
+  // 파일 삭제 핸들러
+  const handleFileDelete = async (fileIndex) => {
+    if (!confirm('이 파일을 삭제하시겠습니까?')) return
+
+    try {
+      // 현재 파일 목록 파싱
+      let currentFiles = []
+      if (selectedConsultation.file_urls) {
+        if (typeof selectedConsultation.file_urls === 'string') {
+          try {
+            currentFiles = JSON.parse(selectedConsultation.file_urls)
+          } catch (err) {
+            console.error('Failed to parse file_urls:', err)
+          }
+        } else if (Array.isArray(selectedConsultation.file_urls)) {
+          currentFiles = selectedConsultation.file_urls
+        }
+      }
+
+      // 파일 목록에서 제거
+      const newFileUrls = currentFiles.filter((_, index) => index !== fileIndex)
+
+      // Firestore 업데이트
+      const { success, error } = await updateConsultationFiles(selectedConsultation.id, newFileUrls)
+      if (success) {
+        // 로컬 상태 업데이트
+        const updatedConsultation = { ...selectedConsultation, file_urls: newFileUrls }
+        setConsultations(prev =>
+          prev.map(c => (c.id === selectedConsultation.id ? updatedConsultation : c))
+        )
+        setSelectedConsultation(updatedConsultation)
+        alert('파일이 삭제되었습니다.')
+      } else {
+        alert('파일 삭제 실패: ' + (error?.message || '알 수 없는 오류'))
+      }
+    } catch (error) {
+      console.error('Error deleting file:', error)
+      alert('파일 삭제 중 오류가 발생했습니다.')
+    }
   }
 
   const getTypeIcon = (type) => {
@@ -673,86 +789,120 @@ const ConsultationManager = () => {
                 {(() => {
                   // Parse file_urls if it's a string
                   let fileUrls = []
-                  console.log('Raw file_urls from Firestore:', selectedConsultation.file_urls)
-                  console.log('Type:', typeof selectedConsultation.file_urls)
 
                   if (selectedConsultation.file_urls) {
                     if (typeof selectedConsultation.file_urls === 'string') {
                       try {
                         fileUrls = JSON.parse(selectedConsultation.file_urls)
-                        console.log('Parsed file_urls:', fileUrls)
                       } catch (e) {
                         console.error('Failed to parse file_urls:', e)
                       }
                     } else if (Array.isArray(selectedConsultation.file_urls)) {
                       fileUrls = selectedConsultation.file_urls
-                      console.log('file_urls is already array:', fileUrls)
                     }
                   }
-
-                  console.log('Final fileUrls count:', fileUrls.length)
 
                   const isImageFile = (url) => {
                     return /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(url)
                   }
 
-                  if (fileUrls.length === 0) return null
-
                   return (
                     <div className="bg-purple-50 rounded-xl p-6">
-                      <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                        <FileText className="w-5 h-5 text-purple-600" />
-                        첨부 서류 ({fileUrls.length})
-                      </h4>
-                      <div className="space-y-3">
-                        {fileUrls.map((file, index) => {
-                          const isImage = isImageFile(file.url || file.name || '')
-                          return (
-                            <div
-                              key={index}
-                              className="bg-white rounded-lg p-4 border border-purple-200 hover:border-purple-300 transition-colors"
-                            >
-                              {/* Image Preview */}
-                              {isImage && (
-                                <div className="mb-3">
-                                  <img
-                                    src={file.url}
-                                    alt={file.name || `첨부 이미지 ${index + 1}`}
-                                    className="w-full max-h-96 object-contain rounded-lg border border-slate-200"
-                                    onError={(e) => {
-                                      e.target.style.display = 'none'
-                                    }}
-                                  />
-                                </div>
-                              )}
-
-                              {/* File Info and Actions */}
-                              <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-3 flex-1 min-w-0">
-                                  <div className="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                                    <FileText className="w-5 h-5 text-purple-600" />
-                                  </div>
-                                  <div className="min-w-0 flex-1">
-                                    <p className="font-medium text-slate-900 truncate">{file.name || '첨부 파일'}</p>
-                                    {file.size && (
-                                      <p className="text-xs text-slate-500">{formatFileSize(file.size)}</p>
-                                    )}
-                                  </div>
-                                </div>
-                                <a
-                                  href={file.url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="flex-shrink-0 inline-flex items-center gap-1 px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold rounded-lg transition-colors"
-                                >
-                                  <Download className="w-4 h-4" />
-                                  다운로드
-                                </a>
-                              </div>
-                            </div>
-                          )
-                        })}
+                      <div className="flex items-center justify-between mb-4">
+                        <h4 className="font-bold text-slate-900 flex items-center gap-2">
+                          <FileText className="w-5 h-5 text-purple-600" />
+                          첨부 서류 ({fileUrls.length}/5)
+                        </h4>
+                        {/* 파일 추가 버튼 */}
+                        <label className={`inline-flex items-center gap-2 px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold rounded-lg transition-colors cursor-pointer ${isUploadingFiles || fileUrls.length >= 5 ? 'opacity-50 cursor-not-allowed' : ''}`}>
+                          {isUploadingFiles ? (
+                            <>
+                              <Loader2 className="w-4 h-4 animate-spin" />
+                              업로드 중...
+                            </>
+                          ) : (
+                            <>
+                              <Upload className="w-4 h-4" />
+                              파일 추가
+                            </>
+                          )}
+                          <input
+                            type="file"
+                            multiple
+                            accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx"
+                            onChange={handleFileUpload}
+                            disabled={isUploadingFiles || fileUrls.length >= 5}
+                            className="hidden"
+                          />
+                        </label>
                       </div>
+
+                      {fileUrls.length === 0 ? (
+                        <div className="bg-white rounded-lg p-6 border-2 border-dashed border-purple-200 text-center">
+                          <Upload className="w-10 h-10 text-purple-300 mx-auto mb-2" />
+                          <p className="text-slate-500 text-sm">첨부된 파일이 없습니다.</p>
+                          <p className="text-slate-400 text-xs mt-1">최대 5개, 각 10MB 이하</p>
+                        </div>
+                      ) : (
+                        <div className="space-y-3">
+                          {fileUrls.map((file, index) => {
+                            const isImage = isImageFile(file.url || file.name || '')
+                            return (
+                              <div
+                                key={index}
+                                className="bg-white rounded-lg p-4 border border-purple-200 hover:border-purple-300 transition-colors"
+                              >
+                                {/* Image Preview */}
+                                {isImage && (
+                                  <div className="mb-3">
+                                    <img
+                                      src={file.url}
+                                      alt={file.name || `첨부 이미지 ${index + 1}`}
+                                      className="w-full max-h-96 object-contain rounded-lg border border-slate-200"
+                                      onError={(e) => {
+                                        e.target.style.display = 'none'
+                                      }}
+                                    />
+                                  </div>
+                                )}
+
+                                {/* File Info and Actions */}
+                                <div className="flex items-center justify-between">
+                                  <div className="flex items-center gap-3 flex-1 min-w-0">
+                                    <div className="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                                      <FileText className="w-5 h-5 text-purple-600" />
+                                    </div>
+                                    <div className="min-w-0 flex-1">
+                                      <p className="font-medium text-slate-900 truncate">{file.name || '첨부 파일'}</p>
+                                      {file.size && (
+                                        <p className="text-xs text-slate-500">{formatFileSize(file.size)}</p>
+                                      )}
+                                    </div>
+                                  </div>
+                                  <div className="flex-shrink-0 flex items-center gap-2">
+                                    <a
+                                      href={file.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center gap-1 px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold rounded-lg transition-colors"
+                                    >
+                                      <Download className="w-4 h-4" />
+                                      다운로드
+                                    </a>
+                                    <button
+                                      onClick={() => handleFileDelete(index)}
+                                      className="inline-flex items-center gap-1 px-3 py-1.5 bg-red-50 hover:bg-red-100 text-red-600 text-sm font-semibold rounded-lg transition-colors border border-red-200"
+                                    >
+                                      <Trash2 className="w-4 h-4" />
+                                      삭제
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      )}
                     </div>
                   )
                 })()}

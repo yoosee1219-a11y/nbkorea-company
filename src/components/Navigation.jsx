@@ -100,7 +100,12 @@ const Navigation = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-2">
+            {/* Language Switcher - Mobile (상단 고정) */}
+            {import.meta.env.VITE_HIDE_LANGUAGE_SWITCHER !== 'true' && (
+              <LanguageSwitcher />
+            )}
+
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-slate-800 p-2 hover:bg-slate-100 rounded-lg transition-all duration-300 focus:outline-none"
@@ -151,13 +156,6 @@ const Navigation = () => {
                 <Mail className="size-5" />
                 {t('contact')}
               </button>
-
-              {/* Language Switcher - Mobile */}
-              {import.meta.env.VITE_HIDE_LANGUAGE_SWITCHER !== 'true' && (
-                <div className="mt-2">
-                  <LanguageSwitcher isMobile={true} />
-                </div>
-              )}
             </div>
           </motion.div>
         )}
