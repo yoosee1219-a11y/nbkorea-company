@@ -17,6 +17,19 @@ const PostDetail = () => {
   // Determine post type from URL
   const isJob = location.pathname.includes('/jobs/')
 
+  // Parse scholarships text into structured items
+  const parseScholarships = (text) => {
+    if (!text) return []
+
+    // Split by numbered items (1. 2. 3.) or symbols (※, •, -, *)
+    const items = text
+      .split(/(?=\d+\.\s|※\s|•\s|-\s|\*\s)/)
+      .map(item => item.trim())
+      .filter(item => item.length > 0)
+
+    return items.length > 1 ? items : [text]
+  }
+
   useEffect(() => {
     fetchPost()
   }, [id])
@@ -211,10 +224,19 @@ const PostDetail = () => {
           {/* Scholarships (Universities only) */}
           {!isJob && post.scholarships && (
             <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
-              <h3 className="text-xl font-bold text-green-900 mb-2">
+              <h3 className="text-xl font-bold text-green-900 mb-4">
                 {t('scholarships')}
               </h3>
-              <p className="text-green-700">{post.scholarships}</p>
+              <div className="space-y-3">
+                {parseScholarships(post.scholarships).map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-white rounded-lg p-4 border border-green-100 shadow-sm"
+                  >
+                    <p className="text-green-800 whitespace-pre-wrap">{item}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
