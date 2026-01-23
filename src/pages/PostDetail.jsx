@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { motion } from 'framer-motion'
-import { ArrowLeft, Loader2, MapPin, DollarSign, Calendar, ExternalLink, Eye, MousePointerClick } from 'lucide-react'
+import { ArrowLeft, Loader2, MapPin, DollarSign, ExternalLink, Eye } from 'lucide-react'
 import { getJobById, getUniversityById, incrementJobViews, incrementUniversityViews, incrementJobApplyClicks, incrementUniversityInfoClicks } from '../services/postsService'
 import { useTranslation } from 'react-i18next'
 
@@ -30,11 +29,7 @@ const PostDetail = () => {
     return items.length > 1 ? items : [text]
   }
 
-  useEffect(() => {
-    fetchPost()
-  }, [id])
-
-  const fetchPost = async () => {
+  const fetchPost = useCallback(async () => {
     try {
       const { data, error } = isJob
         ? await getJobById(id)
@@ -56,7 +51,11 @@ const PostDetail = () => {
     } finally {
       setLoading(false)
     }
-  }
+  }, [id, isJob])
+
+  useEffect(() => {
+    fetchPost()
+  }, [fetchPost])
 
   const handleLinkClick = async (url) => {
     // Increment click counter
@@ -130,11 +129,7 @@ const PostDetail = () => {
         </button>
 
         {/* Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-white"
-        >
+        <div className="bg-white">
           {/* Title */}
           <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">
             {isJob ? post.title : post.university_name}
@@ -204,7 +199,7 @@ const PostDetail = () => {
           {/* Description */}
           <div className="prose max-w-none mb-8">
             <h2 className="text-2xl font-bold text-slate-900 mb-4">
-              {isJob ? t('description') : t('overview')}
+              {isJob ? t('jobs.description') : t('overview')}
             </h2>
             <p className="text-slate-700 whitespace-pre-wrap">
               {isJob ? post.description : post.requirements}
@@ -215,7 +210,7 @@ const PostDetail = () => {
           {isJob && post.requirements && (
             <div className="prose max-w-none mb-8">
               <h2 className="text-2xl font-bold text-slate-900 mb-4">
-                {t('requirements')}
+                {t('jobs.requirements')}
               </h2>
               <p className="text-slate-700 whitespace-pre-wrap">{post.requirements}</p>
             </div>
@@ -225,7 +220,7 @@ const PostDetail = () => {
           {!isJob && post.scholarships && (
             <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
               <h3 className="text-xl font-bold text-green-900 mb-4">
-                {t('scholarships')}
+                {t('universities.scholarships')}
               </h3>
               <div className="space-y-3">
                 {parseScholarships(post.scholarships).map((item, index) => (
@@ -255,12 +250,12 @@ const PostDetail = () => {
           {!isJob && post.contact_info && (
             <div className="mt-8 p-4 bg-slate-50 rounded-lg">
               <p className="text-sm text-slate-600">
-                <span className="font-semibold">{t('contact')}: </span>
+                <span className="font-semibold">{t('universities.contact')}:</span>
                 {post.contact_info}
               </p>
             </div>
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
     </>
