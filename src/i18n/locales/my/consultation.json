@@ -60,5 +60,17 @@
   "fieldVisaPurpose": "ဗီဇာရည်ရွယ်ချက်",
   "fieldPurpose": "တိုင်ပင်မှု ရည်ရွယ်ချက်",
   "fieldInquirySubject": "မေးမြန်းချက်ခေါင်းစဉ်",
-  "fieldInquiryDetail": "မေးမြန်းချက်အသေးစိတ်"
+  "fieldInquiryDetail": "မေးမြန်းချက်အသေးစိတ်",
+
+  "fieldSubscriberAddress": "စာရင်းသွင်းသူလိပ်စာ",
+  "fieldAddress": "လိပ်စာ",
+  "fieldCompany": "ကုမ္ပဏီအမည်",
+  "fieldWorkplace": "အလုပ်လုပ်သည့်နေရာ",
+  "fieldResidence": "နေထိုင်ရာ",
+  "fieldBirthDate": "မွေးသက္ကရာဇ်",
+  "fieldGender": "ကျား/မ",
+  "fieldArrivalDate": "ကိုရီးယားရောက်ရှိသည့်ရက်စွဲ",
+  "fieldAlienRegistrationNumber": "နိုင်ငံခြားသားမှတ်ပုံတင်နံပါတ်",
+  "fieldPassportNumber": "ပတ်စ်ပို့နံပါတ်",
+  "fieldExpiryDate": "သက်တမ်းကုန်ဆုံးရက်"
 }

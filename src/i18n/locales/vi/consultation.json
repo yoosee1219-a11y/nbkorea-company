@@ -43,7 +43,7 @@
   "fieldPhone": "Số điện thoại",
   "fieldEmail": "Email",
   "fieldMessage": "Nội dung",
-  "fieldNationality": "Quốc t적",
+  "fieldNationality": "Quốc tịch",
   "fieldVisaType": "Loại visa",
   "fieldCurrentCarrier": "Nhà mạng hiện tại",
   "fieldDesiredPlan": "Gói cước mong muốn",
@@ -60,5 +60,17 @@
   "fieldVisaPurpose": "Mục đích visa",
   "fieldPurpose": "Mục đích tư vấn",
   "fieldInquirySubject": "Tiêu đề câu hỏi",
-  "fieldInquiryDetail": "Nội dung chi tiết"
+  "fieldInquiryDetail": "Nội dung chi tiết",
+
+  "fieldSubscriberAddress": "Địa chỉ thuê bao",
+  "fieldAddress": "Địa chỉ",
+  "fieldCompany": "Tên công ty",
+  "fieldWorkplace": "Nơi làm việc",
+  "fieldResidence": "Nơi cư trú",
+  "fieldBirthDate": "Ngày sinh",
+  "fieldGender": "Giới tính",
+  "fieldArrivalDate": "Ngày đến Hàn Quốc",
+  "fieldAlienRegistrationNumber": "Số đăng ký người nước ngoài",
+  "fieldPassportNumber": "Số hộ chiếu",
+  "fieldExpiryDate": "Ngày hết hạn"
 }

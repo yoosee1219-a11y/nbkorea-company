@@ -60,5 +60,17 @@
   "fieldVisaPurpose": "비자 목적",
   "fieldPurpose": "상담 목적",
   "fieldInquirySubject": "문의 제목",
-  "fieldInquiryDetail": "문의 내용"
+  "fieldInquiryDetail": "문의 내용",
+
+  "fieldSubscriberAddress": "가입자 주소",
+  "fieldAddress": "주소",
+  "fieldCompany": "회사명",
+  "fieldWorkplace": "직장",
+  "fieldResidence": "거주지",
+  "fieldBirthDate": "생년월일",
+  "fieldGender": "성별",
+  "fieldArrivalDate": "한국 입국일",
+  "fieldAlienRegistrationNumber": "외국인등록번호",
+  "fieldPassportNumber": "여권번호",
+  "fieldExpiryDate": "만료일"
 }

@@ -59,5 +59,17 @@
   "fieldVisaPurpose": "Визийн зорилго",
   "fieldPurpose": "Зөвлөгөөний зорилго",
   "fieldInquirySubject": "Асуултын сэдэв",
-  "fieldInquiryDetail": "Асуултын дэлгэрэнгүй"
+  "fieldInquiryDetail": "Асуултын дэлгэрэнгүй",
+
+  "fieldSubscriberAddress": "Бүртгүүлэгчийн хаяг",
+  "fieldAddress": "Хаяг",
+  "fieldCompany": "Компанийн нэр",
+  "fieldWorkplace": "Ажлын байр",
+  "fieldResidence": "Оршин суугаа газар",
+  "fieldBirthDate": "Төрсөн он сар өдөр",
+  "fieldGender": "Хүйс",
+  "fieldArrivalDate": "Солонгост ирсэн огноо",
+  "fieldAlienRegistrationNumber": "Гадаадын иргэний бүртгэлийн дугаар",
+  "fieldPassportNumber": "Гадаад паспортын дугаар",
+  "fieldExpiryDate": "Дуусах хугацаа"
 }

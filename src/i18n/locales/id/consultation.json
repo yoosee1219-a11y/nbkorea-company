@@ -58,5 +58,17 @@
   "fieldVisaPurpose": "Tujuan Visa",
   "fieldPurpose": "Tujuan Konsultasi",
   "fieldInquirySubject": "Subjek Pertanyaan",
-  "fieldInquiryDetail": "Detail Pertanyaan"
+  "fieldInquiryDetail": "Detail Pertanyaan",
+
+  "fieldSubscriberAddress": "Alamat Pelanggan",
+  "fieldAddress": "Alamat",
+  "fieldCompany": "Nama Perusahaan",
+  "fieldWorkplace": "Tempat Kerja",
+  "fieldResidence": "Tempat Tinggal",
+  "fieldBirthDate": "Tanggal Lahir",
+  "fieldGender": "Jenis Kelamin",
+  "fieldArrivalDate": "Tanggal Kedatangan di Korea",
+  "fieldAlienRegistrationNumber": "Nomor Registrasi Orang Asing",
+  "fieldPassportNumber": "Nomor Paspor",
+  "fieldExpiryDate": "Tanggal Kadaluarsa"
 }

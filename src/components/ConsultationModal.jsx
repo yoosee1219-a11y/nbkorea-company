@@ -91,26 +91,97 @@ const ConsultationModal = ({ isOpen, onClose }) => {
   // Convert snake_case to PascalCase (e.g., visa_type -> VisaType)
   const toPascalCase = (str) => str.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('')
 
+  // Helper function to get Select option label with multi-language support
+  // Supports formats: "value" or "value:ko|en|vi" or object { value, labels: { ko, en, vi } }
+  const getOptionLabel = (option, field) => {
+    const currentLang = i18n.language
+
+    // If option has multi-language structure
+    if (field.optionsTranslations && field.optionsTranslations[option]) {
+      const translations = field.optionsTranslations[option]
+      if (translations[currentLang]) return translations[currentLang]
+      if (translations.en) return translations.en
+      if (translations.ko) return translations.ko
+    }
+
+    // Try to get option translation from i18n
+    const optionKey = `option${toPascalCase(option.replace(/\s+/g, '_'))}`
+    const translatedOption = t(optionKey, { defaultValue: '' })
+    if (translatedOption) return translatedOption
+
+    // For non-Korean users, if option contains pipe (|) for multi-lang, parse it
+    // Format: "한국어|English|Tiếng Việt"
+    if (option.includes('|')) {
+      const langMap = { ko: 0, en: 1, vi: 2, th: 3, 'zh-CN': 4 }
+      const parts = option.split('|')
+      const langIndex = langMap[currentLang] !== undefined ? langMap[currentLang] : 1
+      return parts[langIndex] || parts[1] || parts[0]
+    }
+
+    return option
+  }
+
+  // Helper function to get fileUploadSettings text with multi-language support
+  const getFileUploadText = (key) => {
+    const currentLang = i18n.language
+    const settings = formConfig?.common?.fileUploadSettings
+
+    if (!settings) return null
+
+    // Try multi-language object first (e.g., titles: { ko: '...', en: '...' })
+    const pluralKey = key + 's' // title -> titles, description -> descriptions
+    if (settings[pluralKey]) {
+      if (settings[pluralKey][currentLang]) return settings[pluralKey][currentLang]
+      if (settings[pluralKey].en) return settings[pluralKey].en
+      if (settings[pluralKey].ko) return settings[pluralKey].ko
+    }
+
+    // Fallback to single value (backward compatibility)
+    return currentLang === 'ko' ? settings[key] : null
+  }
+
+  // Helper function to get translated field label with improved fallback
+  const getFieldLabel = (field) => {
+    const currentLang = i18n.language
+
+    // 1. Try i18n translation key first
+    const fieldLabelKey = `field${toPascalCase(field.id)}`
+    const translatedLabel = t(fieldLabelKey, { defaultValue: '' })
+    if (translatedLabel) return translatedLabel
+
+    // 2. Try multi-language labels object (if exists)
+    if (field.labels) {
+      if (field.labels[currentLang]) return field.labels[currentLang]
+      if (field.labels.en) return field.labels.en
+      if (field.labels.ko) return field.labels.ko
+    }
+
+    // 3. Try language-specific label fields (labelVi, labelTh, etc.)
+    const langFieldMap = {
+      vi: 'labelVi',
+      th: 'labelTh',
+      'zh-CN': 'labelZh',
+      id: 'labelId',
+      en: 'labelEn'
+    }
+
+    if (currentLang !== 'ko') {
+      // Try exact language match
+      const langField = langFieldMap[currentLang]
+      if (langField && field[langField]) return field[langField]
+
+      // Fallback to English
+      if (field.labelEn) return field.labelEn
+    }
+
+    // 4. Fallback to Korean label
+    return field.label
+  }
+
   // Dynamic field renderer
   const renderDynamicField = (field) => {
     const value = dynamicFormData[field.id] || ''
-
-    // Get current language
-    const currentLang = i18n.language
-
-    // Translate field label using field ID as key (snake_case -> PascalCase)
-    const fieldLabelKey = `field${toPascalCase(field.id)}`
-    const translatedLabel = t(fieldLabelKey, { defaultValue: '' })
-
-    // Priority: 1. Translation key 2. labelEn (for non-Korean) 3. label (Korean fallback)
-    let fieldLabel
-    if (translatedLabel) {
-      fieldLabel = translatedLabel
-    } else if (currentLang !== 'ko' && field.labelEn) {
-      fieldLabel = field.labelEn
-    } else {
-      fieldLabel = field.label
-    }
+    const fieldLabel = getFieldLabel(field)
 
     return (
       <div key={field.id}>
@@ -154,9 +225,12 @@ const ConsultationModal = ({ isOpen, onClose }) => {
             className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
           >
             <option value="">{t('selectPlaceholder')}</option>
-            {(field.options || '').split(',').filter(opt => opt.trim()).map((option, i) => (
-              <option key={i} value={option.trim()}>{option.trim()}</option>
-            ))}
+            {(field.options || '').split(',').filter(opt => opt.trim()).map((option, i) => {
+              const optValue = option.trim().split('|')[0]
+              return (
+                <option key={i} value={optValue}>{getOptionLabel(option.trim(), field)}</option>
+              )
+            })}
           </select>
         ) : (
           <input
@@ -184,23 +258,6 @@ const ConsultationModal = ({ isOpen, onClose }) => {
 
   const validateStep2 = () => {
     const newErrors = {}
-
-    // Get current language
-    const currentLang = i18n.language
-
-    // Helper function to get translated field label
-    const getFieldLabel = (field) => {
-      const fieldLabelKey = `field${toPascalCase(field.id)}`
-      const translatedLabel = t(fieldLabelKey, { defaultValue: '' })
-
-      if (translatedLabel) {
-        return translatedLabel
-      } else if (currentLang !== 'ko' && field.labelEn) {
-        return field.labelEn
-      } else {
-        return field.label
-      }
-    }
 
     // Validate dynamic common fields
     if (formConfig?.common?.fields) {
@@ -497,16 +554,16 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                     {/* File Upload */}
                     <div>
                       <h3 className="text-xl font-bold text-slate-900 mb-4">
-                        {formConfig?.common?.fileUploadSettings?.title || t('fileUploadTitle')}
+                        {getFileUploadText('title') || t('fileUploadTitle')}
                       </h3>
                       <div className="bg-blue-50 rounded-xl p-6 border-2 border-dashed border-blue-200">
                         <div className="text-center mb-4">
                           <Upload className="w-12 h-12 text-blue-600 mx-auto mb-3" />
                           <p className="text-sm text-slate-700 font-semibold mb-1 whitespace-pre-line">
-                            {formConfig?.common?.fileUploadSettings?.description || t('fileUploadDesc')}
+                            {getFileUploadText('description') || t('fileUploadDesc')}
                           </p>
                           <p className="text-xs text-slate-500 whitespace-pre-line">
-                            {formConfig?.common?.fileUploadSettings?.limitText || t('fileUploadLimit')}
+                            {getFileUploadText('limitText') || t('fileUploadLimit')}
                           </p>
                         </div>
 

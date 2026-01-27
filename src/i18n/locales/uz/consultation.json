@@ -59,5 +59,17 @@
   "fieldVisaPurpose": "Viza maqsadi",
   "fieldPurpose": "Maslahat maqsadi",
   "fieldInquirySubject": "So'rov mavzusi",
-  "fieldInquiryDetail": "So'rov tafsilotlari"
+  "fieldInquiryDetail": "So'rov tafsilotlari",
+
+  "fieldSubscriberAddress": "Obunachi manzili",
+  "fieldAddress": "Manzil",
+  "fieldCompany": "Kompaniya nomi",
+  "fieldWorkplace": "Ish joyi",
+  "fieldResidence": "Yashash joyi",
+  "fieldBirthDate": "Tug'ilgan sana",
+  "fieldGender": "Jinsi",
+  "fieldArrivalDate": "Koreyaga kelgan sana",
+  "fieldAlienRegistrationNumber": "Chet el fuqarosi ro'yxatga olish raqami",
+  "fieldPassportNumber": "Pasport raqami",
+  "fieldExpiryDate": "Amal qilish muddati"
 }

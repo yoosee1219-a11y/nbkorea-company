@@ -60,5 +60,17 @@
   "fieldVisaPurpose": "Layunin ng Visa",
   "fieldPurpose": "Layunin ng Konsultasyon",
   "fieldInquirySubject": "Paksa ng Tanong",
-  "fieldInquiryDetail": "Detalye ng Tanong"
+  "fieldInquiryDetail": "Detalye ng Tanong",
+
+  "fieldSubscriberAddress": "Address ng Subscriber",
+  "fieldAddress": "Address",
+  "fieldCompany": "Pangalan ng Kumpanya",
+  "fieldWorkplace": "Lugar ng Trabaho",
+  "fieldResidence": "Tirahan",
+  "fieldBirthDate": "Petsa ng Kapanganakan",
+  "fieldGender": "Kasarian",
+  "fieldArrivalDate": "Petsa ng Pagdating sa Korea",
+  "fieldAlienRegistrationNumber": "Numero ng Pagpaparehistro ng Dayuhan",
+  "fieldPassportNumber": "Numero ng Pasaporte",
+  "fieldExpiryDate": "Petsa ng Pagkawalang-bisa"
 }

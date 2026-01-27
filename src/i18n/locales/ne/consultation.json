@@ -59,5 +59,17 @@
   "fieldVisaPurpose": "भिसा उद्देश्य",
   "fieldPurpose": "परामर्श उद्देश्य",
   "fieldInquirySubject": "सोधपुछ विषय",
-  "fieldInquiryDetail": "सोधपुछ विवरण"
+  "fieldInquiryDetail": "सोधपुछ विवरण",
+
+  "fieldSubscriberAddress": "सदस्य ठेगाना",
+  "fieldAddress": "ठेगाना",
+  "fieldCompany": "कम्पनीको नाम",
+  "fieldWorkplace": "कार्यस्थल",
+  "fieldResidence": "बसोबास",
+  "fieldBirthDate": "जन्म मिति",
+  "fieldGender": "लिङ्ग",
+  "fieldArrivalDate": "कोरिया आगमन मिति",
+  "fieldAlienRegistrationNumber": "विदेशी दर्ता नम्बर",
+  "fieldPassportNumber": "राहदानी नम्बर",
+  "fieldExpiryDate": "म्याद समाप्ति मिति"
 }

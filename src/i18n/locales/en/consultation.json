@@ -60,5 +60,17 @@
   "fieldVisaPurpose": "Visa Purpose",
   "fieldPurpose": "Purpose of Consultation",
   "fieldInquirySubject": "Inquiry Subject",
-  "fieldInquiryDetail": "Inquiry Details"
+  "fieldInquiryDetail": "Inquiry Details",
+
+  "fieldSubscriberAddress": "Subscriber Address",
+  "fieldAddress": "Address",
+  "fieldCompany": "Company Name",
+  "fieldWorkplace": "Workplace",
+  "fieldResidence": "Residence",
+  "fieldBirthDate": "Date of Birth",
+  "fieldGender": "Gender",
+  "fieldArrivalDate": "Arrival Date in Korea",
+  "fieldAlienRegistrationNumber": "Alien Registration Number",
+  "fieldPassportNumber": "Passport Number",
+  "fieldExpiryDate": "Expiry Date"
 }

@@ -58,5 +58,17 @@
   "fieldVisaPurpose": "签证目的",
   "fieldPurpose": "咨询目的",
   "fieldInquirySubject": "咨询主题",
-  "fieldInquiryDetail": "详细内容"
+  "fieldInquiryDetail": "详细内容",
+
+  "fieldSubscriberAddress": "订阅者地址",
+  "fieldAddress": "地址",
+  "fieldCompany": "公司名称",
+  "fieldWorkplace": "工作单位",
+  "fieldResidence": "居住地",
+  "fieldBirthDate": "出生日期",
+  "fieldGender": "性别",
+  "fieldArrivalDate": "入韩日期",
+  "fieldAlienRegistrationNumber": "外国人登录号",
+  "fieldPassportNumber": "护照号码",
+  "fieldExpiryDate": "到期日"
 }

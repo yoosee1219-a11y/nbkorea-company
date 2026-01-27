@@ -411,32 +411,86 @@ const FormBuilder = () => {
                     </div>
                   </div>
 
-                  {/* Label Fields - Korean and English */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 bg-white rounded-lg border border-slate-200">
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-700 mb-1">
-                        🇰🇷 한국어 레이블
-                      </label>
-                      <input
-                        type="text"
-                        value={field.label}
-                        onChange={(e) => handleFieldChange(index, 'label', e.target.value)}
-                        placeholder="예: 가입자 주소"
-                        className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
-                      />
+                  {/* Label Fields - Multi-language */}
+                  <div className="p-3 bg-white rounded-lg border border-slate-200">
+                    <p className="text-xs font-semibold text-slate-600 mb-2">다국어 레이블</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-700 mb-1">
+                          🇰🇷 한국어 <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          value={field.label}
+                          onChange={(e) => handleFieldChange(index, 'label', e.target.value)}
+                          placeholder="예: 가입자 주소"
+                          className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-700 mb-1">
+                          🇺🇸 English <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          value={field.labelEn || ''}
+                          onChange={(e) => handleFieldChange(index, 'labelEn', e.target.value)}
+                          placeholder="예: Subscriber Address"
+                          className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-700 mb-1">
+                          🇻🇳 Tiếng Việt
+                        </label>
+                        <input
+                          type="text"
+                          value={field.labelVi || ''}
+                          onChange={(e) => handleFieldChange(index, 'labelVi', e.target.value)}
+                          placeholder="예: Địa chỉ thuê bao"
+                          className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-700 mb-1">
+                          🇹🇭 ภาษาไทย
+                        </label>
+                        <input
+                          type="text"
+                          value={field.labelTh || ''}
+                          onChange={(e) => handleFieldChange(index, 'labelTh', e.target.value)}
+                          placeholder="예: ที่อยู่ผู้สมัคร"
+                          className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-700 mb-1">
+                          🇨🇳 中文
+                        </label>
+                        <input
+                          type="text"
+                          value={field.labelZh || ''}
+                          onChange={(e) => handleFieldChange(index, 'labelZh', e.target.value)}
+                          placeholder="예: 订阅者地址"
+                          className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-700 mb-1">
+                          🇮🇩 Bahasa Indonesia
+                        </label>
+                        <input
+                          type="text"
+                          value={field.labelId || ''}
+                          onChange={(e) => handleFieldChange(index, 'labelId', e.target.value)}
+                          placeholder="예: Alamat Pelanggan"
+                          className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-700 mb-1">
-                        🇺🇸 영문 레이블 (다국어용)
-                      </label>
-                      <input
-                        type="text"
-                        value={field.labelEn || ''}
-                        onChange={(e) => handleFieldChange(index, 'labelEn', e.target.value)}
-                        placeholder="예: Subscriber Address"
-                        className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
-                      />
-                    </div>
+                    <p className="text-xs text-slate-500 mt-2">
+                      * 한국어와 영어는 필수입니다. 다른 언어는 비어있으면 영어로 대체됩니다.
+                    </p>
                   </div>
                 </div>
 

@@ -59,5 +59,17 @@
   "fieldVisaPurpose": "Цель визы",
   "fieldPurpose": "Цель консультации",
   "fieldInquirySubject": "Тема вопроса",
-  "fieldInquiryDetail": "Подробности вопроса"
+  "fieldInquiryDetail": "Подробности вопроса",
+
+  "fieldSubscriberAddress": "Адрес абонента",
+  "fieldAddress": "Адрес",
+  "fieldCompany": "Название компании",
+  "fieldWorkplace": "Место работы",
+  "fieldResidence": "Место жительства",
+  "fieldBirthDate": "Дата рождения",
+  "fieldGender": "Пол",
+  "fieldArrivalDate": "Дата прибытия в Корею",
+  "fieldAlienRegistrationNumber": "Регистрационный номер иностранца",
+  "fieldPassportNumber": "Номер паспорта",
+  "fieldExpiryDate": "Дата истечения срока"
 }

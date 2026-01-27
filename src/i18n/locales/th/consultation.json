@@ -58,5 +58,17 @@
   "fieldVisaPurpose": "วัตถุประสงค์ของวีซ่า",
   "fieldPurpose": "วัตถุประสงค์ของการปรึกษา",
   "fieldInquirySubject": "หัวข้อสอบถาม",
-  "fieldInquiryDetail": "รายละเอียดการสอบถาม"
+  "fieldInquiryDetail": "รายละเอียดการสอบถาม",
+
+  "fieldSubscriberAddress": "ที่อยู่ผู้สมัคร",
+  "fieldAddress": "ที่อยู่",
+  "fieldCompany": "ชื่อบริษัท",
+  "fieldWorkplace": "สถานที่ทำงาน",
+  "fieldResidence": "ที่พักอาศัย",
+  "fieldBirthDate": "วันเกิด",
+  "fieldGender": "เพศ",
+  "fieldArrivalDate": "วันที่เข้าเกาหลี",
+  "fieldAlienRegistrationNumber": "เลขทะเบียนคนต่างด้าว",
+  "fieldPassportNumber": "หมายเลขหนังสือเดินทาง",
+  "fieldExpiryDate": "วันหมดอายุ"
 }
