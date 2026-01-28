@@ -1,0 +1,9 @@
+# Robots.txt for nbkorea.com
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://nbkorea.com/sitemap.xml
+
+# Block admin paths
+Disallow: /admin/
