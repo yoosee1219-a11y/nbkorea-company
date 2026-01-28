@@ -56,31 +56,49 @@ const FormBuilder = () => {
     })
   }
 
-  // 파일 업로드 설정 가져오기 (common에서만 관리)
+  // 파일 업로드 설정 가져오기 (common에서만 관리) - 다국어 지원
   const getFileUploadSettings = () => {
-    return formConfig.common?.fileUploadSettings || {
-      title: '',
-      description: '',
-      limitText: ''
+    const settings = formConfig.common?.fileUploadSettings || {}
+    return {
+      // 다국어 객체 구조
+      titles: settings.titles || { ko: settings.title || '', en: '', vi: '', th: '', 'zh-CN': '', id: '' },
+      descriptions: settings.descriptions || { ko: settings.description || '', en: '', vi: '', th: '', 'zh-CN': '', id: '' },
+      limitTexts: settings.limitTexts || { ko: settings.limitText || '', en: '', vi: '', th: '', 'zh-CN': '', id: '' },
+      // 하위 호환성을 위한 단일 값 (한국어 기본)
+      title: settings.titles?.ko || settings.title || '',
+      description: settings.descriptions?.ko || settings.description || '',
+      limitText: settings.limitTexts?.ko || settings.limitText || ''
     }
   }
 
-  // 파일 업로드 설정 저장
+  // 파일 업로드 설정 저장 - 다국어 객체 구조로 저장
   const setFileUploadSettings = (settings) => {
     setFormConfig({
       ...formConfig,
       common: {
         ...formConfig.common,
-        fileUploadSettings: settings
+        fileUploadSettings: {
+          titles: settings.titles,
+          descriptions: settings.descriptions,
+          limitTexts: settings.limitTexts,
+          // 하위 호환성을 위해 한국어 값을 단일 필드에도 저장
+          title: settings.titles?.ko || '',
+          description: settings.descriptions?.ko || '',
+          limitText: settings.limitTexts?.ko || ''
+        }
       }
     })
   }
 
-  const handleFileUploadSettingChange = (key, value) => {
+  const handleFileUploadSettingChange = (key, lang, value) => {
     const currentSettings = getFileUploadSettings()
+    const pluralKey = key + 's' // title -> titles
     setFileUploadSettings({
       ...currentSettings,
-      [key]: value
+      [pluralKey]: {
+        ...currentSettings[pluralKey],
+        [lang]: value
+      }
     })
   }
 
@@ -246,63 +264,171 @@ const FormBuilder = () => {
           </button>
 
           {showFileUploadSettings && (
-            <div className="p-6 space-y-4 border-t border-slate-200">
+            <div className="p-6 space-y-6 border-t border-slate-200">
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
                 <p className="text-sm text-blue-800">
-                  <strong>안내:</strong> 비워두면 기본 번역이 사용됩니다. 상담 유형에 맞는 맞춤 가이드를 입력하세요.
+                  <strong>안내:</strong> 비워두면 기본 번역이 사용됩니다. 다국어 사이트를 위해 각 언어별로 입력하세요.
                 </p>
               </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
-                  타이틀 (예: 서류 첨부)
+              {/* 타이틀 - 다국어 */}
+              <div className="bg-slate-50 rounded-lg p-4">
+                <label className="block text-sm font-bold text-slate-800 mb-3">
+                  📝 타이틀 (예: 서류 첨부)
                 </label>
-                <input
-                  type="text"
-                  value={getFileUploadSettings().title}
-                  onChange={(e) => handleFileUploadSettingChange('title', e.target.value)}
-                  placeholder="비워두면 기본값: 서류 첨부 (선택)"
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
-                />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1">🇰🇷 한국어</label>
+                    <input
+                      type="text"
+                      value={getFileUploadSettings().titles?.ko || ''}
+                      onChange={(e) => handleFileUploadSettingChange('title', 'ko', e.target.value)}
+                      placeholder="서류 첨부 (선택)"
+                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1">🇺🇸 English</label>
+                    <input
+                      type="text"
+                      value={getFileUploadSettings().titles?.en || ''}
+                      onChange={(e) => handleFileUploadSettingChange('title', 'en', e.target.value)}
+                      placeholder="Attach Documents (Optional)"
+                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1">🇻🇳 Tiếng Việt</label>
+                    <input
+                      type="text"
+                      value={getFileUploadSettings().titles?.vi || ''}
+                      onChange={(e) => handleFileUploadSettingChange('title', 'vi', e.target.value)}
+                      placeholder="Đính kèm tài liệu (Tùy chọn)"
+                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1">🇹🇭 ภาษาไทย</label>
+                    <input
+                      type="text"
+                      value={getFileUploadSettings().titles?.th || ''}
+                      onChange={(e) => handleFileUploadSettingChange('title', 'th', e.target.value)}
+                      placeholder="แนบเอกสาร (ไม่บังคับ)"
+                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600"
+                    />
+                  </div>
+                </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
-                  설명 문구 (어떤 서류가 필요한지 안내)
+              {/* 설명 문구 - 다국어 */}
+              <div className="bg-slate-50 rounded-lg p-4">
+                <label className="block text-sm font-bold text-slate-800 mb-3">
+                  📄 설명 문구 (어떤 서류가 필요한지 안내)
                 </label>
-                <textarea
-                  value={getFileUploadSettings().description}
-                  onChange={(e) => handleFileUploadSettingChange('description', e.target.value)}
-                  placeholder="비워두면 기본값: 신분증, 재직증명서, 소득증빙 등 서류를 첨부해주세요"
-                  rows={2}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
-                />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1">🇰🇷 한국어</label>
+                    <textarea
+                      value={getFileUploadSettings().descriptions?.ko || ''}
+                      onChange={(e) => handleFileUploadSettingChange('description', 'ko', e.target.value)}
+                      placeholder="신분증, 재직증명서, 소득증빙 등 서류를 첨부해주세요"
+                      rows={2}
+                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1">🇺🇸 English</label>
+                    <textarea
+                      value={getFileUploadSettings().descriptions?.en || ''}
+                      onChange={(e) => handleFileUploadSettingChange('description', 'en', e.target.value)}
+                      placeholder="Please attach ID, employment certificate, income proof, etc."
+                      rows={2}
+                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1">🇻🇳 Tiếng Việt</label>
+                    <textarea
+                      value={getFileUploadSettings().descriptions?.vi || ''}
+                      onChange={(e) => handleFileUploadSettingChange('description', 'vi', e.target.value)}
+                      placeholder="Vui lòng đính kèm CMND, giấy xác nhận việc làm, chứng minh thu nhập, v.v."
+                      rows={2}
+                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1">🇹🇭 ภาษาไทย</label>
+                    <textarea
+                      value={getFileUploadSettings().descriptions?.th || ''}
+                      onChange={(e) => handleFileUploadSettingChange('description', 'th', e.target.value)}
+                      placeholder="กรุณาแนบบัตรประชาชน หนังสือรับรองการทำงาน หลักฐานรายได้ ฯลฯ"
+                      rows={2}
+                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600"
+                    />
+                  </div>
+                </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
-                  파일 제한 안내 문구
+              {/* 파일 제한 안내 - 다국어 */}
+              <div className="bg-slate-50 rounded-lg p-4">
+                <label className="block text-sm font-bold text-slate-800 mb-3">
+                  ⚠️ 파일 제한 안내 문구
                 </label>
-                <input
-                  type="text"
-                  value={getFileUploadSettings().limitText}
-                  onChange={(e) => handleFileUploadSettingChange('limitText', e.target.value)}
-                  placeholder="비워두면 기본값: 최대 5개 파일, 각 10MB 이하 (JPG, PNG, PDF 등)"
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600 focus:border-transparent"
-                />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1">🇰🇷 한국어</label>
+                    <input
+                      type="text"
+                      value={getFileUploadSettings().limitTexts?.ko || ''}
+                      onChange={(e) => handleFileUploadSettingChange('limitText', 'ko', e.target.value)}
+                      placeholder="최대 5개 파일, 각 10MB 이하"
+                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1">🇺🇸 English</label>
+                    <input
+                      type="text"
+                      value={getFileUploadSettings().limitTexts?.en || ''}
+                      onChange={(e) => handleFileUploadSettingChange('limitText', 'en', e.target.value)}
+                      placeholder="Max 5 files, each under 10MB"
+                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1">🇻🇳 Tiếng Việt</label>
+                    <input
+                      type="text"
+                      value={getFileUploadSettings().limitTexts?.vi || ''}
+                      onChange={(e) => handleFileUploadSettingChange('limitText', 'vi', e.target.value)}
+                      placeholder="Tối đa 5 file, mỗi file dưới 10MB"
+                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1">🇹🇭 ภาษาไทย</label>
+                    <input
+                      type="text"
+                      value={getFileUploadSettings().limitTexts?.th || ''}
+                      onChange={(e) => handleFileUploadSettingChange('limitText', 'th', e.target.value)}
+                      placeholder="สูงสุด 5 ไฟล์, แต่ละไฟล์ไม่เกิน 10MB"
+                      className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-nb-pink-600"
+                    />
+                  </div>
+                </div>
               </div>
 
               {/* Preview */}
               <div className="mt-4 pt-4 border-t border-slate-200">
-                <p className="text-xs text-slate-500 mb-2">미리보기:</p>
+                <p className="text-xs text-slate-500 mb-2">미리보기 (한국어):</p>
                 <div className="bg-blue-50 rounded-xl p-6 border-2 border-dashed border-blue-200">
                   <div className="text-center">
                     <Upload className="w-12 h-12 text-blue-600 mx-auto mb-3" />
                     <p className="text-sm text-slate-700 font-semibold mb-1 whitespace-pre-line">
-                      {getFileUploadSettings().description || '신분증, 재직증명서, 소득증빙 등 서류를 첨부해주세요'}
+                      {getFileUploadSettings().descriptions?.ko || '신분증, 재직증명서, 소득증빙 등 서류를 첨부해주세요'}
                     </p>
                     <p className="text-xs text-slate-500 whitespace-pre-line">
-                      {getFileUploadSettings().limitText || '최대 5개 파일, 각 10MB 이하 (JPG, PNG, PDF 등)'}
+                      {getFileUploadSettings().limitTexts?.ko || '최대 5개 파일, 각 10MB 이하 (JPG, PNG, PDF 등)'}
                     </p>
                   </div>
                   <div className="mt-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg text-center">

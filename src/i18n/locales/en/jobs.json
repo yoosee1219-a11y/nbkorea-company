@@ -49,6 +49,28 @@
     "contact": "Contact",
     "tags": "Tags",
     "postedOn": "Posted On",
-    "backToList": "Back to List"
+    "backToList": "Back to List",
+    "seo": {
+      "pageTitle": "University Information | NB KOREA - International Student Admission",
+      "description": "Korean university admission information for international students. Check tuition, scholarships, and admission requirements.",
+      "keywords": "Korean universities, international students, admission, scholarships, tuition",
+      "ogTitle": "University Information | NB KOREA",
+      "ogDescription": "Korean university admission and scholarship information for international students"
+    }
+  },
+  "seo": {
+    "pageTitle": "Job Opportunities | NB KOREA - Foreign Worker Employment",
+    "description": "Job opportunities for foreign workers in Korea. Find E-9, H-2 visa supported positions.",
+    "keywords": "Korea jobs, foreign workers, E-9 visa, H-2 visa, employment",
+    "ogTitle": "Job Opportunities | NB KOREA",
+    "ogDescription": "Job opportunities for foreign workers in Korea with E-9, H-2 visa support",
+    "jobDescription": "{{title}} position at {{company}}. {{location}}. {{salary}}",
+    "universityDescription": "{{university}} {{department}} {{degree}} program. Tuition: {{tuition}}. {{scholarship}}",
+    "jobKeywords": "{{title}}, {{company}}, {{location}}, foreign employment, {{visaTypes}}",
+    "universityKeywords": "{{university}}, {{department}}, {{degree}}, international students, scholarships",
+    "noLocation": "Location not specified",
+    "checkSalary": "Check salary details",
+    "contact": "Contact",
+    "scholarshipAvailable": "Scholarship available"
   }
 }

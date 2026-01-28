@@ -50,17 +50,11 @@ const JobsBoard = () => {
   return (
     <>
       <Helmet>
-        <title>일자리 정보 | NB KOREA - 외국인 근로자 채용 공고</title>
-        <meta
-          name="description"
-          content="한국의 외국인 근로자를 위한 일자리 정보. E-9, H-2 비자 가능 채용 공고를 확인하세요. Job opportunities for foreign workers in Korea with E-9 and H-2 visa support."
-        />
-        <meta
-          name="keywords"
-          content="한국 일자리, 외국인 채용, E-9 비자, H-2 비자, 외국인 근로자, Korea jobs, foreign workers, employment, visa jobs"
-        />
-        <meta property="og:title" content="일자리 정보 | NB KOREA" />
-        <meta property="og:description" content="한국의 외국인 근로자를 위한 일자리 정보. E-9, H-2 비자 지원" />
+        <title>{t('seo.pageTitle')}</title>
+        <meta name="description" content={t('seo.description')} />
+        <meta name="keywords" content={t('seo.keywords')} />
+        <meta property="og:title" content={t('seo.ogTitle')} />
+        <meta property="og:description" content={t('seo.ogDescription')} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://nbkorea.com/jobs" />
         <link rel="canonical" href="https://nbkorea.com/jobs" />

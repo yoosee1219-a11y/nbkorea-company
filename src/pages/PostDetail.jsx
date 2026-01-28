@@ -92,18 +92,38 @@ const PostDetail = () => {
     )
   }
 
-  // Generate SEO meta tags
+  // Generate SEO meta tags with i18n support
   const pageTitle = isJob
     ? `${post.title} - ${post.company} | NB KOREA`
     : `${post.university_name} - ${post.department} | NB KOREA`
 
   const pageDescription = isJob
-    ? `${post.company}에서 ${post.title} 채용. ${post.location || '위치 정보 없음'}. ${post.salary || '급여 정보 확인'}`
-    : `${post.university_name} ${post.department} ${post.degree || ''} 프로그램. 학비: ${post.tuition_per_semester || '문의'}. ${post.scholarships ? '장학금 지원' : ''}`
+    ? t('seo.jobDescription', {
+        company: post.company,
+        title: post.title,
+        location: post.location || t('seo.noLocation'),
+        salary: post.salary || t('seo.checkSalary')
+      })
+    : t('seo.universityDescription', {
+        university: post.university_name,
+        department: post.department,
+        degree: post.degree || '',
+        tuition: post.tuition_per_semester || t('seo.contact'),
+        scholarship: post.scholarships ? t('seo.scholarshipAvailable') : ''
+      })
 
   const keywords = isJob
-    ? `${post.title}, ${post.company}, ${post.location}, 외국인 채용, ${post.visa_types?.join(', ') || 'E-9 비자'}`
-    : `${post.university_name}, ${post.department}, ${post.degree}, 외국인 유학생, 장학금`
+    ? t('seo.jobKeywords', {
+        title: post.title,
+        company: post.company,
+        location: post.location || '',
+        visaTypes: post.visa_types?.join(', ') || 'E-9'
+      })
+    : t('seo.universityKeywords', {
+        university: post.university_name,
+        department: post.department,
+        degree: post.degree || ''
+      })
 
   return (
     <>

@@ -49,6 +49,28 @@
     "contact": "연락처",
     "tags": "태그",
     "postedOn": "등록일",
-    "backToList": "목록으로"
+    "backToList": "목록으로",
+    "seo": {
+      "pageTitle": "대학교 정보 | NB KOREA - 외국인 유학생 입학 안내",
+      "description": "한국 대학교 외국인 유학생 입학 정보. 학비, 장학금, 입학 요강을 확인하세요.",
+      "keywords": "한국 대학, 외국인 유학생, 대학 입학, 장학금, 학비",
+      "ogTitle": "대학교 정보 | NB KOREA",
+      "ogDescription": "한국 대학교 외국인 유학생 입학 정보와 장학금 안내"
+    }
+  },
+  "seo": {
+    "pageTitle": "일자리 정보 | NB KOREA - 외국인 근로자 채용 공고",
+    "description": "한국의 외국인 근로자를 위한 일자리 정보. E-9, H-2 비자 가능 채용 공고를 확인하세요.",
+    "keywords": "한국 일자리, 외국인 채용, E-9 비자, H-2 비자, 외국인 근로자",
+    "ogTitle": "일자리 정보 | NB KOREA",
+    "ogDescription": "한국의 외국인 근로자를 위한 일자리 정보. E-9, H-2 비자 지원",
+    "jobDescription": "{{company}}에서 {{title}} 채용. {{location}}. {{salary}}",
+    "universityDescription": "{{university}} {{department}} {{degree}} 프로그램. 학비: {{tuition}}. {{scholarship}}",
+    "jobKeywords": "{{title}}, {{company}}, {{location}}, 외국인 채용, {{visaTypes}}",
+    "universityKeywords": "{{university}}, {{department}}, {{degree}}, 외국인 유학생, 장학금",
+    "noLocation": "위치 정보 없음",
+    "checkSalary": "급여 정보 확인",
+    "contact": "문의",
+    "scholarshipAvailable": "장학금 지원"
   }
 }

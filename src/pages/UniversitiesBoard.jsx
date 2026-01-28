@@ -49,17 +49,11 @@ const UniversitiesBoard = () => {
   return (
     <>
       <Helmet>
-        <title>대학교 정보 | NB KOREA - 외국인 유학생 입학 안내</title>
-        <meta
-          name="description"
-          content="한국 대학교 외국인 유학생 입학 정보. 학비, 장학금, 입학 요강을 확인하세요. Korean university information for international students with tuition and scholarship details."
-        />
-        <meta
-          name="keywords"
-          content="한국 대학, 외국인 유학생, 대학 입학, 장학금, 학비, Korean universities, international students, admission, scholarships"
-        />
-        <meta property="og:title" content="대학교 정보 | NB KOREA" />
-        <meta property="og:description" content="한국 대학교 외국인 유학생 입학 정보와 장학금 안내" />
+        <title>{t('universities.seo.pageTitle')}</title>
+        <meta name="description" content={t('universities.seo.description')} />
+        <meta name="keywords" content={t('universities.seo.keywords')} />
+        <meta property="og:title" content={t('universities.seo.ogTitle')} />
+        <meta property="og:description" content={t('universities.seo.ogDescription')} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://nbkorea.com/universities" />
         <link rel="canonical" href="https://nbkorea.com/universities" />

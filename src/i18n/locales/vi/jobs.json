@@ -49,6 +49,28 @@
     "contact": "Liên hệ",
     "tags": "Tags",
     "postedOn": "Ngày đăng",
-    "backToList": "Quay lại danh sách"
+    "backToList": "Quay lại danh sách",
+    "seo": {
+      "pageTitle": "Thông tin đại học | NB KOREA - Tuyển sinh sinh viên quốc tế",
+      "description": "Thông tin tuyển sinh đại học Hàn Quốc cho sinh viên quốc tế. Kiểm tra học phí, học bổng và yêu cầu nhập học.",
+      "keywords": "Đại học Hàn Quốc, sinh viên quốc tế, tuyển sinh, học bổng, học phí",
+      "ogTitle": "Thông tin đại học | NB KOREA",
+      "ogDescription": "Thông tin tuyển sinh và học bổng đại học Hàn Quốc cho sinh viên quốc tế"
+    }
+  },
+  "seo": {
+    "pageTitle": "Thông tin việc làm | NB KOREA - Việc làm cho người lao động nước ngoài",
+    "description": "Cơ hội việc làm cho người lao động nước ngoài tại Hàn Quốc. Tìm vị trí hỗ trợ visa E-9, H-2.",
+    "keywords": "Việc làm Hàn Quốc, lao động nước ngoài, visa E-9, visa H-2, việc làm",
+    "ogTitle": "Thông tin việc làm | NB KOREA",
+    "ogDescription": "Cơ hội việc làm cho người lao động nước ngoài tại Hàn Quốc với hỗ trợ visa E-9, H-2",
+    "jobDescription": "Vị trí {{title}} tại {{company}}. {{location}}. {{salary}}",
+    "universityDescription": "Chương trình {{degree}} {{department}} tại {{university}}. Học phí: {{tuition}}. {{scholarship}}",
+    "jobKeywords": "{{title}}, {{company}}, {{location}}, việc làm nước ngoài, {{visaTypes}}",
+    "universityKeywords": "{{university}}, {{department}}, {{degree}}, sinh viên quốc tế, học bổng",
+    "noLocation": "Chưa có thông tin địa điểm",
+    "checkSalary": "Kiểm tra thông tin lương",
+    "contact": "Liên hệ",
+    "scholarshipAvailable": "Có học bổng"
   }
 }
