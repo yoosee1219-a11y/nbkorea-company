@@ -50,5 +50,9 @@
     "tags": "Teglar",
     "postedOn": "Joylangan sana",
     "backToList": "Ro'yxatga qaytish"
+  },
+  "wageDefaulter": {
+    "title": "Ish haqi to'lamaydigan ish beruvchilar ro'yxatini tekshiring",
+    "description": "Ariza topshirishdan oldin Mehnat va Bandlik vazirligining ish haqi to'lamaydigan ish beruvchilar ro'yxatini tekshiring."
   }
 }

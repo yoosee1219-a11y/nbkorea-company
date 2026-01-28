@@ -58,6 +58,10 @@
       "ogDescription": "Thông tin tuyển sinh và học bổng đại học Hàn Quốc cho sinh viên quốc tế"
     }
   },
+  "wageDefaulter": {
+    "title": "Kiểm tra danh sách nợ lương",
+    "description": "Kiểm tra danh sách chủ sử dụng lao động nợ lương do Bộ Lao động và Việc làm công bố trước khi ứng tuyển."
+  },
   "seo": {
     "pageTitle": "Thông tin việc làm | NB KOREA - Việc làm cho người lao động nước ngoài",
     "description": "Cơ hội việc làm cho người lao động nước ngoài tại Hàn Quốc. Tìm vị trí hỗ trợ visa E-9, H-2.",

@@ -50,5 +50,9 @@
     "tags": "Tags",
     "postedOn": "Petsa ng Post",
     "backToList": "Bumalik sa Listahan"
+  },
+  "wageDefaulter": {
+    "title": "Tingnan ang Listahan ng Hindi Nagbabayad ng Sahod",
+    "description": "Suriin ang listahan ng mga employer na may utang na sahod mula sa Ministri ng Paggawa bago mag-apply."
   }
 }

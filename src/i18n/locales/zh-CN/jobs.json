@@ -50,5 +50,9 @@
     "tags": "标签",
     "postedOn": "发布日期",
     "backToList": "返回列表"
+  },
+  "wageDefaulter": {
+    "title": "查看欠薪雇主名单",
+    "description": "申请前请查看劳动就业部公布的欠薪雇主名单，确保就业安全。"
   }
 }

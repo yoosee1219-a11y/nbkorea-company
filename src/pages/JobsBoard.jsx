@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Briefcase, Loader2, Search } from 'lucide-react'
+import { Briefcase, Loader2, Search, ShieldAlert, ExternalLink } from 'lucide-react'
 import { getJobs } from '../services/postsService'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
@@ -75,6 +75,27 @@ const JobsBoard = () => {
             {t('subtitle')}
           </p>
         </div>
+
+        {/* Wage Defaulter Warning Banner */}
+        <a
+          href="https://www.moel.go.kr/info/defaulter/defaulterList.do"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block max-w-4xl mx-auto mb-8 p-4 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-xl hover:shadow-lg transition-all duration-300 group"
+        >
+          <div className="flex items-center gap-4">
+            <div className="flex-shrink-0 w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center group-hover:bg-amber-200 transition-colors">
+              <ShieldAlert className="w-6 h-6 text-amber-600" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-1">
+                <h3 className="font-bold text-amber-900">{t('wageDefaulter.title')}</h3>
+                <ExternalLink className="w-4 h-4 text-amber-600" />
+              </div>
+              <p className="text-sm text-amber-700">{t('wageDefaulter.description')}</p>
+            </div>
+          </div>
+        </a>
 
         {/* Search */}
         <div className="max-w-2xl mx-auto mb-12">

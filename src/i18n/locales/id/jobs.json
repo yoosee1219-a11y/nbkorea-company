@@ -50,5 +50,9 @@
     "tags": "Tag",
     "postedOn": "Tanggal Posting",
     "backToList": "Kembali ke Daftar"
+  },
+  "wageDefaulter": {
+    "title": "Periksa Daftar Pengusaha Penunggak Upah",
+    "description": "Periksa daftar pemberi kerja yang menunggak upah dari Kementerian Tenaga Kerja sebelum melamar."
   }
 }

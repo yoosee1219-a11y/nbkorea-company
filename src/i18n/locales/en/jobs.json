@@ -58,6 +58,10 @@
       "ogDescription": "Korean university admission and scholarship information for international students"
     }
   },
+  "wageDefaulter": {
+    "title": "Check Wage Defaulter List",
+    "description": "Check the list of employers with unpaid wages published by the Ministry of Employment and Labor before applying for jobs."
+  },
   "seo": {
     "pageTitle": "Job Opportunities | NB KOREA - Foreign Worker Employment",
     "description": "Job opportunities for foreign workers in Korea. Find E-9, H-2 visa supported positions.",
